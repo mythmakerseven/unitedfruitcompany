@@ -9,3 +9,5 @@ This frontend is developed by Camden Mecklem using Next.js and the Wordpress API
 ## Notes to self
 
 * use styled components instead of Next.js's crappy style system
+* use Next.js's `Image` component for all images to save bandwidth
+* look into ways to access private Wordpress blogs via API
