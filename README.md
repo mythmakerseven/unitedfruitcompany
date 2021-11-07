@@ -6,6 +6,6 @@ The content of the site was created by the HIS 394 and HNR 331 combination class
 
 This frontend is developed by Camden Mecklem using Next.js and the Wordpress API.
 
-## To-do
+## Notes to self
 
-* used styled components instead of Next.js's crappy style system
+* use styled components instead of Next.js's crappy style system
