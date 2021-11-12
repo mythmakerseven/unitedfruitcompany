@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import TypeWriterScript from './TypeWriterScript'
+import TypeWriterScript from '../components/TypeWriterScript'
 
 const Home: NextPage = () => {  
   return (
@@ -14,7 +14,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          <a><TypeWriterScript text={'United Fruit Company'} /></a>
+          <TypeWriterScript text={'United Fruit Company'} />
         </h1>
 
         <p className={styles.description}>

@@ -9,6 +9,11 @@ body {
 
 a {
   color: inherit;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #64630a;
 }
 
 * {
