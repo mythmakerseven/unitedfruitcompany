@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import Link from 'next/link'
 import React from 'react'
 import { getPostData, getSlugs } from '../../lib/posts'
 import { Post, PostParams } from '../../lib/types'
@@ -9,10 +10,11 @@ interface Props {
 
 const Component: NextPage<Props> = ({ postData }) => {
   return (
-    <>
+    <div className='container'>
+      <Link href="/">Home</Link>
       <h1>{ postData.title }</h1>
       <div dangerouslySetInnerHTML={{ __html: postData.content }} />
-    </>
+    </div>
   )
 }
 

@@ -1,10 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya&display=swap');
+
+:root {
+  --light-bg: #f6f6ee;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: 'Alegreya', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: #d5c4b4;
+  background-color: var(--light-bg);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+p {
+  font-size: 1.25rem;
+  line-height: 1.45;
 }
 
 a {
@@ -21,11 +48,14 @@ a:hover {
 }
 
 .container {
-  width: 800px;
+  width: 780px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 @media screen and (max-width: 800px) {
   .container {
     width: 100%;
+    padding: 0 10px;
   }
 }
