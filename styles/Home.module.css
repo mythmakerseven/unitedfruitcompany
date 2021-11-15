@@ -4,14 +4,24 @@
 }
 
 .main {
+  display: flex;
   min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
+}
+
+.mainContent {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 4rem 0;
   font-family: 'Urania Czech';
+  z-index: 1;
+  margin: auto;
+  color: var(--light-bg);
+}
+
+.heroBg {
+  filter: brightness(0.3);
 }
 
 .footer {

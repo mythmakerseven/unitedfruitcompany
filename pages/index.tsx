@@ -7,6 +7,7 @@ import NavGrid from '../components/NavGrid'
 import { fetchPosts } from '../lib/posts'
 import { Post } from '../lib/types'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface Props {
   posts: Post[]
@@ -14,26 +15,38 @@ interface Props {
 
 const Home: NextPage<Props> = ({ posts }) => {
   return (
-    <div className='container'>
+    <div>
       <Head>
         <title>United Fruit Company</title>
         <meta name="description" content="The United Fruit Company, 1899-1970." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          <TypeWriterScript text={'United Fruit Company'} />
-        </h1>
+      <div className={styles.container}>
+        <main className={styles.main}>
+          <Image
+            layout='fill'
+            alt=''
+            src='/img/map.jpg'
+            objectFit='cover'
+            objectPosition='0 -150px'
+            draggable='false'
+            className={styles.heroBg}
+          />
+          <div className={styles.mainContent}>
+            <h1 className={styles.title}>
+              <TypeWriterScript text={'United Fruit Company'} />
+            </h1>
 
-        <NavGrid />
+            <NavGrid />
 
-        <h3>Here are some cool upcoming posts:</h3>
-        <ul>
-          {posts.map(post => <li key={post.ID}><Link href={`/posts/${post.slug}`}>{ post.title }</Link></li>)}
-        </ul>
-      </main>
-
+            <h3>Here are some cool upcoming posts:</h3>
+            <ul>
+              {posts.map(post => <li key={post.ID}><Link href={`/posts/${post.slug}`}>{ post.title }</Link></li>)}
+            </ul>
+          </div>
+        </main>
+      </div>
 
       <footer className={styles.footer}>
         <p>Site created by <a href="https://camdenmecklem.com">Camden Mecklem</a>.</p>
