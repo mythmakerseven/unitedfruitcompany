@@ -19,3 +19,13 @@ a:hover {
 * {
   box-sizing: border-box;
 }
+
+.container {
+  width: 800px;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 100%;
+  }
+}
