@@ -10,7 +10,10 @@ const TypeWriterScript: React.FC<Props> = ({ text }) => {
   useEffect(() => {
     if (displayedText !== text) {
       const timeout = Math.floor(Math.random() * 130)
-      setTimeout(() => setDisplayedText(`${displayedText}${text[displayedText.length]}`), timeout)
+      const timedFunction = setTimeout(() => setDisplayedText(`${displayedText}${text[displayedText.length]}`), timeout)
+
+      // Return a cleanup function that cancels the timeout if the component unmounts.
+      return () => { clearTimeout(timedFunction) }
     }
   }, [displayedText, text])
 
