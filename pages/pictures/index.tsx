@@ -7,20 +7,20 @@ interface Props {
   posts: Post[]
 }
 
-const Documents: NextPage<Props> = ({ posts }) => {
+const Pictures: NextPage<Props> = ({ posts }) => {
   return (
     <div className='container'>
       <Link href="/">Home</Link>
-      <h3>Here are some cool upcoming documents:</h3>
+      <h3>Here are some cool upcoming pictures:</h3>
       <ul>
-        {posts.map(post => <li key={post.ID}><Link href={`/documents/${post.slug}`}>{post.title}</Link></li>)}
+        {posts.map(post => <li key={post.ID}><Link href={`/pictures/${post.slug}`}>{post.title}</Link></li>)}
       </ul>
     </div>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await fetchPosts('Documents')
+  const posts = await fetchPosts('Photos')
   return {
     props: {
       posts
@@ -28,4 +28,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export default Documents
+export default Pictures

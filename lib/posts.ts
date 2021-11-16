@@ -49,12 +49,29 @@ const postRequest = async () => {
   return response.data.posts as Post[]
 }
 
-export const fetchPosts = async () => {
-  return await postRequest()
+// Accepts an optional category argument that will only return matching posts.
+// Otherwise, this function returns all posts.
+export const fetchPosts = async (category: string | null = null) => {
+  const posts = await postRequest()
+
+  if (!category) {
+    return posts
+  }
+
+  const matchingPosts = posts.filter(post => {
+    const categories = Object.keys(post.categories)
+    if (categories.includes(category)) {
+      return true
+    } else {
+      return false
+    }
+  })
+
+  return matchingPosts
 }
 
-export const getSlugs = async () => {
-  const posts = await postRequest()
+export const getSlugs = async (category: string | null = null) => {
+  const posts = await fetchPosts(category)
 
   return posts.map((p: Post) => ({
       params: {
@@ -64,8 +81,8 @@ export const getSlugs = async () => {
   )
 }
 
-export const getPostData = async (slug: string) => {
-  const posts = await postRequest()
+export const getPostData = async (slug: string, category: string | null = null) => {
+  const posts = await fetchPosts(category)
   const post = posts.find(p => p.slug === slug)
 
   if (!post) {

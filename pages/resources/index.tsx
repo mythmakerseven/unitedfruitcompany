@@ -7,13 +7,13 @@ interface Props {
   posts: Post[]
 }
 
-const Documents: NextPage<Props> = ({ posts }) => {
+const Resources: NextPage<Props> = ({ posts }) => {
   return (
     <div className='container'>
       <Link href="/">Home</Link>
-      <h3>Here are some cool upcoming documents:</h3>
+      <h3>Here are some cool upcoming resources:</h3>
       <ul>
-        {posts.map(post => <li key={post.ID}><Link href={`/documents/${post.slug}`}>{post.title}</Link></li>)}
+        {posts.map(post => <li key={post.ID}><Link href={`/resources/${post.slug}`}>{post.title}</Link></li>)}
       </ul>
     </div>
   )
@@ -28,4 +28,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export default Documents
+export default Resources

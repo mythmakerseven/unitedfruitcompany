@@ -1,19 +1,11 @@
-import type { GetStaticProps, NextPage } from 'next'
+import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import TypeWriterScript from '../components/TypeWriterScript'
 import Secret from '../components/Secret'
 import NavGrid from '../components/NavGrid'
-import { fetchPosts } from '../lib/posts'
-import { Post } from '../lib/types'
-import Link from 'next/link'
-import Image from 'next/image'
 
-interface Props {
-  posts: Post[]
-}
-
-const Home: NextPage<Props> = ({ posts }) => {
+const Home: NextPage = () => {
   return (
     <div>
       <Head>
@@ -29,11 +21,6 @@ const Home: NextPage<Props> = ({ posts }) => {
           </h1>
 
           <NavGrid />
-
-          <h3>Here are some cool upcoming posts:</h3>
-          <ul>
-            {posts.map(post => <li key={post.ID}><Link href={`/posts/${post.slug}`}>{ post.title }</Link></li>)}
-          </ul>
         </div>
       </main>
 
@@ -46,15 +33,6 @@ const Home: NextPage<Props> = ({ posts }) => {
       </footer>
     </div>
   )
-}
-
-export const getStaticProps: GetStaticProps = async () => {
-  const posts = await fetchPosts()
-  return {
-    props: {
-      posts
-    }
-  }
 }
 
 export default Home
