@@ -32,7 +32,8 @@
   font-size: 1.5em;
   z-index: 100;
   padding: 4px;
-  background-color: rgba(160, 82, 45, 0.6);
+  background-color: rgba(0, 0, 0, 0.2);
+  font-size: 2rem;
   border-radius: 10px;
 }
 
@@ -61,5 +62,9 @@
   .gridItem {
     height: 80px;
     width: 240px;
+  }
+
+  .gridItem p {
+    font-size: 1.4rem;
   }
 }
