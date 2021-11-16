@@ -1,11 +1,13 @@
-.grid {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto;
-  gap: 10px;
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  max-width: 600px;
 }
 
-.grid a {
+.flex a {
   text-decoration: none;
 }
 
@@ -47,4 +49,11 @@
 
 .gridItem:hover img, .gridItem:focus img {
   transform: scale(1.05);
+}
+
+@media screen and (max-width: 1000px) {
+  .gridItem {
+    height: 80px;
+    width: 180px;
+  }
 }

@@ -4,7 +4,7 @@ import styles from '../styles/NavGrid.module.css'
 
 const NavGrid: React.FC = () => {
   return (
-    <div className={styles.grid}>
+    <div className={styles.flex}>
       <Link href='/bios' passHref>
         <a>
           <div className={ styles.gridItem }>
@@ -69,6 +69,23 @@ const NavGrid: React.FC = () => {
             />
             <p>
                 Timeline
+            </p>
+          </div>
+        </a>
+      </Link>
+      <Link href='/resources' passHref>
+        <a>
+          <div className={styles.gridItem}>
+            <Image
+              layout='fill'
+              alt=''
+              src='/img/jace-afsoon-5xmFg-EGhpw-unsplash.jpg'
+              objectFit='cover'
+              objectPosition='center'
+              draggable='false'
+            />
+            <p>
+              Resources
             </p>
           </div>
         </a>
