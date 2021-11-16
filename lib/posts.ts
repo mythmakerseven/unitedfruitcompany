@@ -24,7 +24,8 @@ const getCachedPosts = () => {
 
 const postRequest = async () => {
   if (!postsURL || !token) {
-    throw new Error('Missing proper credentials.')
+    return [] as Post[]
+    // throw new Error('Missing proper credentials.')
   }
 
   const cachedPosts = getCachedPosts()
