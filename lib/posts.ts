@@ -10,7 +10,8 @@ const token = process.env.TOKEN
 // All requests go through postRequest(), which caches the posts in /.cache
 // the first time it's run. Subsequent calls will return the array with
 // no need for another server request.
-const cacheFile = path.join(process.cwd(), '.cache', 'posts')
+const cacheFolder = path.join(process.cwd(), '.cache')
+const cacheFile = path.join(cacheFolder, 'posts')
 
 const getCachedPosts = () => {
   try {
@@ -43,6 +44,11 @@ const postRequest = async () => {
   })
 
   const posts = JSON.stringify(response.data.posts as Post[])
+
+  // Create the cache directory if it doesn't exist.
+  if (!fs.existsSync(cacheFolder)) {
+    fs.mkdirSync(cacheFolder)
+  }
 
   fs.writeFileSync(cacheFile, posts)
 
