@@ -35,13 +35,19 @@ const postRequest = async () => {
 
   console.log('Requesting posts from Wordpress API...')
 
-  const response = await axios({
-    method: 'GET',
-    url: postsURL,
-    headers: {
-      Authorization: `BEARER ${token}`
-    }
-  })
+  let response
+
+  try {
+    response = await axios({
+      method: 'GET',
+      url: postsURL,
+      headers: {
+        Authorization: `BEARER ${token}`
+      }
+    })
+  } catch {
+    response = { data: { posts: [] } }
+  }
 
   const posts = JSON.stringify(response.data.posts as Post[])
 
