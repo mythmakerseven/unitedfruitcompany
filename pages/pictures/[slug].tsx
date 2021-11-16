@@ -8,14 +8,14 @@ interface Props {
   postData: Post
 }
 
-const Component: NextPage<Props> = ({ postData }) => {
+const PictureView: NextPage<Props> = ({ postData }) => {
   return (
     <PostContent post={postData} />
   )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getSlugs()
+  const paths = await getSlugs('Pictures')
   return {
     paths,
     fallback: false
@@ -24,7 +24,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as PostParams
-  
+
   const postData = await getPostData(slug)
   return {
     props: {
@@ -33,4 +33,4 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 }
 
-export default Component
+export default PictureView

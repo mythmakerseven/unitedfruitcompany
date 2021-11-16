@@ -20,7 +20,7 @@ const Timeline: NextPage<Props> = ({ posts }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await fetchPosts('Documents')
+  const posts = await fetchPosts('Timeline')
   return {
     props: {
       posts

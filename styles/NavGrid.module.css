@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
-  max-width: 600px;
 }
 
 .flex a {
@@ -13,8 +12,8 @@
 
 .gridItem {
   padding: 2rem;
-  height: 120px;
-  width: 240px;
+  height: 240px;
+  width: 480px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,9 +31,9 @@
 .gridItem p {
   font-size: 1.5em;
   z-index: 100;
-  padding: 2px;
-  background-color: rgba(160, 82, 45, 1);
-  border-radius: 5px;
+  padding: 4px;
+  background-color: rgba(160, 82, 45, 0.6);
+  border-radius: 10px;
 }
 
 .gridItem img {
@@ -42,18 +41,25 @@
   transition: transform 0.2s;
 }
 
-.gridItem:hover, .gridItem:focus {
+.gridItem:hover, .gridItem a:focus {
   cursor: pointer;
   filter: grayscale(0);
 }
 
-.gridItem:hover img, .gridItem:focus img {
+.gridItem:hover img, .gridItem a:focus img {
   transform: scale(1.05);
 }
 
 @media screen and (max-width: 1000px) {
   .gridItem {
+    height: 120px;
+    width: 240px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .gridItem {
     height: 80px;
-    width: 180px;
+    width: 240px;
   }
 }

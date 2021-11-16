@@ -13,7 +13,7 @@ const Biographies: NextPage<Props> = ({ posts }) => {
       <Link href="/">Home</Link>
       <h3>Here are some cool upcoming biographies:</h3>
       <ul>
-        {posts.map(post => <li key={post.ID}><Link href={`/bio/${post.slug}`}>{post.title}</Link></li>)}
+        {posts.map(post => <li key={post.ID}><Link href={`/bios/${post.slug}`}>{post.title}</Link></li>)}
       </ul>
     </div>
   )

@@ -20,7 +20,7 @@ const Resources: NextPage<Props> = ({ posts }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await fetchPosts('Documents')
+  const posts = await fetchPosts('Resources')
   return {
     props: {
       posts

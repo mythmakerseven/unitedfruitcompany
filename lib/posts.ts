@@ -94,8 +94,8 @@ export const getSlugs = async (category: string | null = null) => {
   )
 }
 
-export const getPostData = async (slug: string, category: string | null = null) => {
-  const posts = await fetchPosts(category)
+export const getPostData = async (slug: string) => {
+  const posts = await fetchPosts()
   const post = posts.find(p => p.slug === slug)
 
   if (!post) {

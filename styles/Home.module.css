@@ -5,6 +5,7 @@
 
 .main {
   position: relative;
+  color: var(--light-bg)
 }
 
 .mainContent::before {
