@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import React from 'react'
+import Head from 'next/head'
 import PostContent from '../../components/PostContent'
 import { getPostData, getSlugs } from '../../lib/posts'
 import { Post, PostParams } from '../../lib/types'
@@ -10,7 +10,14 @@ interface Props {
 
 const PictureView: NextPage<Props> = ({ postData }) => {
   return (
-    <PostContent post={postData} />
+    <div>
+      <Head>
+        <title>{`${postData.title} - United Fruit Company`}</title>
+        <meta name="description" content={postData.excerpt.replace(/(<([^>]+)>)/ig, '')} />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <PostContent post={postData} />
+    </div>
   )
 }
 

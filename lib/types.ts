@@ -7,7 +7,8 @@ export interface Post {
   content: string,
   date: string,
   slug: string,
-  categories: string[]
+  categories: string[],
+  excerpt: string
 }
 
 // Properly type the props for post pages.

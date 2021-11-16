@@ -1,5 +1,6 @@
 import { GetStaticProps, NextPage } from 'next'
 import Link from 'next/link'
+import Head from 'next/head'
 import { fetchPosts } from '../../lib/posts'
 import { Post } from '../../lib/types'
 
@@ -10,6 +11,11 @@ interface Props {
 const Pictures: NextPage<Props> = ({ posts }) => {
   return (
     <div className='container'>
+      <Head>
+        <title>Pictures - United Fruit Company</title>
+        <meta name="description" content="Pictures related to the United Fruit Company." />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Link href="/">Home</Link>
       <h3>Here are some cool upcoming pictures:</h3>
       <ul>
