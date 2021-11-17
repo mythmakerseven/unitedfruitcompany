@@ -10,6 +10,7 @@ This frontend is developed by Camden Mecklem using Next.js and the Wordpress API
 
 * use Next.js's `Image` component for all images to save bandwidth
 * there's a lot of code duplication between the different resource paths, but I expect them to diverge as each post type will have a different presentation
+* fix this issue: https://stackoverflow.com/questions/60841540/flash-of-unstyled-text-fout-on-reload-using-next-js-and-styled-components
 
 ## Commands
 
