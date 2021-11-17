@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import styles from '../styles/Hero.module.css'
+import { Container, TextSide, PicSide } from './styles'
 
 export enum Side {
   Right,
@@ -16,28 +16,28 @@ interface Props {
 
 const Hero: React.FC<Props> = ({ header, text, picturePath, pictureAltText, side }) => {
   const textSection = (
-      <div className={styles.textSide}>
-        <h1>{header}</h1>
-        <p>{text}</p>
-      </div>
+    <TextSide>
+      <h1>{header}</h1>
+      <p>{text}</p>
+    </TextSide>
   )
 
   const imageSection = (
-      <div className={styles.heroPic}>
-        <Image
-          src={picturePath}
-          alt={pictureAltText}
-          layout='fill'
-          objectFit='cover'
-          objectPosition='center'
-        />
-      </div>
+    <PicSide>
+      <Image
+        src={picturePath}
+        alt={pictureAltText}
+        layout='fill'
+        objectFit='cover'
+        objectPosition='center'
+      />
+    </PicSide>
   )
   return (
-    <div className={styles.heroContainer}>
+    <Container>
       { side === Side.Left ? textSection : imageSection }
       { side === Side.Right ? textSection : imageSection }
-    </div>
+    </Container>
   )
 }
 
