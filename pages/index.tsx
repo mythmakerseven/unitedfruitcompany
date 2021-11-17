@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css'
 import TypeWriterScript from '../components/TypeWriterScript'
 import Secret from '../components/Secret'
 import NavGrid from '../components/NavGrid'
+import Hero, { Side } from '../components/Hero'
 
 const Home: NextPage = () => {
   return (
@@ -23,6 +24,30 @@ const Home: NextPage = () => {
           <NavGrid />
         </div>
       </main>
+
+      <Hero
+        header='Testing!'
+        text='This is a test of the reusable hero module. '
+        picturePath='/opengraph.jpg'
+        pictureAltText=''
+        side={Side.Left}
+      />
+
+      <Hero
+        header='Wow!'
+        text='It actually works! Excuse me for a moment while I vomit some placeholder text. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non at dicta nam deserunt earum sit sapiente aliquam? Sint delectus consectetur illum aut odio. Iusto dolor est repellat totam veniam odio?'
+        picturePath='/img/map.webp'
+        pictureAltText=''
+        side={Side.Right}
+      />
+
+      <Hero
+        header='Gabriel García Márquez'
+        text='A bunch of authors have included the United Fruit Company in their books. Gabriel García Márquez (pictured), Thomas Pynchon, and many more have been inspired by the history of the company as detailed on this site.'
+        picturePath='/img/gabriel-garcia-marquez.jpg'
+        pictureAltText=''
+        side={Side.Left}
+      />
 
       <footer className={styles.footer}>
         <p>Site created by <a href="https://camdenmecklem.com">Camden Mecklem</a>.</p>
