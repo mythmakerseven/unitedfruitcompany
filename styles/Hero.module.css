@@ -6,13 +6,13 @@
   justify-content: space-around;
   align-items: center;
   gap: 20px;
+  border-bottom: 1px solid rgba(178, 151, 0, 0.3);
 }
 
 .heroPic {
   position: relative;
   height: 300px;
   width: 500px;
-  border-radius: 20px;
 }
 
 .heroPic img {
@@ -25,7 +25,7 @@
 
 @media screen and (max-width: 1400px) {
   .heroContainer {
-    width: 100%;
+    width: 90%;
   }
 }
 
@@ -44,9 +44,5 @@
   .heroPic {
     max-width: 90%;
     order: 1;
-  }
-
-  .heroPic img {
-    border-radius: 50px;
   }
 }

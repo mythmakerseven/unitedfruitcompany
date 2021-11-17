@@ -27,7 +27,7 @@ const Home: NextPage = () => {
 
       <Hero
         header='Testing!'
-        text='This is a test of the reusable hero module. '
+        text='This is a test of the reusable hero module.'
         picturePath='/opengraph.jpg'
         pictureAltText=''
         side={Side.Left}

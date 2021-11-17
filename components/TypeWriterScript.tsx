@@ -17,13 +17,10 @@ const createSpans = (text: string, currentIndex: number) => {
 }
 
 const TypeWriterScript: React.FC<Props> = ({ text }) => {  
-  
   const [currentIndex, setCurrentIndex] = useState(0)
   const [atomizedElements, setAtomizedElements] = useState(createSpans(text, currentIndex))
-  
-  
-  useEffect(() => {
 
+  useEffect(() => {
     if (currentIndex < text.length + 1) {
       const timeout = Math.floor(Math.random() * 150)
       const timedFunction = setTimeout(() => {
