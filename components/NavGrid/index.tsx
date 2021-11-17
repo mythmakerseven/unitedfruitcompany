@@ -1,9 +1,9 @@
 import NavGridItem from './NavGridItem'
-import styles from '../../styles/NavGrid.module.css'
+import { FlexContainer } from './styles'
 
 const NavGrid: React.FC = () => {
   return (
-    <div className={styles.flex}>
+    <FlexContainer>
       <NavGridItem
         link='/bios'
         label='Biographies'
@@ -29,7 +29,7 @@ const NavGrid: React.FC = () => {
         label='Resources'
         imagePath='/img/jace-afsoon-5xmFg-EGhpw-unsplash.jpg'
       />
-    </div>
+    </FlexContainer>
   )
 }
 

@@ -11,6 +11,9 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <meta property="og:image" content="/opengraph.jpg" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='anonymous' />
+          <link href="https://fonts.googleapis.com/css2?family=Alegreya&display=swap" rel="stylesheet" />
         </Head>
         <body>
           <Main />

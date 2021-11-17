@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import TypeWriterScript from '../TypeWriterScript'
-import styles from '../../styles/NavGrid.module.css'
+import TypeWriterScript from '../TypewriterScript'
+import { ItemContainer } from './styles'
 
 interface Props {
   link: string,
@@ -13,7 +13,7 @@ const NavGridItem: React.FC<Props> = ({ link, label, imagePath }) => {
   return (
     <Link href={link} passHref>
       <a>
-        <div className={styles.gridItem}>
+        <ItemContainer>
           <Image
             layout='fill'
             alt=''
@@ -25,7 +25,7 @@ const NavGridItem: React.FC<Props> = ({ link, label, imagePath }) => {
           <p>
             <TypeWriterScript text={ label } />
           </p>
-        </div>
+        </ItemContainer>
       </a>
     </Link>
   )

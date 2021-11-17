@@ -8,7 +8,6 @@ This frontend is developed by Camden Mecklem using Next.js and the Wordpress API
 
 ## Notes to self
 
-* use styled components instead of Next.js's crappy style system (currently [bugged](https://github.com/vercel/next.js/issues/7322#issuecomment-968858477), will switch after it's fixed)
 * use Next.js's `Image` component for all images to save bandwidth
 * there's a lot of code duplication between the different resource paths, but I expect them to diverge as each post type will have a different presentation
 

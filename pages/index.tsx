@@ -1,10 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import TypeWriterScript from '../components/TypeWriterScript'
-import Secret from '../components/Secret'
+import TypewriterScript from '../components/TypewriterScript'
+import AudioSecret from '../components/AudioSecret'
 import NavGrid from '../components/NavGrid'
 import Hero, { Side } from '../components/Hero'
+import { Footer, Main, MainContent, Title } from '../styles/Home.style'
 
 const Home: NextPage = () => {
   return (
@@ -15,15 +15,15 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <div className={styles.mainContent}>
-          <h1 className={styles.title}>
-            <TypeWriterScript text={'United Fruit Company'} />
-          </h1>
+      <Main>
+        <MainContent>
+          <Title>
+            <TypewriterScript text={'United Fruit Company'} />
+          </Title>
 
           <NavGrid />
-        </div>
-      </main>
+        </MainContent>
+      </Main>
 
       <Hero
         header='Testing!'
@@ -49,13 +49,13 @@ const Home: NextPage = () => {
         side={Side.Left}
       />
 
-      <footer className={styles.footer}>
+      <Footer>
         <p>Site created by <a href="https://camdenmecklem.com">Camden Mecklem</a>.</p>
         <p>Content created by HIS394/HNR331, proctored by Dr. Jonathan T. Reynolds.</p>
-        <Secret
+        <AudioSecret
           child={<span>🍌</span>}
         />
-      </footer>
+      </Footer>
     </div>
   )
 }
