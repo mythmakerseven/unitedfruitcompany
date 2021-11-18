@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { fetchPosts } from '../../lib/posts'
 import { Post } from '../../lib/types'
 import Container from '../../components/Container'
+import Resource from '../../components/Resource'
 
 interface Props {
   posts: Post[]
@@ -19,6 +20,14 @@ const Resources: NextPage<Props> = ({ posts }) => {
       </Head>
       <Link href="/">Home</Link>
       <h3>Here are some cool upcoming resources:</h3>
+
+      <Resource
+        title='The Meaning of Relativity'
+        author='Albert Einstein'
+        url='https://www.scribbr.com/chicago-style/citation-examples/'
+        citation='Einstein, Albert. The Meaning of Relativity. Princeton: Princeton University Press, 1923.'
+      />
+
       <ul>
         {posts.map(post => <li key={post.ID}><Link href={`/resources/${post.slug}`}>{post.title}</Link></li>)}
       </ul>
