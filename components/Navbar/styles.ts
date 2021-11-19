@@ -62,9 +62,10 @@ export const MobileDropdown = styled.div`
   left: 0;
   margin: auto;
   width: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: ${props => props.color};
   font-size: 2rem;
   padding: 20px 0;
+  box-shadow: 0 1px 2px black;
   
   @media (max-width: 780px) {
     display: flex;

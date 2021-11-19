@@ -60,7 +60,7 @@ const Navbar: React.FC = () => {
         <DropdownToggle>
           {handleDropdownToggleIcon()}
         </DropdownToggle>
-        { displayDropdown ? <MobileDropdown><NavLinks /></MobileDropdown> : null }
+        {displayDropdown ? <MobileDropdown color={router.pathname === '/' ? 'rgba(0, 0, 0, 0.6)' : '#3a3a3a'} ><NavLinks /></MobileDropdown> : null }
       </NavContainer>
     </NavDiv>
   )
