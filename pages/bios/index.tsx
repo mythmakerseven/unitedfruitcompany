@@ -4,6 +4,8 @@ import Head from 'next/head'
 import { fetchPosts } from '../../lib/posts'
 import { Post } from '../../lib/types'
 import Container from '../../components/Container'
+import TypewriterScript from '../../components/TypewriterScript'
+import { Header } from '../../styles/PostListings.style'
 
 interface Props {
   posts: Post[]
@@ -17,7 +19,9 @@ const Biographies: NextPage<Props> = ({ posts }) => {
         <meta name="description" content="Biographies related to the United Fruit Company." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h3>Here are some cool upcoming biographies:</h3>
+      <Header>
+        <TypewriterScript text={'Biographies'} />
+      </Header>
       <ul>
         {posts.map(post => <li key={post.ID}><Link href={`/bios/${post.slug}`}>{post.title}</Link></li>)}
       </ul>

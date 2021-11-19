@@ -4,6 +4,8 @@ import Head from 'next/head'
 import { fetchPosts } from '../../lib/posts'
 import { Post } from '../../lib/types'
 import Container from '../../components/Container'
+import TypewriterScript from '../../components/TypewriterScript'
+import { Header } from '../../styles/PostListings.style'
 
 interface Props {
   posts: Post[]
@@ -17,7 +19,9 @@ const Timeline: NextPage<Props> = ({ posts }) => {
         <meta name="description" content="The United Fruit Company Timeline." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h3>Here are some cool upcoming timeline posts:</h3>
+      <Header>
+        <TypewriterScript text={'Timeline'} />
+      </Header>
       <ul>
         {posts.map(post => <li key={post.ID}><Link href={`/timeline/${post.slug}`}>{post.title}</Link></li>)}
       </ul>
