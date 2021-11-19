@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 const Container = styled.div`
   width: 780px;
-  margin: 0 auto;
-  margin-top: ${({ theme }) => theme.navbar.height};
+  margin: auto;
+  margin-top: calc(${({ theme }) => theme.navbar.height} + 40px);
   padding: 0;
 
   @media (max-width: 800px) {

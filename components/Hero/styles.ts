@@ -11,7 +11,7 @@ export const Container = styled.div`
   border-bottom: 1px solid rgba(178, 151, 0, 0.3);
   padding: 60px 0;
 
-  @media (max-width: 1400px) {
+  @media (max-width: 1420px) {
     width: 90%;
   }
 

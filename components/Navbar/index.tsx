@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
   }
 
   return (
-    <NavDiv>
+    <NavDiv color={router.pathname === '/' ? 'rgba(0, 0, 0, 0.6)' : '#3a3a3a' }>
       <NavContainer>
         <div>
           <Link href='/' passHref>

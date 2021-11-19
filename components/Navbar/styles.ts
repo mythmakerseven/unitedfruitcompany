@@ -7,8 +7,9 @@ export const NavDiv = styled.div`
   width: 100%;
   height: ${({ theme }) => theme.navbar.height};
   z-index: 10000;
-  background: rgba(0, 0, 0, 0.6);
+  background: ${props => props.color};
   color: ${({ theme }) => theme.colors.primary};
+  box-shadow: 0 1px 2px black;
 
   img {
     border-radius: 20px;
