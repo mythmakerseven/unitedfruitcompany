@@ -1,30 +1,30 @@
-import NavGridItem from './NavGridItem'
+import HomeGridItem from './NavGridItem'
 import { FlexContainer } from './styles'
 
-const NavGrid: React.FC = () => {
+const HomeGrid: React.FC = () => {
   return (
     <FlexContainer>
-      <NavGridItem
+      <HomeGridItem
         link='/bios'
         label='Biographies'
         imagePath='/img/anne-nygard-h7-V2KkCECI-unsplash.jpg'
       />
-      <NavGridItem
+      <HomeGridItem
         link='/documents'
         label='Documents'
         imagePath='/img/annie-spratt-5cFwQ-WMcJU-unsplash.jpg'
       />
-      <NavGridItem
+      <HomeGridItem
         link='/pictures'
         label='Pictures'
         imagePath='/img/roman-kraft-7sPg5OLfExc-unsplash.jpg'
       />
-      <NavGridItem
+      <HomeGridItem
         link='/timeline'
         label='Timeline'
         imagePath='/img/christina-isabella-PivMfS2l9B8-unsplash.jpg'
       />
-      <NavGridItem
+      <HomeGridItem
         link='/resources'
         label='Resources'
         imagePath='/img/jace-afsoon-5xmFg-EGhpw-unsplash.jpg'
@@ -33,4 +33,4 @@ const NavGrid: React.FC = () => {
   )
 }
 
-export default NavGrid
+export default HomeGrid

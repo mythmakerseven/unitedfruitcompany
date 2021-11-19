@@ -9,7 +9,7 @@ interface Props {
   imagePath: string
 }
 
-const NavGridItem: React.FC<Props> = ({ link, label, imagePath }) => {
+const HomeGrid: React.FC<Props> = ({ link, label, imagePath }) => {
   return (
     <Link href={link} passHref>
       <a>
@@ -31,4 +31,4 @@ const NavGridItem: React.FC<Props> = ({ link, label, imagePath }) => {
   )
 }
 
-export default NavGridItem
+export default HomeGrid
