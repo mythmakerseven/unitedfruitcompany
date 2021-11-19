@@ -38,12 +38,6 @@ export const NavbarPlaceholder = styled.div`
   height: ${({ theme }) => theme.navbar.height};
 `
 
-export const Footer = styled.footer`
-  text-align: center;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-`
-
 export const Title = styled.h1`
   margin: 0;
   line-height: 1.15;
