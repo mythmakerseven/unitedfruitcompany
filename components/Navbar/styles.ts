@@ -26,9 +26,6 @@ export const NavContainer = styled.div`
   padding: 0 20px;
 `
 
-export const NavLeft = styled.div`
-`
-
 export const NavRight = styled.div`
   display: flex;
   gap: 20px;
@@ -45,7 +42,6 @@ export const DropdownToggle = styled.div`
   svg {
     height: 40px;
     width: 40px;
-
   }
   
   @media (max-width: 780px) {
@@ -60,20 +56,19 @@ export const DropdownToggle = styled.div`
 
 export const MobileDropdown = styled.div`
   display: none;
-
+  position: absolute;
+  top: ${({ theme }) => theme.navbar.height};
+  left: 0;
+  margin: auto;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 2rem;
+  padding: 20px 0;
+  
   @media (max-width: 780px) {
-    display: initial;
-    position: absolute;
-    top: ${({ theme }) => theme.navbar.height};
-    left: 0;
-    margin: auto;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    font-size: 2rem;
-    padding: 20px 0;
   }
 `

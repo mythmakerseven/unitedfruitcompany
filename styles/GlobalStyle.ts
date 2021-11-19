@@ -42,7 +42,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   a:hover {
-    color: #64630a;
+    color: #e6e600;
   }
 
   * {

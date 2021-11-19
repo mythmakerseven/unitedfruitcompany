@@ -1,7 +1,6 @@
 import {
   NavContainer,
   NavDiv,
-  NavLeft,
   NavRight,
   DropdownToggle,
   MobileDropdown
@@ -42,7 +41,7 @@ const Navbar: React.FC = () => {
   return (
     <NavDiv>
       <NavContainer>
-        <NavLeft>
+        <div>
           <Link href='/' passHref>
             <a>
               <Image
@@ -54,7 +53,7 @@ const Navbar: React.FC = () => {
               />
             </a>
           </Link>
-        </NavLeft>
+        </div>
         <NavRight>
           <NavLinks />
         </NavRight>
