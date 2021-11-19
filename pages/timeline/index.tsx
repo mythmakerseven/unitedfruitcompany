@@ -17,7 +17,6 @@ const Timeline: NextPage<Props> = ({ posts }) => {
         <meta name="description" content="The United Fruit Company Timeline." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Link href="/">Home</Link>
       <h3>Here are some cool upcoming timeline posts:</h3>
       <ul>
         {posts.map(post => <li key={post.ID}><Link href={`/timeline/${post.slug}`}>{post.title}</Link></li>)}

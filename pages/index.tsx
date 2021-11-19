@@ -4,7 +4,7 @@ import TypewriterScript from '../components/TypewriterScript'
 import AudioSecret from '../components/AudioSecret'
 import NavGrid from '../components/NavGrid'
 import Hero, { Side } from '../components/Hero'
-import { Footer, Main, MainContent, Title } from '../styles/Home.style'
+import { Footer, Main, MainContent, NavbarPlaceholder, Title } from '../styles/Home.style'
 
 const Home: NextPage = () => {
   return (
@@ -17,9 +17,14 @@ const Home: NextPage = () => {
 
       <Main>
         <MainContent>
+          <NavbarPlaceholder />
           <Title>
             <TypewriterScript text={'United Fruit Company'} />
           </Title>
+
+          <p>
+            <TypewriterScript text={'History Project'} />
+          </p>
 
           <NavGrid />
         </MainContent>

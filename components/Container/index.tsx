@@ -1,8 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const Container = styled.div`
   width: 780px;
   margin: 0 auto;
+  margin-top: ${({ theme }) => theme.navbar.height};
   padding: 0;
 
   @media (max-width: 800px) {

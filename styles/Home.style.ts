@@ -8,10 +8,10 @@ export const Main = styled.main`
 export const MainContent = styled.div`
   position: relative;
   display: flex;
-  gap: 40px;
+  gap: 20px;
   min-height: 100vh;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding: 4rem 0;
   font-family: 'Urania Czech';
@@ -31,6 +31,11 @@ export const MainContent = styled.div`
     z-index: -1;
     filter: brightness(0.3);
   }
+`
+
+// Keeps the content from overlapping with the navbar.
+export const NavbarPlaceholder = styled.div`
+  height: ${({ theme }) => theme.navbar.height};
 `
 
 export const Footer = styled.footer`

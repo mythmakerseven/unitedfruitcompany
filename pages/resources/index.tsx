@@ -18,7 +18,6 @@ const Resources: NextPage<Props> = ({ posts }) => {
         <meta name="description" content="Resources related to the United Fruit Company." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Link href="/">Home</Link>
       <h3>Here are some cool upcoming resources:</h3>
 
       <Resource

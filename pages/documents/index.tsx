@@ -17,7 +17,6 @@ const Documents: NextPage<Props> = ({ posts }) => {
         <meta name="description" content="Documents related to the United Fruit Company." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Link href="/">Home</Link>
       <h3>Here are some cool upcoming documents:</h3>
       <ul>
         {posts.map(post => <li key={post.ID}><Link href={`/documents/${post.slug}`}>{post.title}</Link></li>)}
