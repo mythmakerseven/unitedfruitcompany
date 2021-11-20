@@ -1,6 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import Link from 'next/link'
 import PostContent from '../../components/Post'
 import { getPostData, getSlugs } from '../../lib/posts'
 import { Post, PostParams } from '../../lib/types'
@@ -24,9 +23,6 @@ const BioView: NextPage<Props> = ({ postData }) => {
         link='/bios'
       />
       <Container>
-        <Link href='/bios'>
-          Back to Biographies
-        </Link>
         <PostContent post={postData} />
       </Container>
     </div>
