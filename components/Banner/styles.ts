@@ -4,6 +4,7 @@ export const FullwidthContainer = styled.div`
   width: 100%;
   height: 100px;
   background: ${({ theme }) => theme.colors.secondary};
+  font-family: 'Alegreya Sans';
 `
   
 export const ContainerContent = styled.div`

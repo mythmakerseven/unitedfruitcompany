@@ -34,8 +34,8 @@ class MyDocument extends Document {
         <Head>
           <meta property="og:image" content="/opengraph.jpg" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='anonymous' />
-          <link href="https://fonts.googleapis.com/css2?family=Alegreya&display=swap" rel="stylesheet" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='' />
+          <link href="https://fonts.googleapis.com/css2?family=Alegreya&family=Alegreya+Sans:wght@500&display=swap" rel="stylesheet" />
         </Head>
         <body>
           <Main />

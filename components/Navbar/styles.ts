@@ -10,6 +10,7 @@ export const NavDiv = styled.div`
   background: ${props => props.color};
   color: ${({ theme }) => theme.colors.primary};
   box-shadow: 0 1px 2px black;
+  font-family: 'Alegreya Sans';
 
   img {
     border-radius: 20px;
