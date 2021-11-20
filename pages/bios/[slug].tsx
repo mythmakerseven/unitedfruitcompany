@@ -20,7 +20,6 @@ const BioView: NextPage<Props> = ({ postData }) => {
       </Head>
       <Banner
         header='Biographies'
-        link='/bios'
       />
       <Container>
         <PostContent post={postData} />
