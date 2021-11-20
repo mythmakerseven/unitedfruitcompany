@@ -1,8 +1,8 @@
-import React, { ReactElement } from 'react'
+import React, { ReactNode } from 'react'
 import { Container } from './styles'
 
 interface Props {
-  child: ReactElement<any, any>
+  child: ReactNode
 }
 
 const Secret: React.FC<Props> = ({ child }) => {

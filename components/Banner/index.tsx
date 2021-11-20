@@ -8,11 +8,10 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 interface Props {
-  header: string,
-  link: string
+  header: string
 }
 
-const Banner: React.FC<Props> = ({ header, link }) => {
+const Banner: React.FC<Props> = ({ header }) => {
   const router = useRouter()
 
   const getUpperPath = (url: string) => {

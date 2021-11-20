@@ -6,7 +6,7 @@ import {
   Link,
   Citation,
   IconContainer
-} from "./styles"
+} from './styles'
 import { ArrowUpRight } from 'react-bootstrap-icons'
 
 interface Props {
