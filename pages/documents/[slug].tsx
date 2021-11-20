@@ -3,6 +3,7 @@ import Head from 'next/head'
 import PostContent from '../../components/Post'
 import { getPostData, getSlugs } from '../../lib/posts'
 import { Post, PostParams } from '../../lib/types'
+import Container from '../../components/Container'
 
 interface Props {
   postData: Post
@@ -16,7 +17,9 @@ const DocumentView: NextPage<Props> = ({ postData }) => {
         <meta name="description" content={postData.excerpt.replace(/(<([^>]+)>)/ig, '')} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <PostContent post={postData} />
+      <Container>
+        <PostContent post={postData} />
+      </Container>
     </div>
   )
 }

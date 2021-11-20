@@ -1,5 +1,4 @@
-import { Post } from "../../lib/types"
-import Container from "../Container"
+import { Post } from '../../lib/types'
 
 interface Props {
   post: Post
@@ -7,10 +6,10 @@ interface Props {
 
 const PostContent: React.FC<Props> = ({ post }) => {
   return (
-    <Container>
+    <>
       <h1>{post.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: post.content }} />
-    </Container>
+    </>
   )
 }
 

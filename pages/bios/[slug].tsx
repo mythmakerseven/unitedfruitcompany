@@ -1,8 +1,10 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 import PostContent from '../../components/Post'
 import { getPostData, getSlugs } from '../../lib/posts'
 import { Post, PostParams } from '../../lib/types'
+import Container from '../../components/Container'
 
 interface Props {
   postData: Post
@@ -16,7 +18,12 @@ const BioView: NextPage<Props> = ({ postData }) => {
         <meta name="description" content={postData.excerpt.replace(/(<([^>]+)>)/ig, '') } />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <PostContent post={postData} />
+      <Container>
+        <Link href='/bios'>
+          Back to Biographies
+        </Link>
+        <PostContent post={postData} />
+      </Container>
     </div>
   )
 }
