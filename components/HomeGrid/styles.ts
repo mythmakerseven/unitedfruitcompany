@@ -1,15 +1,18 @@
 import styled from 'styled-components'
 
 export const FlexContainer = styled.div`
+  a {
+    text-decoration: none;
+  }
+`
+
+export const FlexContainerContent = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 20px;
-
-  a {
-    text-decoration: none;
-  }
+  padding: 10px;
 `
 
 export const ItemContainer = styled.div`

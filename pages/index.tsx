@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import TypewriterScript from '../components/TypewriterScript'
-import NavGrid from '../components/HomeGrid'
+import HomeGrid from '../components/HomeGrid'
 import Hero, { Side } from '../components/Hero'
 import { Main, MainContent, NavbarPlaceholder, Title } from '../styles/Home.style'
 
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
             <TypewriterScript text={'History Project'} />
           </p>
 
-          <NavGrid />
+          <HomeGrid />
         </MainContent>
       </Main>
 
