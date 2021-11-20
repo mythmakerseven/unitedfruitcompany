@@ -1,4 +1,6 @@
 import { Post } from '../../lib/types'
+import TypewriterScript from '../TypewriterScript'
+import { Title } from './styles'
 
 interface Props {
   post: Post
@@ -7,7 +9,9 @@ interface Props {
 const PostContent: React.FC<Props> = ({ post }) => {
   return (
     <>
-      <h1>{post.title}</h1>
+      <Title>
+        <TypewriterScript text={post.title} />
+      </Title>
       <div dangerouslySetInnerHTML={{ __html: post.content }} />
     </>
   )
