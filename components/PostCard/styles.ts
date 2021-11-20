@@ -6,7 +6,7 @@ export const Card = styled.div`
   border-radius: 20px;
   box-shadow: 1px 1px 2px;
   border: 1px solid rgba(0, 0, 0, 0.1 );
-  background: #e6d300;
+  background: ${({ theme }) => theme.colors.secondary};
   transition: transform 0.2s;
   text-align: center;
   overflow: hidden;

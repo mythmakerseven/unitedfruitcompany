@@ -5,6 +5,7 @@ import PostContent from '../../components/Post'
 import { getPostData, getSlugs } from '../../lib/posts'
 import { Post, PostParams } from '../../lib/types'
 import Container from '../../components/Container'
+import Banner from '../../components/Banner'
 
 interface Props {
   postData: Post
@@ -18,6 +19,10 @@ const BioView: NextPage<Props> = ({ postData }) => {
         <meta name="description" content={postData.excerpt.replace(/(<([^>]+)>)/ig, '') } />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Banner
+        header='Biographies'
+        link='/bios'
+      />
       <Container>
         <Link href='/bios'>
           Back to Biographies

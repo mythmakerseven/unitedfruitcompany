@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalStyle, theme } from '../styles/GlobalStyle'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import NavOffset from '../components/NavOffset'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -10,7 +11,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Navbar />
-        <Component {...pageProps} />
+        <NavOffset
+          child={<Component {...pageProps} />}
+        />
         <Footer />
       </ThemeProvider>
     </>

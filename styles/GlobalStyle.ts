@@ -53,7 +53,8 @@ export const GlobalStyle = createGlobalStyle`
 // Remember to update the type in ../styled.d.ts when adding/removing theme fields
 export const theme = {
   colors: {
-    primary: '#f6f6ee'
+    primary: '#f6f6ee',
+    secondary: '#e6d300'
   },
   navbar: {
     height: '100px'
