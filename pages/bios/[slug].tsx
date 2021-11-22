@@ -20,6 +20,8 @@ const BioView: NextPage<Props> = ({ postData }) => {
       </Head>
       <Banner
         header='Biographies'
+        previousSlug={postData.previousSlug}
+        nextSlug={postData.nextSlug}
       />
       <Container>
         <PostContent post={postData} />
@@ -39,7 +41,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as PostParams
 
-  const postData = await getPostData(slug)
+  const postData = await getPostData(slug, 'Biographies')
   return {
     props: {
       postData

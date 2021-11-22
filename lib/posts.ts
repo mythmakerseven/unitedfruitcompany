@@ -94,13 +94,33 @@ export const getSlugs = async (category: string | null = null) => {
   )
 }
 
-export const getPostData = async (slug: string) => {
-  const posts = await fetchPosts()
-  const post = posts.find(p => p.slug === slug)
+const getIndex = (current: number, max: number) => {
+  if (current > max) {
+    return 0
+  } else if (current < 0) {
+    return max
+  }
 
-  if (!post) {
+  return current
+}
+
+export const getPostData = async (slug: string, category: string | null = null) => {
+  const posts = await fetchPosts(category)
+  const postIndex = posts.findIndex(p => p.slug === slug)
+
+  const maxIndex = posts.length - 1
+
+  const post = posts[postIndex]
+  const previousSlug = posts[getIndex(postIndex - 1, maxIndex)].slug
+  const nextSlug = posts[getIndex(postIndex + 1, maxIndex)].slug
+
+  if (postIndex === -1) {
     throw new Error('Oops, post doesn\'t exist.')
   }
 
-  return post
+  return {
+    ...post,
+    previousSlug,
+    nextSlug
+  }
 }

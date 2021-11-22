@@ -9,7 +9,11 @@ export interface Post {
   slug: string,
   categories: string[],
   excerpt: string,
-  featured_image?: string
+  featured_image?: string,
+  // The below properties don't come from the API, we add them to
+  // support the previous/next buttons on post pages.
+  previousSlug: string,
+  nextSlug: string
 }
 
 // Properly type the props for post pages.
