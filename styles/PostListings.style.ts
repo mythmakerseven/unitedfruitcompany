@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Header = styled.h1`
   font-family: 'Urania Czech';
   text-align: center;
+  padding-top: 30px;
 `
 
 export const CardFlex = styled.ul`
