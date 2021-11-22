@@ -19,14 +19,18 @@ const createSpans = (text: string, currentIndex: number) => {
 const TypeWriterScript: React.FC<Props> = ({ text }) => {  
   const [currentIndex, setCurrentIndex] = useState(0)
   const [atomizedElements, setAtomizedElements] = useState(createSpans(text, currentIndex))
+  const [averageTimeout, setAverageTimeout] = useState(150)
 
   useEffect(() => {
     setCurrentIndex(0)
+    // Make the speed dependent on how long the text is.
+    // The user shouldn't have to wait forever for really long text to come in.
+    setAverageTimeout(Math.floor(3000 / text.length))
   }, [text])
 
   useEffect(() => {
     if (currentIndex < text.length + 1) {
-      const timeout = Math.floor(Math.random() * 150)
+      const timeout = Math.floor(Math.random() * averageTimeout)
       const timedFunction = setTimeout(() => {
         setCurrentIndex(currentIndex + 1)
         setAtomizedElements(createSpans(text, currentIndex))
@@ -35,7 +39,7 @@ const TypeWriterScript: React.FC<Props> = ({ text }) => {
       // Return a cleanup function that cancels the timeout if the component unmounts.
       return () => { clearTimeout(timedFunction) }
     }
-  }, [atomizedElements, currentIndex, text])
+  }, [atomizedElements, averageTimeout, currentIndex, text])
 
   return (
     <>
