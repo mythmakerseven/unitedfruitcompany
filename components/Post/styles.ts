@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Title = styled.h1`
   font-family: 'Urania Czech';
+  text-align: center;
 `
 
 export const ImageContainer = styled.div`
