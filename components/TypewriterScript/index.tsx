@@ -21,6 +21,10 @@ const TypeWriterScript: React.FC<Props> = ({ text }) => {
   const [atomizedElements, setAtomizedElements] = useState(createSpans(text, currentIndex))
 
   useEffect(() => {
+    setCurrentIndex(0)
+  }, [text])
+
+  useEffect(() => {
     if (currentIndex < text.length + 1) {
       const timeout = Math.floor(Math.random() * 150)
       const timedFunction = setTimeout(() => {
