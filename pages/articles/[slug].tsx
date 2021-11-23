@@ -4,6 +4,7 @@ import PostContent from '../../components/Post'
 import { getPostData, getSlugs } from '../../lib/posts'
 import { Post, PostParams } from '../../lib/types'
 import Container from '../../components/Container'
+import Banner from '../../components/Banner'
 
 interface Props {
   postData: Post
@@ -17,6 +18,11 @@ const DocumentView: NextPage<Props> = ({ postData }) => {
         <meta name="description" content={postData.excerpt.replace(/(<([^>]+)>)/ig, '')} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Banner
+        header='Articles'
+        previousSlug={postData.previousSlug}
+        nextSlug={postData.nextSlug}
+      />
       <Container>
         <PostContent post={postData} />
       </Container>
@@ -35,7 +41,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as PostParams
 
-  const postData = await getPostData(slug)
+  const postData = await getPostData(slug, 'Articles')
   return {
     props: {
       postData
