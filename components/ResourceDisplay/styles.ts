@@ -17,10 +17,6 @@ export const Title = styled.h1`
   text-align: center;
 `
 
-export const Description = styled.div`
-  font-size: 1rem;
-`
-
 export const FullScreenContainer = styled.div`
   height: 100vh;
   width: 100vw;

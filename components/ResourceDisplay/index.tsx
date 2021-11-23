@@ -4,8 +4,7 @@ import { Post } from '../../lib/types'
 import CloserLook from './CloserLook'
 import {
   Content,
-  Title,
-  Description
+  Title
 } from './styles'
 
 interface Props {
@@ -45,9 +44,7 @@ const ResourceDisplay: React.FC<Props> = ({ post }) => {
       <Title>
         {post.title}
       </Title>
-      <Description>
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
-      </Description>
+      <div dangerouslySetInnerHTML={{ __html: post.content }} />
     </>
   )
 }
