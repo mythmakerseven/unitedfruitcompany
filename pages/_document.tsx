@@ -30,7 +30,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang='en-US'>
         <Head>
           <meta property="og:image" content="/opengraph.jpg" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />

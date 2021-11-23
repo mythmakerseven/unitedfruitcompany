@@ -23,9 +23,9 @@ export const Card = styled.div`
     color: initial;
   }
 
-  @media (max-width: 800px) {
-    min-height: 200px;
-    width: 172px;
+  @media (max-width: 600px) {
+    height: 100px;
+    width: calc(100vw - 40px);
   }
 `
   
@@ -37,10 +37,19 @@ export const CardContent = styled.div`
   align-items: center;
   height: 100%;
   width: 100%;
+
+  @media (max-width: 600px) {
+    flex-flow: row;
+  }
 `
 
 export const Title = styled.h2`
   font-size: 1.2rem;
+
+  @media (max-width: 600px) {
+    font-size: 1rem;
+    width: 50%;
+  }
 `
 
 export const ImageContainer = styled.div`
@@ -57,14 +66,9 @@ export const ImageContainer = styled.div`
     object-fit: cover;
     object-position: center;
   }
-`
 
-// export const Excerpt = styled.p`
-//   flex-shrink: 1;
-//   font-size: 0.75rem;
-//   display: -webkit-box;
-//   -webkit-line-clamp: 2;
-//   -webkit-box-orient: vertical;
-//   overflow: hidden;
-//   underline: none;
-// `
+  @media (max-width: 600px) {
+    width: 80px;
+    height: 80px;
+  }
+`

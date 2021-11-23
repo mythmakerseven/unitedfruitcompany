@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Post } from '../../lib/types'
 import TypewriterScript from '../TypewriterScript'
-import { Title, ImageContainer } from './styles'
+import { Title, ImageContainer, Content } from './styles'
 
 interface Props {
   post: Post
@@ -27,7 +27,9 @@ const PostContent: React.FC<Props> = ({ post }) => {
         <TypewriterScript text={post.title} />
       </Title>
       {handleImage()}
-      <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      <Content>
+        <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      </Content>
     </>
   )
 }
