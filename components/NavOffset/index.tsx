@@ -7,8 +7,8 @@ import { useRouter } from 'next/router'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 
-const Container = styled.div`
-  margin-top: calc(${({ theme }) => theme.navbar.height});
+const Offset = styled.div`
+  margin-top: ${({ theme }) => theme.navbar.height};
 `
 
 const NavOffset: React.FC<{ child: ReactNode }> = ({ child }) => {
@@ -16,9 +16,9 @@ const NavOffset: React.FC<{ child: ReactNode }> = ({ child }) => {
 
   if (router.pathname !== '/') {
     return (
-      <Container>
+      <Offset>
         { child }
-      </Container>
+      </Offset>
     )
   } else {
     return (
