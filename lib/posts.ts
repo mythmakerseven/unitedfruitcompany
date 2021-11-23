@@ -4,7 +4,6 @@ import path from 'path'
 import { Post } from './types'
 
 const postsURL = process.env.POSTS_URL
-const token = process.env.TOKEN
 
 // Using this as a way to avoid having to make repeated requests to WP.
 // All requests go through postRequest(), which caches the posts in /.cache
@@ -23,7 +22,7 @@ const getCachedPosts = () => {
 }
 
 const postRequest = async () => {
-  if (!postsURL || !token) {
+  if (!postsURL) {
     return [] as Post[]
     // throw new Error('Missing proper credentials.')
   }
@@ -41,10 +40,7 @@ const postRequest = async () => {
   try {
     response = await axios({
       method: 'GET',
-      url: postsURL,
-      headers: {
-        Authorization: `BEARER ${token}`
-      }
+      url: postsURL
     })
   } catch {
     response = { data: { posts: [] } }
