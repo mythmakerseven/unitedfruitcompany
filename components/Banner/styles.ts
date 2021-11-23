@@ -25,6 +25,25 @@ export const Header = styled.h1`
   }
 `
 
-export const NavLink = styled.p`
+export const DesktopNavLink = styled.p`
   font-size: 1rem;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
+`
+
+export const MobileNavLink = styled.div`
+  display: none;
+
+  svg {
+    height: 30px;
+    width: 30px;
+  }
+
+  @media (max-width: 800px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `

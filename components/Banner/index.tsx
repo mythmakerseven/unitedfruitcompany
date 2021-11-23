@@ -2,9 +2,14 @@ import {
   FullwidthContainer,
   ContainerContent,
   Header,
-  NavLink
+  DesktopNavLink,
+  MobileNavLink
 } from './styles'
 import Link from 'next/link'
+import {
+  ArrowRight,
+  ArrowLeft
+} from 'react-bootstrap-icons'
 import { useRouter } from 'next/router'
 
 interface Props {
@@ -24,21 +29,35 @@ const Banner: React.FC<Props> = ({ header, previousSlug, nextSlug }) => {
   return (
     <FullwidthContainer>
       <ContainerContent>
-        <NavLink>
+        <DesktopNavLink>
           <Link href={`${getUpperPath(router.pathname)}/${previousSlug}`}>
             Previous
           </Link>
-        </NavLink>
-          <Header>
-            <Link href={getUpperPath(router.pathname)}>
-              {header}
-            </Link>
-          </Header>
-        <NavLink>
+        </DesktopNavLink>
+        <MobileNavLink>
+          <Link href={`${getUpperPath(router.pathname)}/${previousSlug}`} passHref>
+            <a>
+              <ArrowLeft />
+            </a>
+          </Link>
+        </MobileNavLink>
+        <Header>
+          <Link href={getUpperPath(router.pathname)}>
+            {header}
+          </Link>
+        </Header>
+        <DesktopNavLink>
           <Link href={`${getUpperPath(router.pathname)}/${nextSlug}`}>
             Next
           </Link>
-        </NavLink>
+        </DesktopNavLink>
+        <MobileNavLink>
+          <Link href={`${getUpperPath(router.pathname)}/${nextSlug}`} passHref>
+            <a>
+              <ArrowRight />
+            </a>
+          </Link>
+        </MobileNavLink>
       </ContainerContent>
     </FullwidthContainer>
   )
