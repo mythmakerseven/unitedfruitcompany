@@ -4,7 +4,8 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
       primary: string,
-      secondary: string
+      secondary: string,
+      thirdary: string
     },
     navbar: {
       height: string

@@ -54,7 +54,8 @@ export const GlobalStyle = createGlobalStyle`
 export const theme = {
   colors: {
     primary: '#f6f6ee',
-    secondary: '#e6d300'
+    secondary: '#e6d300',
+    thirdary: '#ffffe0'
   },
   navbar: {
     height: '100px'
