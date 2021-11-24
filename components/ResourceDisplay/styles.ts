@@ -60,3 +60,9 @@ export const CloseButton = styled.button`
     width: 30px;
   }
 `
+
+export const Description = styled.div`
+  * a {
+    overflow-wrap: break-word;
+  }
+`
