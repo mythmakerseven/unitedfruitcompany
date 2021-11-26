@@ -14,7 +14,7 @@ export const MainContent = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding: 4rem 0;
-  font-family: 'Urania Czech';
+  font-family: 'Special Elite';
   z-index: 1;
   margin: auto;
   color: ${({ theme }) => theme.colors.primary};

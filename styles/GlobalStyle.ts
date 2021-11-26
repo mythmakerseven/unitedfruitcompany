@@ -1,11 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: 'Urania Czech';
-    src: url('/fonts/UraniaCzech/UraniaCzech.woff2') format('woff2');
-  }
-
   html,
   body {
     padding: 0;

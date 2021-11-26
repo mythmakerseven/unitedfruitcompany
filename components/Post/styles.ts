@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Title = styled.h1`
-  font-family: 'Urania Czech';
+  font-family: 'Special Elite';
   text-align: center;
 
   @media (max-width: 600px) {

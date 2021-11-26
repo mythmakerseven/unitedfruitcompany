@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Header = styled.h1`
-  font-family: 'Urania Czech';
+  font-family: 'Special Elite';
   text-align: center;
   padding-top: 30px;
 `
