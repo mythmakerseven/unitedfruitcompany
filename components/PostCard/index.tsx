@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Post } from '../../lib/types'
 import Link from 'next/link'
 import { Card, Title, ImageContainer, CardContent } from './styles'
@@ -13,18 +14,15 @@ const PostCard: React.FC<Props> = ({ post }) => {
   const handleImage = () => {
     if (post.featured_image) {
       return (
-        // Using the normal img tag here because 
-        // eslint-disable-next-line @next/next/no-img-element
         <img
-          src={post.featured_image}
+          src={`${post.featured_image}?w=200`}
           alt=''
         />
       )
     } else {
       return (
-        // eslint-disable-next-line @next/next/no-img-element
         <img
-          src='https://unitedfruitcompany.files.wordpress.com/2020/02/kurtz-phelan-600.jpg'
+          src='https://unitedfruitcompany.files.wordpress.com/2020/02/kurtz-phelan-600.jpg?w=200'
           alt=''
         />
       )
@@ -40,9 +38,6 @@ const PostCard: React.FC<Props> = ({ post }) => {
               {handleImage()}
             </ImageContainer>
             <Title>{post.title}</Title>
-            {/* <Excerpt>
-              {post.excerpt.replace(/(<([^>]+)>)/ig, '')}
-            </Excerpt> */}
           </CardContent>
         </a>
       </Link>
