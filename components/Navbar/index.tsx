@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
           <Link href='/' passHref>
             <a>
               <Image
-                src='/opengraph.jpg'
+                src='https://unitedfruitcompany.files.wordpress.com/2020/02/kurtz-phelan-600.jpg'
                 layout='fixed'
                 height='56'
                 width='111'

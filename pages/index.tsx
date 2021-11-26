@@ -30,26 +30,26 @@ const Home: NextPage = () => {
       </Main>
 
       <Hero
-        header='Testing!'
-        text='This is a test of the reusable hero module.'
-        picturePath='/opengraph.jpg'
-        pictureAltText=''
+        header="It's bananas!"
+        text='Founded in 1899, the United Fruit Company would go on to influence much of the western hemisphere through the 20th century.'
+        picturePath='https://unitedfruitcompany.files.wordpress.com/2020/06/ufc-announcement.png'
+        pictureAltText='Newspaper announcement of the founding of the United Fruit Company'
         side={Side.Left}
       />
 
       <Hero
         header='Wow!'
         text='It actually works! Excuse me for a moment while I vomit some placeholder text. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non at dicta nam deserunt earum sit sapiente aliquam? Sint delectus consectetur illum aut odio. Iusto dolor est repellat totam veniam odio?'
-        picturePath='/img/map.webp'
-        pictureAltText=''
+        picturePath='https://unitedfruitcompany.files.wordpress.com/2021/11/map.jpg'
+        pictureAltText='Map of the United States, Mexico, and Central America published by the United Fruit Company.'
         side={Side.Right}
       />
 
       <Hero
         header='Gabriel García Márquez'
-        text='A bunch of authors have included the United Fruit Company in their books. Gabriel García Márquez (pictured), Thomas Pynchon, and many more have been inspired by the history of the company as detailed on this site.'
-        picturePath='/img/gabriel-garcia-marquez.jpg'
-        pictureAltText=''
+        text='A bunch of authors have included the United Fruit Company in their books. Gabriel García Márquez (pictured), Thomas Pynchon (not pictured), and many more have been inspired by the history of the company as detailed on this site.'
+        picturePath='https://unitedfruitcompany.files.wordpress.com/2021/11/gabriel-garcia-marquez.jpg'
+        pictureAltText='Portrait of Gabriel García Márquez'
         side={Side.Left}
       />
 

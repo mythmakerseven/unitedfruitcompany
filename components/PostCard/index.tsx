@@ -24,7 +24,7 @@ const PostCard: React.FC<Props> = ({ post }) => {
       return (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          src='/opengraph.jpg'
+          src='https://unitedfruitcompany.files.wordpress.com/2020/02/kurtz-phelan-600.jpg'
           alt=''
         />
       )

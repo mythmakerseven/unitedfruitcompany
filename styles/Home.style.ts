@@ -26,7 +26,7 @@ export const MainContent = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('/img/map.webp') center no-repeat;
+    background: url('https://unitedfruitcompany.files.wordpress.com/2021/11/map.jpg') center no-repeat;
     background-size: cover;
     z-index: -1;
     filter: brightness(0.3);
