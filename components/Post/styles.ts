@@ -3,6 +3,10 @@ import styled from 'styled-components'
 export const Title = styled.h1`
   font-family: 'Special Elite';
   text-align: center;
+  padding: 10px 0;
+  position: relative;
+  top: 5px;
+  font-size: 2.7rem;
 
   @media (max-width: 600px) {
     font-size: 2rem;

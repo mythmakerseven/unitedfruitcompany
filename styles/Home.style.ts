@@ -41,10 +41,10 @@ export const NavbarPlaceholder = styled.div`
 export const Title = styled.h1`
   margin: 0;
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: 3.5rem;
   text-align: center;
 
   @media (max-width: 600px) {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 `

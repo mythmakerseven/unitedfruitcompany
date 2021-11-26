@@ -37,8 +37,13 @@ export const ItemContainer = styled.div`
     z-index: 100;
     padding: 4px;
     background-color: rgba(0, 0, 0, 0.5);
-    font-size: 2rem;
+    font-size: 1.7rem;
     border-radius: 10px;
+  }
+
+  p span {
+    position: relative;
+    top: 4px;
   }
 
   img {
