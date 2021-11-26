@@ -3,7 +3,14 @@ import Head from 'next/head'
 import TypewriterScript from '../components/TypewriterScript'
 import HomeGrid from '../components/HomeGrid'
 import Hero, { Side } from '../components/Hero'
-import { Main, MainContent, NavbarPlaceholder, Title } from '../styles/Home.style'
+import {
+  Main,
+  MainContent,
+  NavbarPlaceholder,
+  Title,
+  BackgroundContainer
+} from '../styles/Home.style'
+import Image from 'next/image'
 
 const Home: NextPage = () => {
   return (
@@ -15,6 +22,16 @@ const Home: NextPage = () => {
       </Head>
 
       <Main>
+        <BackgroundContainer>
+          <Image
+            src='https://unitedfruitcompany.files.wordpress.com/2021/11/map.jpg'
+            alt=''
+            layout='fill'
+            objectFit='cover'
+            objectPosition='center'
+            draggable='false'
+          />
+        </BackgroundContainer>
         <MainContent>
           <NavbarPlaceholder />
           <Title>
