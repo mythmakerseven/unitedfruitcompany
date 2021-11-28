@@ -37,7 +37,7 @@ const ResourceDisplay: React.FC<Props> = ({ post }) => {
       { handleCloserLook() }
       <Content>
         <img
-          src={post.featured_image}
+          src={`${post.featured_image}?w=600`}
           alt={post.title}
           onClick={() => setCloserLook(true)}
         />
