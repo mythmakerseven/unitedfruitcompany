@@ -13,7 +13,7 @@ const PostContent: React.FC<Props> = ({ post }) => {
       return (
         <ImageContainer>
           <img
-            src={post.featured_image}
+            src={`${post.featured_image}?w=600`}
             alt=''
           />
         </ImageContainer>
