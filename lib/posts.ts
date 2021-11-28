@@ -1,6 +1,7 @@
 import axios from 'axios'
 import fs from 'fs'
 import path from 'path'
+import { decode } from 'html-entities'
 import { Post } from './types'
 
 const postsURL = process.env.POSTS_URL
@@ -46,7 +47,7 @@ const postRequest = async () => {
     response = { data: { posts: [] } }
   }
 
-  const posts = (response.data.posts as Post[])
+  const posts = (response.data.posts as Post[]).map(post => ({ ...post, title: decode(post.title) }))
 
   // Create the cache directory if it doesn't exist.
   if (!fs.existsSync(cacheFolder)) {
