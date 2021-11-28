@@ -46,16 +46,16 @@ const postRequest = async () => {
     response = { data: { posts: [] } }
   }
 
-  const posts = JSON.stringify(response.data.posts as Post[])
+  const posts = (response.data.posts as Post[])
 
   // Create the cache directory if it doesn't exist.
   if (!fs.existsSync(cacheFolder)) {
     fs.mkdirSync(cacheFolder)
   }
 
-  fs.writeFileSync(cacheFile, posts)
+  fs.writeFileSync(cacheFile, JSON.stringify(posts))
 
-  return response.data.posts as Post[]
+  return posts
 }
 
 // Accepts an optional category argument that will only return matching posts.
