@@ -1,7 +1,12 @@
 import { Post } from '../../lib/types'
 import TypewriterScript from '../TypewriterScript'
 import PostCard from '../PostCard'
-import { Header, CardFlex } from './styles'
+import SearchPane from '../SearchPane'
+import {
+  Header,
+  CardFlex,
+  Container
+} from './styles'
 
 interface Props {
   label: string, // e.g. "Biographies"
@@ -11,12 +16,19 @@ interface Props {
 const PostList: React.FC<Props> = ({ label, posts }) => {
   return (
     <>
-      <Header>
-        <TypewriterScript text={label} />
-      </Header>
-      <CardFlex>
-        {posts.map(post => <li key={post.ID}><PostCard post={post} /></li>)}
-      </CardFlex>
+      <Container>
+        <SearchPane
+          tags={['test', 'another tag', 'one more', 'banana', 'test', 'another tag', 'one more', 'banana', 'test', 'another tag', 'one more', 'banana', 'test', 'another tag', 'one more', 'banana', 'test', 'another tag', 'one more', 'banana', 'test', 'another tag', 'one more', 'banana', 'test', 'another tag', 'one more', 'banana']}
+        />
+        <div>
+          <Header>
+            <TypewriterScript text={label} />
+          </Header>
+          <CardFlex>
+            {posts.map(post => <li key={post.ID}><PostCard post={post} /></li>)}
+          </CardFlex>
+        </div>
+      </Container>
     </>
   )
 }
