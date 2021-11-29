@@ -1,15 +1,16 @@
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { fetchPosts } from '../../lib/posts'
+import { fetchPosts, getTags } from '../../lib/posts'
 import { Post } from '../../lib/types'
 import { WideContainer } from '../../components/Container'
 import PostList from '../../components/PostList'
 
 interface Props {
-  posts: Post[]
+  posts: Post[],
+  tags: string[]
 }
 
-const Documents: NextPage<Props> = ({ posts }) => {
+const Documents: NextPage<Props> = ({ posts, tags }) => {
   return (
     <WideContainer>
       <Head>
@@ -20,6 +21,7 @@ const Documents: NextPage<Props> = ({ posts }) => {
       <PostList
         label='Documents'
         posts={posts}
+        tags={tags}
       />
     </WideContainer>
   )
@@ -27,9 +29,11 @@ const Documents: NextPage<Props> = ({ posts }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await fetchPosts('Documents')
+  const tags = await getTags('Documents')
   return {
     props: {
-      posts
+      posts,
+      tags
     }
   }
 }
