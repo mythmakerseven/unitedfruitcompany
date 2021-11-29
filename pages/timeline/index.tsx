@@ -2,7 +2,7 @@ import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import { fetchPosts } from '../../lib/posts'
 import { Post } from '../../lib/types'
-import Container from '../../components/Container'
+import { WideContainer } from '../../components/Container'
 import TypewriterScript from '../../components/TypewriterScript'
 import { Header, CardFlex } from '../../styles/PostListings.style'
 import PostCard from '../../components/PostCard'
@@ -13,7 +13,7 @@ interface Props {
 
 const Timeline: NextPage<Props> = ({ posts }) => {
   return (
-    <Container>
+    <WideContainer>
       <Head>
         <title>Timeline - United Fruit Company</title>
         <meta name="description" content="The United Fruit Company Timeline." />
@@ -25,7 +25,7 @@ const Timeline: NextPage<Props> = ({ posts }) => {
       <CardFlex>
         {posts.map(post => <li key={post.ID}><PostCard post={post} /></li>)}
       </CardFlex>
-    </Container>
+    </WideContainer>
   )
 }
 

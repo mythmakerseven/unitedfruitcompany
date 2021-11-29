@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 import { fetchPosts } from '../../lib/posts'
 import { Post } from '../../lib/types'
-import Container from '../../components/Container'
+import { WideContainer } from '../../components/Container'
 import TypewriterScript from '../../components/TypewriterScript'
 import { Header } from '../../styles/PostListings.style'
 
@@ -13,7 +13,7 @@ interface Props {
 
 const Resources: NextPage<Props> = ({ posts }) => {
   return (
-    <Container>
+    <WideContainer>
       <Head>
         <title>Resources - United Fruit Company</title>
         <meta name="description" content="Resources related to the United Fruit Company." />
@@ -25,7 +25,7 @@ const Resources: NextPage<Props> = ({ posts }) => {
       <ul>
         {posts.map(post => <li key={post.ID}><Link href={`/resources/${post.slug}`}>{post.title}</Link></li>)}
       </ul>
-    </Container>
+    </WideContainer>
   )
 }
 
