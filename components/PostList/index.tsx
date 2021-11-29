@@ -18,17 +18,30 @@ interface Props {
 const PostList: React.FC<Props> = ({ label, posts, tags }) => {
   const [filter, setFilter] = useState('')
 
+  const handleFilter = (posts: Post[]) => {
+    const filteredPosts = posts.filter(post => {
+      if (post.title.toLowerCase().includes(filter.toLowerCase())) {
+        return true
+      } else if (post.tags.some(tag => tag.includes(filter))) {
+        return true
+      } else {
+        return false
+      }
+    })
+    return filteredPosts
+  }
+
   const displayPosts = () => {
     if (!filter) {
       return (
         posts.map(post => <li key={post.ID}><PostCard post={post} /></li>)
       )
     } else {
-      const filteredPosts = posts.filter(post => post.title.toLowerCase().includes(filter.toLowerCase()))
+      const filteredPosts = handleFilter(posts)
       return (
         filteredPosts.map(post => <li key={post.ID}><PostCard post={post} /></li>)
       )
-    }
+    } 
   }
 
   return (
