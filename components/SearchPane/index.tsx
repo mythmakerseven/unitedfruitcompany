@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
+import { ChangeEvent, FormEvent } from 'react'
 import TagDisplay from './TagDisplay'
 import {
   Pane,
@@ -9,23 +9,19 @@ import {
 } from './styles'
 
 interface Props {
-  tags: string[]
+  tags: string[],
+  filter: string,
+  setFilter: (arg: string) => void
 }
 
-const SearchPane: React.FC<Props> = ({ tags }) => {
-  const [query, setQuery] = useState<string>('')
-
+const SearchPane: React.FC<Props> = ({ tags, filter, setFilter }) => {
   const handleSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
   }
   
   const updateQuery = (event: ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value)
+    setFilter(event.target.value)
   }
-
-  useEffect(() => {
-    console.log(query)
-  }, [query])
 
   return (
     <Pane>
@@ -35,7 +31,7 @@ const SearchPane: React.FC<Props> = ({ tags }) => {
             Search:
             <Input
               type='text'
-              value={query}
+              value={filter}
               name='query'
               onChange={(event) => updateQuery(event)}
             />
@@ -43,7 +39,7 @@ const SearchPane: React.FC<Props> = ({ tags }) => {
         </Form>
         <TagDisplay
           tags={tags}
-          setQuery={setQuery}
+          setQuery={setFilter}
         />
       </PaneContent>
     </Pane>

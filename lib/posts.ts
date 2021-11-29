@@ -41,6 +41,32 @@ const getPaginatedResponse = async (url: string, page = 1): Promise<Post[]> => {
   return posts
 }
 
+const getIndex = (current: number, max: number) => {
+  if (current > max) {
+    return 0
+  } else if (current < 0) {
+    return max
+  }
+
+  return current
+}
+
+// Cut down the huge WP objects into smaller ones that contain
+// only the data we need.
+const formatPosts = (posts: Post[]): Post[] => {
+  return posts.map((post) => ({
+    ID: post.ID,
+    title: decode(post.title),
+    content: post.content,
+    date: post.date,
+    excerpt: post.excerpt,
+    slug: post.slug,
+    categories: Object.keys(post.categories),
+    featured_image: post.featured_image ? post.featured_image : undefined,
+    tags: Object.keys(post.tags)
+  }))
+}
+
 const postRequest = async () => {
   if (!postsURL) {
     return [] as Post[]
@@ -57,16 +83,16 @@ const postRequest = async () => {
 
   const posts = await getPaginatedResponse(postsURL)
 
-  const decodedPosts = (posts as Post[]).map(post => ({ ...post, title: decode(post.title) }))
+  const formattedPosts = formatPosts(posts)
 
   // Create the cache directory if it doesn't exist.
   if (!fs.existsSync(cacheFolder)) {
     fs.mkdirSync(cacheFolder)
   }
 
-  fs.writeFileSync(cacheFile, JSON.stringify(decodedPosts))
+  fs.writeFileSync(cacheFile, JSON.stringify(formattedPosts))
 
-  return decodedPosts
+  return formattedPosts
 }
 
 // Accepts an optional category argument that will only return matching posts.
@@ -79,8 +105,7 @@ export const fetchPosts = async (category: string | null = null) => {
   }
 
   const matchingPosts = posts.filter(post => {
-    const categories = Object.keys(post.categories)
-    if (categories.includes(category)) {
+    if (post.categories.includes(category)) {
       return true
     } else {
       return false
@@ -101,14 +126,19 @@ export const getSlugs = async (category: string | null = null) => {
   )
 }
 
-const getIndex = (current: number, max: number) => {
-  if (current > max) {
-    return 0
-  } else if (current < 0) {
-    return max
-  }
+export const getTags = async (category: string | null = null) => {
+  const tags: string[] = []
+  const posts = await fetchPosts(category)
 
-  return current
+  posts.forEach(post => {
+    post.tags.forEach(tag => {
+      if (!tags.includes(tag)) {
+        tags.push(tag)
+      }
+    })
+  })
+
+  return tags
 }
 
 export const getPostData = async (slug: string, category: string | null = null) => {

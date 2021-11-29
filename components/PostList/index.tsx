@@ -7,25 +7,44 @@ import {
   CardFlex,
   Container
 } from './styles'
+import { useState } from 'react'
 
 interface Props {
   label: string, // e.g. "Biographies"
-  posts: Post[]
+  posts: Post[],
+  tags: string[]
 }
 
-const PostList: React.FC<Props> = ({ label, posts }) => {
+const PostList: React.FC<Props> = ({ label, posts, tags }) => {
+  const [filter, setFilter] = useState('')
+
+  const displayPosts = () => {
+    if (!filter) {
+      return (
+        posts.map(post => <li key={post.ID}><PostCard post={post} /></li>)
+      )
+    } else {
+      const filteredPosts = posts.filter(post => post.title.toLowerCase().includes(filter.toLowerCase()))
+      return (
+        filteredPosts.map(post => <li key={post.ID}><PostCard post={post} /></li>)
+      )
+    }
+  }
+
   return (
     <>
       <Container>
         <SearchPane
-          tags={['test', 'another tag', 'one more', 'banana', 'test', 'another tag', 'one more', 'banana', 'test', 'another tag', 'one more', 'banana', 'test', 'another tag', 'one more', 'banana', 'test', 'another tag', 'one more', 'banana', 'test', 'another tag', 'one more', 'banana', 'test', 'another tag', 'one more', 'banana']}
+          tags={tags}
+          filter={filter}
+          setFilter={setFilter}
         />
         <div>
           <Header>
             <TypewriterScript text={label} />
           </Header>
           <CardFlex>
-            {posts.map(post => <li key={post.ID}><PostCard post={post} /></li>)}
+            {displayPosts()}
           </CardFlex>
         </div>
       </Container>

@@ -6,10 +6,14 @@ export interface Post {
   title: string,
   content: string,
   date: string,
+  excerpt: string,
   slug: string,
   categories: string[],
-  excerpt: string,
   featured_image?: string,
+  tags: string[]
+}
+
+export interface DisplayedPost extends Post {
   // The below properties don't come from the API, we add them to
   // support the previous/next buttons on post pages.
   previousSlug: string,

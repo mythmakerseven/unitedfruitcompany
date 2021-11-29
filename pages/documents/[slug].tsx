@@ -2,12 +2,12 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import ResourceDisplay from '../../components/ResourceDisplay'
 import { getPostData, getSlugs } from '../../lib/posts'
-import { Post, PostParams } from '../../lib/types'
+import { DisplayedPost, PostParams } from '../../lib/types'
 import Container from '../../components/Container'
 import Banner from '../../components/Banner'
 
 interface Props {
-  postData: Post
+  postData: DisplayedPost
 }
 
 const DocumentView: NextPage<Props> = ({ postData }) => {

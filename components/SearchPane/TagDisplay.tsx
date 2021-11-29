@@ -14,13 +14,13 @@ const TagDisplay: React.FC<Props> = ({ tags, setQuery }) => {
     <TagContainer>
       <h3>Tags in this category:</h3>
       <TagList>
-        {tags.map((tag, index) => (
+        {tags ? tags.map((tag, index) => (
           <TagItem
             tabIndex={0}
             key={index}
             onClick={() => setQuery(tag)}>{tag}
           </TagItem>
-        ))}
+        )) : null}
       </TagList>
     </TagContainer>
   )
