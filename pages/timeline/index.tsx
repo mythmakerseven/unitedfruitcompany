@@ -3,9 +3,7 @@ import Head from 'next/head'
 import { fetchPosts } from '../../lib/posts'
 import { Post } from '../../lib/types'
 import { WideContainer } from '../../components/Container'
-import TypewriterScript from '../../components/TypewriterScript'
-import { Header, CardFlex } from '../../styles/PostListings.style'
-import PostCard from '../../components/PostCard'
+import PostList from '../../components/PostList'
 
 interface Props {
   posts: Post[]
@@ -19,12 +17,10 @@ const Timeline: NextPage<Props> = ({ posts }) => {
         <meta name="description" content="The United Fruit Company Timeline." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header>
-        <TypewriterScript text={'Timeline'} />
-      </Header>
-      <CardFlex>
-        {posts.map(post => <li key={post.ID}><PostCard post={post} /></li>)}
-      </CardFlex>
+      <PostList
+        label='Timeline'
+        posts={posts}
+      />
     </WideContainer>
   )
 }
