@@ -27,6 +27,8 @@ export const Header = styled.h1`
 
 export const DesktopNavLink = styled.p`
   font-size: 1rem;
+  width: 60px;
+  text-align: center;
 
   @media (max-width: 800px) {
     display: none;
