@@ -1,6 +1,12 @@
 import { ListedPost } from '../../lib/types'
 import Link from 'next/link'
-import { Card, Title, ImageContainer, CardContent } from './styles'
+import {
+  Container,
+  Card,
+  Title,
+  ImageContainer,
+  CardContent
+} from './styles'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 
@@ -36,18 +42,20 @@ const PostCard: React.FC<Props> = ({ post }) => {
   }
 
   return (
-    <Card>
+    <Container>
       <Link href={`${router.pathname}/${post.slug}`} passHref>
         <a>
-          <CardContent>
-            <ImageContainer>
-              {handleImage()}
-            </ImageContainer>
-            <Title>{post.title}</Title>
-          </CardContent>
+          <Card>
+            <CardContent>
+              <ImageContainer>
+                {handleImage()}
+              </ImageContainer>
+              <Title>{post.title}</Title>
+            </CardContent>
+          </Card>
         </a>
       </Link>
-    </Card>
+    </Container>
   )
 }
 

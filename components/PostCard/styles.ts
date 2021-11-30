@@ -1,5 +1,16 @@
 import styled from 'styled-components'
 
+export const Container = styled.div`
+  a, a:hover {
+    text-decoration: none;
+    color: black;
+  }
+
+  a:hover > div, a:focus > div {
+    transform: translateY(-3px);
+  }
+`
+
 export const Card = styled.div`
   height: 280px;
   width: 220px;
@@ -10,18 +21,6 @@ export const Card = styled.div`
   transition: transform 0.2s;
   text-align: center;
   overflow: hidden;
-  
-  :hover, a:focus {
-    transform: translateY(-5px);
-  }
-  
-  a {
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: initial;
-  }
 
   @media (max-width: 600px) {
     height: 100px;
