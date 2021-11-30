@@ -1,11 +1,13 @@
 import { ChangeEvent, FormEvent } from 'react'
 import TagDisplay from './TagDisplay'
+import { X } from 'react-bootstrap-icons'
 import {
   Pane,
   PaneContent,
   Label,
   Form,
-  Input
+  Input,
+  ResetButton
 } from './styles'
 
 interface Props {
@@ -35,6 +37,9 @@ const SearchPane: React.FC<Props> = ({ tags, filter, setFilter }) => {
               name='query'
               onChange={(event) => updateQuery(event)}
             />
+            <ResetButton type='reset' onClick={() => setFilter('')}>
+              <X />
+            </ResetButton>
           </Label>
         </Form>
         <TagDisplay
