@@ -126,19 +126,29 @@ export const getSlugs = async (category: string | null = null) => {
   )
 }
 
+// This function returns an array of string, sorted by frequency of appearance
+// in posts. It also truncates the response to 20 for performance.
 export const getTags = async (category: string | null = null) => {
-  const tags: string[] = []
+  const tags: { [name: string]: number } = {}
   const posts = await fetchPosts(category)
 
   posts.forEach(post => {
     post.tags.forEach(tag => {
-      if (!tags.includes(tag)) {
-        tags.push(tag)
-      }
+      tags[tag] = tags[tag] ? tags[tag] + 1 : 1
     })
   })
 
-  return tags
+  const tagArray: string[] = Object.keys(tags)
+
+  tagArray.sort((a, b) => {
+    if (tags[b] === tags[a]) {
+      return a > b ? 1 : -1
+    } else {
+      return tags[b] > tags[a] ? 1 : -1
+    }
+  })
+
+  return tagArray.slice(0, 20)
 }
 
 export const getPostData = async (slug: string, category: string | null = null) => {

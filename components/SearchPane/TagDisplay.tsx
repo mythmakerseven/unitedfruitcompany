@@ -12,7 +12,7 @@ interface Props {
 const TagDisplay: React.FC<Props> = ({ tags, setQuery }) => {
   return (
     <TagContainer>
-      <h3>Tags in this category:</h3>
+      <h3>Popular tags in this category:</h3>
       <TagList>
         {tags ? tags.map((tag, index) => (
           <TagItem
