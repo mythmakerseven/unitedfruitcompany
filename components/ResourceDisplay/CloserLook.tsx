@@ -26,10 +26,6 @@ const CloserLook: React.FC<Props> = ({ image, alt, showCloserLook, setCloserLook
     }
   }, [showCloserLook])
 
-  useEffect(() => {
-    setImageLoaded(false)
-  }, [image])
-
   return (
     <FullScreenContainer
       onClick={() => setCloserLook(false)}
