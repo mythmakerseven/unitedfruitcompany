@@ -39,9 +39,14 @@ const requestFromServer = async () => {
     fs.mkdirSync(cacheFolder)
   }
 
-  fs.writeFileSync(cacheFile, JSON.stringify(formattedPosts))
+  // Sort posts alphabetically
+  const sortedPosts = formattedPosts.sort((a, b) => {
+    return a.title.toLowerCase().localeCompare(b.title.toLowerCase())
+  })
 
-  return formattedPosts
+  fs.writeFileSync(cacheFile, JSON.stringify(sortedPosts))
+
+  return sortedPosts
 }
 
 // Cut down the huge WP objects into smaller ones that contain
