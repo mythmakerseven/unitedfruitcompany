@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { fetchPosts, getTags } from '../../lib/posts'
+import { getCategory, getTags } from '../../lib/posts'
 import { Post } from '../../lib/types'
 import { WideContainer } from '../../components/Container'
 import PostList from '../../components/PostList'
@@ -28,7 +28,7 @@ const Timeline: NextPage<Props> = ({ posts, tags }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await fetchPosts('Timeline')
+  const posts = await getCategory('Timeline')
   const tags = await getTags('Timeline')
   return {
     props: {
