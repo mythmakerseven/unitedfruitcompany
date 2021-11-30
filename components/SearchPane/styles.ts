@@ -6,13 +6,23 @@ export const Pane = styled.div`
   border-radius: 10px;
   font-family: 'Alegreya Sans';
   color: white;
+`
 
+export const MobilePaneDiv = styled.div`
+  display: none;
+
+  @media (max-width: 1000px) {
+    display: initial;
+  }
+`
+
+export const DesktopPaneDiv = styled.div`
   @media (max-width: 1000px) {
     display: none;
   }
 `
 
-export const PaneContent = styled.div`
+export const Content = styled.div`
   padding: 20px;
   width: 100%;
   display: grid;
