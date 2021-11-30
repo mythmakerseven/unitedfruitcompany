@@ -20,6 +20,6 @@ export const TagItem = styled.li`
 
   :hover, :focus {
     cursor: pointer;
-    filter: brightness(0.9);
+    filter: brightness(0.7);
   }
 `
