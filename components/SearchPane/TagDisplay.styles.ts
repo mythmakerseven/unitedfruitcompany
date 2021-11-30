@@ -3,13 +3,23 @@ import styled from 'styled-components'
 export const TagContainer = styled.div`
 `
 
-export const HeaderContainer = styled.div`
-  display: flex;
-  justify-contents: center;
-  align-items: center;
+export const MobileHeaderContainer = styled.div`
+  display: none;
 
   :hover {
     cursor: pointer;
+  }
+
+  @media (max-width: 1000px) {
+    display: flex;
+    justify-contents: center;
+    align-items: center;
+  }
+`
+
+export const DesktopHeaderContainer = styled.div`
+  @media (max-width: 1000px) {
+    display: none;
   }
 `
 
@@ -48,7 +58,7 @@ export const ToggleButton = styled.button`
   display: none;
   background: none;
   border: none;
-  filter: invert(1);
+  color: white;
 
   svg {
     height: 20px;

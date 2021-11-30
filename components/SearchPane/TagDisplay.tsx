@@ -2,10 +2,11 @@ import { useState } from 'react'
 import TagToggle from './TagToggle'
 import {
   TagContainer,
-  HeaderContainer,
+  MobileHeaderContainer,
+  DesktopHeaderContainer,
   Header,
   TagList,
-  TagItem
+  TagItem,
 } from './TagDisplay.styles'
 
 interface Props {
@@ -49,12 +50,15 @@ const TagDisplay: React.FC<Props> = ({ tags, defaultTagDisplay, setQuery }) => {
 
   return (
     <TagContainer>
-      <HeaderContainer onClick={() => setShowTags(!showTags)}>
+      <MobileHeaderContainer onClick={() => setShowTags(!showTags)}>
         <Header>Popular tags in this category</Header>
         <TagToggle
           display={showTags}
         />
-      </HeaderContainer>
+      </MobileHeaderContainer>
+      <DesktopHeaderContainer>
+        <Header>Popular tags in this category</Header>
+      </DesktopHeaderContainer>
       {handleTagDisplay()}
     </TagContainer>
   )

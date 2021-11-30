@@ -26,19 +26,20 @@ export const Content = styled.div`
   padding: 20px;
   width: 100%;
   display: grid;
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: 80px 1fr;
 `
 
 export const Form = styled.form`
 `
 
 export const Label = styled.label`
-  text-size: 1rem;
+  font-size: 1.15rem;
 `
 
 export const Input = styled.input`
   width: 100%;
-  height: 30px;
+  height: 40px;
+  font-size: 1.1rem;
 `
 
 export const ResetButton = styled.button`
@@ -46,13 +47,14 @@ export const ResetButton = styled.button`
   justify-content: center;
   align-items: center;
   position: relative;
-  left: calc(100% - 30px);
-  top: -30px;
+  left: calc(100% - 39px);
+  top: -39px;
   z-index: 100;
   border: none;
   background: rgba(1, 1, 1, 0);
   padding: 0;
   transition: 0.2s;
+  color: black;
 
   :hover {
     cursor: pointer;
@@ -60,7 +62,7 @@ export const ResetButton = styled.button`
   }
 
   svg {
-    height: 30px;
-    width: 30px;
+    height: 38px;
+    width: 38px;
   }
 `
