@@ -1,9 +1,10 @@
-import { useRef } from 'react'
 /* eslint-disable @next/next/no-img-element */
+import { useRef, useState } from 'react'
 import {
   FullScreenContainer,
   FullScreenContent,
-  CloseButton
+  CloseButton,
+  Image
 } from './styles'
 import { XLg } from 'react-bootstrap-icons'
 import { useEffect } from 'react'
@@ -17,12 +18,17 @@ interface Props {
 
 const CloserLook: React.FC<Props> = ({ image, alt, showCloserLook, setCloserLook }) => {
   const closeButtonRef = useRef<HTMLButtonElement>(null)
+  const [imageLoaded, setImageLoaded] = useState(false)
 
   useEffect(() => {
     if (showCloserLook) {
       closeButtonRef.current?.focus()
     }
   }, [showCloserLook])
+
+  useEffect(() => {
+    setImageLoaded(false)
+  }, [image])
 
   return (
     <FullScreenContainer
@@ -37,9 +43,11 @@ const CloserLook: React.FC<Props> = ({ image, alt, showCloserLook, setCloserLook
         >
           <XLg />
         </CloseButton>
-        <img
+        <Image
           src={image}
           alt={alt}
+          opacity={imageLoaded ? 1 : 0}
+          onLoad={() => setImageLoaded(true)}
         />
       </FullScreenContent>
     </FullScreenContainer>

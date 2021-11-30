@@ -1,15 +1,21 @@
 import styled from 'styled-components'
 
+interface VisibilityProps {
+  opacity: number
+}
+
 export const Content = styled.div`
   height: 60vh;
   width: 100%;
   margin-top: 30px;
+`
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
+export const Image = styled.img<VisibilityProps>`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: 0.2s;
+  filter: opacity(${props => props.opacity});
 `
 
 export const Title = styled.h1`
@@ -39,14 +45,8 @@ export const FullScreenContent = styled.div`
   border-radius: 5px;
   padding: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
 `
-
+  
 export const CloseButton = styled.button`
   position: absolute;
   top: 7vh;
