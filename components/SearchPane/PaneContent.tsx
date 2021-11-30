@@ -11,7 +11,7 @@ import {
 } from './styles'
 import { PaneProps } from './types'
 
-const PaneContent: React.FC<PaneProps> = ({ tags, filter, setFilter }) => {
+const PaneContent: React.FC<PaneProps> = ({ tags, defaultTagDisplay, filter, setFilter }) => {
   const handleSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
   }
@@ -48,6 +48,7 @@ const PaneContent: React.FC<PaneProps> = ({ tags, filter, setFilter }) => {
           </Form>
           <TagDisplay
             tags={tags}
+            defaultTagDisplay={defaultTagDisplay}
             setQuery={setFilter}
           />
         </Content>

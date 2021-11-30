@@ -11,6 +11,7 @@ const SearchPane: React.FC<PaneProps> = ({ tags, filter, setFilter }) => {
       <MobilePaneDiv>
         <PaneContent
           tags={tags}
+          defaultTagDisplay={false}
           filter={filter}
           setFilter={setFilter}
         />
@@ -18,6 +19,7 @@ const SearchPane: React.FC<PaneProps> = ({ tags, filter, setFilter }) => {
       <DesktopPaneDiv>
         <PaneContent
           tags={tags}
+          defaultTagDisplay={true}
           filter={filter}
           setFilter={setFilter}
         />
