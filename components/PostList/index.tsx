@@ -49,6 +49,7 @@ const PostList: React.FC<Props> = ({ label, posts, tags }) => {
       <Container>
         <SearchPane
           tags={tags}
+          defaultTagDisplay={true}
           filter={filter}
           setFilter={setFilter}
         />
