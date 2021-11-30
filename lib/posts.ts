@@ -1,5 +1,5 @@
 import getPosts from './cache'
-import { Post } from './types'
+import { ListedPost, Post } from './types'
 
 // Helper for fetching the previous or next item in an array
 // when we want to wrap around to the start/beginning instead
@@ -54,6 +54,26 @@ export const getTags = async (category: string) => {
   })
 
   return tagArray.slice(0, 20)
+}
+
+export const getPostsForDisplay = async (category: string) => {
+  const posts = await getCategory(category)
+
+  return posts.map(post => {
+    const trimmedData: ListedPost = {
+      ID: post.ID,
+      title: post.title,
+      date: post.date,
+      slug: post.slug,
+      tags: post.tags
+    }
+
+    if (post.featured_image) {
+      trimmedData.featured_image = post.featured_image
+    }
+
+    return trimmedData
+  })
 }
 
 export const getPostData = async (slug: string, category: string) => {

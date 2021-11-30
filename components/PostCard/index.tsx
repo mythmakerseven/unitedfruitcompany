@@ -1,11 +1,11 @@
-import { Post } from '../../lib/types'
+import { ListedPost } from '../../lib/types'
 import Link from 'next/link'
 import { Card, Title, ImageContainer, CardContent } from './styles'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 
 interface Props {
-  post: Post
+  post: ListedPost
 }
 
 const PostCard: React.FC<Props> = ({ post }) => {

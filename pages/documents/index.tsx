@@ -1,12 +1,12 @@
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { getCategory, getTags } from '../../lib/posts'
-import { Post } from '../../lib/types'
+import { getPostsForDisplay, getTags } from '../../lib/posts'
+import { ListedPost } from '../../lib/types'
 import { WideContainer } from '../../components/Container'
 import PostList from '../../components/PostList'
 
 interface Props {
-  posts: Post[],
+  posts: ListedPost[],
   tags: string[]
 }
 
@@ -28,7 +28,7 @@ const Documents: NextPage<Props> = ({ posts, tags }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getCategory('Documents')
+  const posts = await getPostsForDisplay('Documents')
   const tags = await getTags('Documents')
   return {
     props: {

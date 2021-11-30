@@ -1,4 +1,4 @@
-import { Post } from '../../lib/types'
+import { ListedPost } from '../../lib/types'
 import TypewriterScript from '../TypewriterScript'
 import PostCard from '../PostCard'
 import SearchPane from '../SearchPane'
@@ -11,14 +11,14 @@ import { useState } from 'react'
 
 interface Props {
   label: string, // e.g. "Biographies"
-  posts: Post[],
+  posts: ListedPost[],
   tags: string[]
 }
 
 const PostList: React.FC<Props> = ({ label, posts, tags }) => {
   const [filter, setFilter] = useState('')
 
-  const handleFilter = (posts: Post[]) => {
+  const handleFilter = (posts: ListedPost[]) => {
     const filteredPosts = posts.filter(post => {
       if (post.title.toLowerCase().includes(filter.toLowerCase())) {
         return true
