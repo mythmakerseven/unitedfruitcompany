@@ -20,6 +20,16 @@ const PaneContent: React.FC<PaneProps> = ({ tags, filter, setFilter }) => {
     setFilter(event.target.value)
   }
 
+  const handleResetButton = () => {
+    if (filter !== '') {
+      return (
+        <ResetButton type='reset' onClick={() => setFilter('')}>
+          <X />
+        </ResetButton>
+      )
+    }
+  }
+
   return (
     <>
       <Pane>
@@ -33,9 +43,7 @@ const PaneContent: React.FC<PaneProps> = ({ tags, filter, setFilter }) => {
                 name='query'
                 onChange={(event) => updateQuery(event)}
               />
-              <ResetButton type='reset' onClick={() => setFilter('')}>
-                <X />
-              </ResetButton>
+              { handleResetButton() }
             </Label>
           </Form>
           <TagDisplay
