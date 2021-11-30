@@ -35,7 +35,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as PostParams
 
-  const postData = await getPostData(slug)
+  const postData = await getPostData(slug, 'Resources')
   return {
     props: {
       postData
