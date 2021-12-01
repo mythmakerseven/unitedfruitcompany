@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from '../Image'
 import { Post } from '../../lib/types'
 import TypewriterScript from '../TypewriterScript'
 import { Title, ImageContainer, Content } from './styles'
@@ -12,7 +12,7 @@ const PostContent: React.FC<Props> = ({ post }) => {
     if (post.featured_image) {
       return (
         <ImageContainer>
-          <img
+          <Image
             src={`${post.featured_image}?w=600`}
             alt=''
           />

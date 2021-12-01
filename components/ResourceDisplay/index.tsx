@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { Post } from '../../lib/types'
 import CloserLook from './CloserLook'
+import Image from '../Image'
 import {
   Content,
   Title,
-  Description,
-  Image
+  Description
 } from './styles'
 
 interface Props {
@@ -15,9 +15,6 @@ interface Props {
 
 const ResourceDisplay: React.FC<Props> = ({ post }) => {
   const [showCloserLook, setCloserLook] = useState(false)
-  const [imageLoaded, setImageLoaded] = useState(false)
-
-  const imageRef = useRef<HTMLImageElement>(null)
 
   if (!post.featured_image) {
     throw new Error('Every picture post must have a featured image.')
@@ -36,27 +33,13 @@ const ResourceDisplay: React.FC<Props> = ({ post }) => {
     }
   }
 
-  useEffect(() => {
-    if (imageRef.current) {
-      if (imageRef.current.complete) {
-        setImageLoaded(true)
-      } else {
-        setImageLoaded(false)
-      }
-    }
-  }, [post])
-
   return (
     <>
       { handleCloserLook() }
-      <Content>
+      <Content onClick={() => setCloserLook(true)}>
         <Image
-          onLoad={() => setImageLoaded(true)}
-          ref={imageRef}
           src={`${post.featured_image}?w=600`}
           alt={post.title}
-          opacity={imageLoaded ? 1 : 0}
-          onClick={() => setCloserLook(true)}
         />
       </Content>
       <Title>
