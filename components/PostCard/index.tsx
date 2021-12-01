@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { ListedPost } from '../../lib/types'
 import Link from 'next/link'
 import {
@@ -8,7 +9,6 @@ import {
   CardContent
 } from './styles'
 import { useRouter } from 'next/router'
-import Image from 'next/image'
 
 interface Props {
   post: ListedPost
@@ -20,22 +20,16 @@ const PostCard: React.FC<Props> = ({ post }) => {
   const handleImage = () => {
     if (post.featured_image) {
       return (
-        <Image
+        <img
           src={`${post.featured_image}?w=200`}
           alt=''
-          layout='fill'
-          objectFit='cover'
-          objectPosition='center'
         />
       )
     } else {
       return (
-        <Image
-          src='https://unitedfruitcompany.files.wordpress.com/2020/02/kurtz-phelan-600.jpg?w=200'
+        <img
+          src='https://unitedfruitcompany.files.wordpress.com/2020/02/kurtz-phelan-600.jpg?w=300'
           alt=''
-          layout='fill'
-          objectFit='cover'
-          objectPosition='center'
         />
       )
     }

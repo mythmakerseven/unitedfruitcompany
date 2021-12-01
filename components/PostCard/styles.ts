@@ -56,13 +56,14 @@ export const ImageContainer = styled.div`
   height: 120px;
   overflow: hidden;
   flex-shrink: 0;
-  position: relative;
 
   img {
     height: 100%;
     width: 100%;
     border-radius: 50%;
     margin: auto;
+    object-fit: cover;
+    object-position: center;
   }
 
   @media (max-width: 600px) {
