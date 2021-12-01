@@ -8,9 +8,7 @@ import {
   MainContent,
   NavbarPlaceholder,
   Title,
-  BackgroundContainer
 } from '../styles/Home.style'
-import Image from 'next/image'
 
 const Home: NextPage = () => {
   return (
@@ -22,16 +20,6 @@ const Home: NextPage = () => {
       </Head>
 
       <Main>
-        <BackgroundContainer>
-          <Image
-            src='https://unitedfruitcompany.files.wordpress.com/2021/11/map.jpg'
-            alt=''
-            layout='fill'
-            objectFit='cover'
-            objectPosition='center'
-            draggable='false'
-          />
-        </BackgroundContainer>
         <MainContent>
           <NavbarPlaceholder />
           <Title>
