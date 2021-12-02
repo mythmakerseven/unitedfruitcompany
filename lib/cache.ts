@@ -36,7 +36,11 @@ const requestFromServer = async () => {
 
   // Create the cache directory if it doesn't exist.
   if (!fs.existsSync(cacheFolder)) {
-    fs.mkdirSync(cacheFolder)
+    try {
+      fs.mkdirSync(cacheFolder)
+    } catch(e) {
+      console.log(`Error writing to disk: ${e}`)
+    }
   }
 
   // Sort posts alphabetically
@@ -44,7 +48,11 @@ const requestFromServer = async () => {
     return a.title.toLowerCase().localeCompare(b.title.toLowerCase())
   })
 
-  fs.writeFileSync(cacheFile, JSON.stringify(sortedPosts))
+  try {
+    fs.writeFileSync(cacheFile, JSON.stringify(sortedPosts))
+  } catch(e) {
+    console.log(`Error writing to disk: ${e}`)
+  }
 
   return sortedPosts
 }
