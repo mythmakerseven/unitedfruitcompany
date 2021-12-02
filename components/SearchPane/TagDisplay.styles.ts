@@ -47,6 +47,7 @@ export const TagItem = styled.li`
   color: black;
   padding: 5px;
   border-radius: 5px;
+  user-select: none;
 
   :hover, :focus {
     cursor: pointer;
