@@ -59,7 +59,7 @@ const formatPosts = (posts: Post[]): Post[] => {
     date: post.date,
     excerpt: post.excerpt,
     slug: post.slug,
-    categories: Object.keys(post.categories),
+    categories: Object.keys(post.categories).map(c => c.toLowerCase()),
     featured_image: post.featured_image ? post.featured_image : undefined,
     tags: Object.keys(post.tags)
   }))

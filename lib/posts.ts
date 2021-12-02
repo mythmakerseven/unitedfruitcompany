@@ -17,7 +17,7 @@ const getIndex = (current: number, max: number) => {
 export const getCategory = async (category: string) => {
   const posts = await getPosts()
 
-  return posts.filter(post => post.categories.includes(category))
+  return posts.filter(post => post.categories.includes(category.toLowerCase()))
 }
 
 export const getSlugs = async (category: string) => {
