@@ -23,11 +23,17 @@ const Home: NextPage = () => {
         <MainContent>
           <NavbarPlaceholder />
           <Title>
-            <TypewriterScript text={'United Fruit Company'} />
+            <TypewriterScript
+              text={'United Fruit Company'}
+              averageDuration={2000}
+            />
           </Title>
 
           <p>
-            <TypewriterScript text={'History Project'} />
+            <TypewriterScript
+              text={'History Project'}
+              averageDuration={1500}
+            />
           </p>
 
           <HomeGrid />

@@ -55,7 +55,10 @@ const PostList: React.FC<Props> = ({ label, posts, tags }) => {
         />
         <div>
           <Header>
-            <TypewriterScript text={label} />
+            <TypewriterScript
+              text={label}
+              averageDuration={1000}
+            />
           </Header>
           <CardFlex>
             {displayPosts()}

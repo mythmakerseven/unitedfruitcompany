@@ -23,7 +23,10 @@ const HomeGrid: React.FC<Props> = ({ link, label, imagePath }) => {
             draggable='false'
           />
           <p>
-            <TypeWriterScript text={ label } />
+            <TypeWriterScript
+              text={ label }
+              averageDuration={1500}
+            />
           </p>
         </ItemContainer>
       </a>

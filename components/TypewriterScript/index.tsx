@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 
 interface Props {
-  text: string
+  text: string,
+  averageDuration?: number
 }
 
 const getOpacity = (itemIndex: number, currentIndex: number) => {
@@ -16,17 +17,19 @@ const createSpans = (text: string, currentIndex: number) => {
   return text.split('').map((char, index) => <span key={index} style={{ filter: `opacity(${getOpacity(index, currentIndex)})` }}>{char}</span>)
 }
 
-const TypeWriterScript: React.FC<Props> = ({ text }) => {  
+const TypeWriterScript: React.FC<Props> = ({ text, averageDuration }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [atomizedElements, setAtomizedElements] = useState(createSpans(text, currentIndex))
   const [averageTimeout, setAverageTimeout] = useState(150)
+
+  const duration = averageDuration ? averageDuration : 3000
 
   useEffect(() => {
     setCurrentIndex(0)
     // Make the speed dependent on how long the text is.
     // The user shouldn't have to wait forever for really long text to come in.
-    setAverageTimeout(Math.floor(3000 / text.length))
-  }, [text])
+    setAverageTimeout(Math.floor(duration / text.length))
+  }, [duration, text])
 
   useEffect(() => {
     if (currentIndex < text.length + 1) {
