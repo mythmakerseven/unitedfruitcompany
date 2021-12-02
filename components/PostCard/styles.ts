@@ -7,7 +7,7 @@ export const Container = styled.div`
   }
 
   a:hover > div, a:focus > div {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
   }
 `
 
@@ -15,10 +15,9 @@ export const Card = styled.div`
   height: 280px;
   width: 220px;
   border-radius: 20px;
-  box-shadow: 1px 1px 2px;
-  border: 1px solid rgba(0, 0, 0, 0.1 );
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.2);
   background: ${({ theme }) => theme.colors.secondary};
-  transition: transform 0.2s;
+  transition: transform 0.3s;
   text-align: center;
   overflow: hidden;
 
