@@ -47,12 +47,13 @@ export const LoadingIcon = styled.div`
     height: 40px;
     width: 40px;
     animation-name: pulse;
-    animation-duration: 0.5s;
     animation-iteration-count: infinite;
+    animation-duration: 1s;
   }
 
   @keyframes pulse {
-    from {transform: scale(1);}
-    to {transform: scale(1.5);}
+    0% {transform: scale(1);}
+    50% {transform: scale(1.5);}
+    100% {transform: scale(1);}
   }
 `
