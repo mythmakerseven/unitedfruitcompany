@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { getCategory } from '../../../lib/posts'
+import { getServerCategory } from '../../../lib/cache'
 
 const categories = [
   'articles',
@@ -31,8 +31,9 @@ const getPosts = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    const posts = await getCategory(category.toString())
+    const posts = await getServerCategory(category.toString())
     const postPage = posts.slice(startingIndex, startingIndex + postsPerPage)
+    res.setHeader('Cache-Control', 's-maxage=86400')
     return res.status(200).json(postPage)
   } catch(e) {
     return res.status(400).send(`Oops: ${e}`)

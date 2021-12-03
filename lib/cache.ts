@@ -7,7 +7,7 @@ import path from 'path'
 import { decode } from 'html-entities'
 import { Post } from './types'
 
-const postsURL = process.env.POSTS_URL
+const postsURL = `${process.env.POSTS_URL}/?number=100`
 
 const cacheFolder = path.join(process.cwd(), '.cache')
 const cacheFile = path.join(cacheFolder, 'posts')
@@ -23,6 +23,14 @@ const getPosts = async () => {
   return posts
 }
 
+// Gets a category of posts directly from the WP API.
+// Not needed for static bulding--should only be called
+// from code residing in /pages/api.
+export const getServerCategory = async (category: string) => {
+  const posts = await getPaginatedResponse(`${postsURL}&category=${category}`)
+  return formatPosts(posts)
+}
+
 const requestFromServer = async () => {
   if (!postsURL) {
     throw new Error('Missing post URL environment variable.')
@@ -36,11 +44,7 @@ const requestFromServer = async () => {
 
   // Create the cache directory if it doesn't exist.
   if (!fs.existsSync(cacheFolder)) {
-    try {
-      fs.mkdirSync(cacheFolder)
-    } catch(e) {
-      console.log(`Error writing to disk: ${e}`)
-    }
+    fs.mkdirSync(cacheFolder)
   }
 
   // Sort posts alphabetically
@@ -48,11 +52,7 @@ const requestFromServer = async () => {
     return a.title.toLowerCase().localeCompare(b.title.toLowerCase())
   })
 
-  try {
-    fs.writeFileSync(cacheFile, JSON.stringify(sortedPosts))
-  } catch(e) {
-    console.log(`Error writing to disk: ${e}`)
-  }
+  fs.writeFileSync(cacheFile, JSON.stringify(sortedPosts))
 
   return sortedPosts
 }
@@ -68,7 +68,7 @@ const formatPosts = (posts: Post[]): Post[] => {
     excerpt: post.excerpt,
     slug: post.slug,
     categories: Object.keys(post.categories).map(c => c.toLowerCase()),
-    featured_image: post.featured_image ? post.featured_image : undefined,
+    featured_image: post.featured_image ? post.featured_image : null,
     tags: Object.keys(post.tags)
   }))
 }
@@ -83,11 +83,11 @@ const getCachedPosts = () => {
 }
 
 const getPaginatedResponse = async (url: string, page = 1): Promise<Post[]> => {
-  console.log(`Getting page ${page}...`)
+  console.log(`Getting ${`${url}&page=${page}`}`)
 
   const response = await axios({
     method: 'GET',
-    url: `${url}?page=${page}`
+    url: `${url}&page=${page}`
   })
 
   let posts = response.data.posts as Post[]
@@ -100,7 +100,5 @@ const getPaginatedResponse = async (url: string, page = 1): Promise<Post[]> => {
 
   return posts
 }
-
-
 
 export default getPosts

@@ -65,11 +65,8 @@ export const getPostsForDisplay = async (category: string) => {
       title: post.title,
       date: post.date,
       slug: post.slug,
-      tags: post.tags
-    }
-
-    if (post.featured_image) {
-      trimmedData.featured_image = post.featured_image
+      tags: post.tags,
+      featured_image: post.featured_image ? post.featured_image : null
     }
 
     return trimmedData

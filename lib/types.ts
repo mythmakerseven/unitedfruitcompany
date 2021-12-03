@@ -9,7 +9,7 @@ export interface Post {
   excerpt: string,
   slug: string,
   categories: string[],
-  featured_image?: string,
+  featured_image: string | null,
   tags: string[]
 }
 
