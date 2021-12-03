@@ -17,6 +17,12 @@ export const searchCategory = async (category: string, query: string) => {
   return formatPosts(posts)
 }
 
+// Get posts from within a category that match a tag
+export const searchCategoryByTag = async (category: string, tag: string) => {
+  const posts = await getPaginatedResponse(`${postsURL}&category=${category}&tag=${encodeURIComponent(tag.replaceAll(' ', '-'))}`)
+  return formatPosts(posts)
+}
+
 // Get posts from all categories that match a search query
 export const searchAll = async (query: string) => {
   const posts = await getPaginatedResponse(`${postsURL}&search=${encodeURIComponent(query)}`)
