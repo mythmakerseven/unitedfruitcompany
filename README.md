@@ -24,7 +24,7 @@ This frontend is developed by Camden Mecklem using Next.js and the Wordpress API
 
 Reusable React components are stored in the `/components` folder.
 
-* `AudioSecret`: 😀
+* `AudioSecret`: Wrap any HTML inside this and it'll play "Look at me! I'm a banana!" in Morse code when you click on it. Yeah.
 * `Banner`: Designed to appear on text/resource pages just above the content for an easy way to navigate between content or return to the root menu
 * `Container`: Generic mobile-aware container div
 * `Footer`: The footer that appears at the bottom of every page (this should only be used in `/pages/_app.tsx`)
