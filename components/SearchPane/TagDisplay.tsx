@@ -13,14 +13,21 @@ interface Props {
   tags: string[],
   defaultTagDisplay: boolean,
   setQuery: (arg: string) => void
+  setSearchValue: (arg: string) => void
 }
 
-const TagDisplay: React.FC<Props> = ({ tags, defaultTagDisplay, setQuery }) => {
+const TagDisplay: React.FC<Props> = ({ tags, defaultTagDisplay, setQuery, setSearchValue }) => {
   const [showTags, setShowTags] = useState(defaultTagDisplay)
+
+  const setTag = (tag: string) => {
+    setQuery(tag)
+    setSearchValue(tag)
+  }
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLLIElement>) => {
     if (event.key === 'Enter') {
-      setQuery((event.target as HTMLElement).innerText)
+      const search = (event.target as HTMLElement).innerText
+      setTag(search)
     }
   }
 
@@ -32,7 +39,7 @@ const TagDisplay: React.FC<Props> = ({ tags, defaultTagDisplay, setQuery }) => {
             <TagItem
               tabIndex={0}
               key={index}
-              onClick={() => setQuery(tag)}
+              onClick={() => setTag(tag)}
               onKeyDown={(event) => handleKeyDown(event)}
             >
               {tag}

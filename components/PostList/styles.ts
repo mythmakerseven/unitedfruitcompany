@@ -29,3 +29,9 @@ export const Container = styled.div`
     display: initial;
   }
 `
+
+export const Error = styled.p`
+  width: 100%;
+  font-size: 1.2rem;
+  text-align: center;
+`

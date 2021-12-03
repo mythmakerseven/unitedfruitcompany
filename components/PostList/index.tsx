@@ -5,9 +5,10 @@ import SearchPane from '../SearchPane'
 import {
   Header,
   CardFlex,
-  Container
+  Container,
+  Error
 } from './styles'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 interface Props {
   label: string, // e.g. "Biographies"
@@ -16,32 +17,51 @@ interface Props {
 }
 
 const PostList: React.FC<Props> = ({ label, posts, tags }) => {
-  const [filter, setFilter] = useState('')
+  const [displayedPosts, setDisplayedPosts] = useState(posts)
+  const [query, setQuery] = useState('')
 
-  const handleFilter = (posts: ListedPost[]) => {
-    const filteredPosts = posts.filter(post => {
-      if (post.title.toLowerCase().includes(filter.toLowerCase())) {
-        return true
-      } else if (post.tags.some(tag => tag.includes(filter))) {
-        return true
-      } else {
-        return false
+  const mountedRef = useRef(true)
+
+  // Remember when it's unmounted so we can avoid trying to update
+  // state in the async call below.
+  useEffect(() => {
+    return () => {
+      mountedRef.current = false
+    }
+  }, [])
+
+  useEffect(() => {
+    const getPosts = async () => {
+      const searchResponse = await fetch(`/api/${label}/search/${query}`)
+
+      if (!mountedRef.current) {
+        return null
       }
-    })
-    return filteredPosts
-  }
+
+      const matchingPosts = await searchResponse.json()
+
+      setDisplayedPosts(matchingPosts)
+    }
+
+    if (query === '') {
+      setDisplayedPosts(posts)
+    } else {
+      getPosts()
+    }
+  }, [query, posts, label])
 
   const displayPosts = () => {
-    if (!filter) {
+    if (displayedPosts.length > 0) {
       return (
-        posts.map(post => <li key={post.ID}><PostCard post={post} /></li>)
+        <CardFlex>
+          {displayedPosts.map(post => <li key={post.ID}><PostCard post={post} /></li>)}
+        </CardFlex>
       )
     } else {
-      const filteredPosts = handleFilter(posts)
       return (
-        filteredPosts.map(post => <li key={post.ID}><PostCard post={post} /></li>)
+        <Error>Nothing found :(</Error>
       )
-    } 
+    }
   }
 
   return (
@@ -50,8 +70,7 @@ const PostList: React.FC<Props> = ({ label, posts, tags }) => {
         <SearchPane
           tags={tags}
           defaultTagDisplay={true}
-          filter={filter}
-          setFilter={setFilter}
+          setQuery={setQuery}
         />
         <div>
           <Header>
@@ -60,9 +79,7 @@ const PostList: React.FC<Props> = ({ label, posts, tags }) => {
               averageDuration={1000}
             />
           </Header>
-          <CardFlex>
-            {displayPosts()}
-          </CardFlex>
+          { displayPosts() }
         </div>
       </Container>
     </>

@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent } from 'react'
+import { ChangeEvent, FormEvent, useRef, useState } from 'react'
 import TagDisplay from './TagDisplay'
 import { X } from 'react-bootstrap-icons'
 import {
@@ -11,19 +11,30 @@ import {
 } from './styles'
 import { PaneProps } from './types'
 
-const PaneContent: React.FC<PaneProps> = ({ tags, defaultTagDisplay, filter, setFilter }) => {
-  const handleSearch = (event: FormEvent<HTMLFormElement>) => {
+const PaneContent: React.FC<PaneProps> = ({ tags, defaultTagDisplay, setQuery }) => {
+  // Keep the form value locally, and only dispatch a query to SearchPane on submit.
+  const [searchValue, setSearchValue] = useState('')
+
+  const searchInputRef = useRef<HTMLInputElement>(null)
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    setQuery(searchValue)
   }
 
-  const updateQuery = (event: ChangeEvent<HTMLInputElement>) => {
-    setFilter(event.target.value)
+  const handleQueryChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value)
+  }
+
+  const reset = () => {
+    setSearchValue('')
+    setQuery('')
   }
 
   const handleResetButton = () => {
-    if (filter !== '') {
+    if (searchValue !== '') {
       return (
-        <ResetButton type='reset' onClick={() => setFilter('')}>
+        <ResetButton type='reset' onClick={() => reset()}>
           <X />
         </ResetButton>
       )
@@ -34,14 +45,15 @@ const PaneContent: React.FC<PaneProps> = ({ tags, defaultTagDisplay, filter, set
     <>
       <Pane>
         <Content>
-          <Form onSubmit={(event) => handleSearch(event)}>
+          <Form onSubmit={(event) => handleSubmit(event)}>
             <Label>
               Search:
               <Input
                 type='text'
-                value={filter}
+                value={searchValue}
                 name='query'
-                onChange={(event) => updateQuery(event)}
+                ref={searchInputRef}
+                onChange={(event) => handleQueryChange(event)}
               />
               { handleResetButton() }
             </Label>
@@ -49,7 +61,8 @@ const PaneContent: React.FC<PaneProps> = ({ tags, defaultTagDisplay, filter, set
           <TagDisplay
             tags={tags}
             defaultTagDisplay={defaultTagDisplay}
-            setQuery={setFilter}
+            setQuery={setQuery}
+            setSearchValue={setSearchValue}
           />
         </Content>
       </Pane>

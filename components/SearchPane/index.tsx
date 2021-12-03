@@ -5,23 +5,21 @@ import {
 import { PaneProps } from './types'
 import PaneContent from './PaneContent'
 
-const SearchPane: React.FC<PaneProps> = ({ tags, filter, setFilter }) => {
+const SearchPane: React.FC<PaneProps> = ({ tags, setQuery }) => {
   return (
     <>
       <MobilePaneDiv>
         <PaneContent
           tags={tags}
           defaultTagDisplay={false}
-          filter={filter}
-          setFilter={setFilter}
+          setQuery={setQuery}
         />
       </MobilePaneDiv>
       <DesktopPaneDiv>
         <PaneContent
           tags={tags}
           defaultTagDisplay={true}
-          filter={filter}
-          setFilter={setFilter}
+          setQuery={setQuery}
         />
       </DesktopPaneDiv>
     </>
