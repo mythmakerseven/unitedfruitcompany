@@ -35,3 +35,24 @@ export const Error = styled.p`
   font-size: 1.2rem;
   text-align: center;
 `
+
+export const LoadingIcon = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    height: 40px;
+    width: 40px;
+    animation-name: pulse;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes pulse {
+    from {transform: scale(1);}
+    to {transform: scale(1.5);}
+  }
+`

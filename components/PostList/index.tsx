@@ -2,11 +2,13 @@ import { ListedPost } from '../../lib/types'
 import TypewriterScript from '../TypewriterScript'
 import PostCard from '../PostCard'
 import SearchPane from '../SearchPane'
+import { ThreeDots } from 'react-bootstrap-icons'
 import {
   Header,
   CardFlex,
   Container,
-  Error
+  Error,
+  LoadingIcon
 } from './styles'
 import { useEffect, useRef, useState } from 'react'
 
@@ -18,6 +20,7 @@ interface Props {
 
 const PostList: React.FC<Props> = ({ label, posts, tags }) => {
   const [displayedPosts, setDisplayedPosts] = useState(posts)
+  const [loading, setLoading] = useState(false)
   const [query, setQuery] = useState('')
 
   const mountedRef = useRef(true)
@@ -32,6 +35,7 @@ const PostList: React.FC<Props> = ({ label, posts, tags }) => {
 
   useEffect(() => {
     const getPosts = async () => {
+      setLoading(true)
       const searchResponse = await fetch(`/api/${label}/search/${query}`)
 
       if (!mountedRef.current) {
@@ -41,6 +45,7 @@ const PostList: React.FC<Props> = ({ label, posts, tags }) => {
       const matchingPosts = await searchResponse.json()
 
       setDisplayedPosts(matchingPosts)
+      setLoading(false)
     }
 
     if (query === '') {
@@ -51,6 +56,14 @@ const PostList: React.FC<Props> = ({ label, posts, tags }) => {
   }, [query, posts, label])
 
   const displayPosts = () => {
+    if (loading) {
+      return (
+        <LoadingIcon>
+          <ThreeDots />
+        </LoadingIcon>
+      )
+    }
+
     if (displayedPosts.length > 0) {
       return (
         <CardFlex>
