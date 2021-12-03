@@ -1,6 +1,15 @@
 import getPosts from './cache'
 import { ListedPost, Post } from './types'
 
+export const categories = [
+  'articles',
+  'biographies',
+  'documents',
+  'pictures',
+  'resources',
+  'timeline'
+]
+
 // Helper for fetching the previous or next item in an array
 // when we want to wrap around to the start/beginning instead
 // of overflowing.

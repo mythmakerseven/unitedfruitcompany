@@ -1,14 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { getServerCategory } from '../../../lib/cache'
-
-const categories = [
-  'articles',
-  'biographies',
-  'documents',
-  'pictures',
-  'resources',
-  'timeline'
-]
+import { getCategory } from '../../../lib/server'
+import { categories } from '../../../lib/posts'
 
 const getPosts = async (req: NextApiRequest, res: NextApiResponse) => {
   const { category, page } = req.query
@@ -31,7 +23,7 @@ const getPosts = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    const posts = await getServerCategory(category.toString())
+    const posts = await getCategory(category.toString())
     const postPage = posts.slice(startingIndex, startingIndex + postsPerPage)
     res.setHeader('Cache-Control', 's-maxage=86400')
     return res.status(200).json(postPage)
