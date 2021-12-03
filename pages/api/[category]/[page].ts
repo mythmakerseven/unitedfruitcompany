@@ -1,6 +1,19 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { getCategory } from '../../../lib/server'
 import { categories } from '../../../lib/posts'
+import { Post } from '../../../lib/types'
+
+interface ErrorResponse {
+  error: string
+}
+
+const isError = (value: ErrorResponse | Post[]): value is ErrorResponse => {
+  if ((value as ErrorResponse).error) {
+    return true
+  } else {
+    return false
+  }
+}
 
 const getPosts = async (req: NextApiRequest, res: NextApiResponse) => {
   const { category, page } = req.query
@@ -22,13 +35,14 @@ const getPosts = async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(500).send('Oops. Something broke on our end.')
   }
 
-  try {
-    const posts = await getCategory(category.toString())
-    const postPage = posts.slice(startingIndex, startingIndex + postsPerPage)
+  const response = await getCategory(category.toString())
+
+  if (isError(response)) {
+    return res.status(500).json(response)
+  } else {
+    const postPage = (response as Post[]).slice(startingIndex, startingIndex + postsPerPage)
     res.setHeader('Cache-Control', 's-maxage=86400')
     return res.status(200).json(postPage)
-  } catch(e) {
-    return res.status(500).send('Oops. Something broke on our end.')
   }
 }
 
