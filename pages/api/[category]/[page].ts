@@ -27,7 +27,7 @@ const getPosts = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     startingIndex = (parseInt(page.toString()) - 1) * postsPerPage
   } catch(e) {
-    return res.status(400).send(`Oops: ${e}`)
+    return res.status(500).send('Oops. Something broke on our end.')
   }
 
   try {
@@ -36,7 +36,7 @@ const getPosts = async (req: NextApiRequest, res: NextApiResponse) => {
     res.setHeader('Cache-Control', 's-maxage=86400')
     return res.status(200).json(postPage)
   } catch(e) {
-    return res.status(400).send(`Oops: ${e}`)
+    return res.status(500).send('Oops. Something broke on our end.')
   }
 }
 
