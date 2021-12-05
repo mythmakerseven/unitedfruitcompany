@@ -10,8 +10,8 @@ interface Props {
 
 const PrettyImage = styled.img<{ opacity: number }>`
   transition: 0.3s;
-  height: {${props => props.height ? props.height : '100%' }};
-  width: {${props => props.width ? props.width : '100%' }};
+  height: ${props => props.height ? props.height : '100%' };
+  width: ${props => props.width ? props.width : '100%' };
   object-fit: contain;
   filter: opacity(${props => props.opacity});
 `
