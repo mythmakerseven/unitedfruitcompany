@@ -82,7 +82,6 @@ const PostList: React.FC<Props> = ({ label, posts, tags }) => {
       <Container>
         <SearchPane
           tags={tags}
-          defaultTagDisplay={true}
           setQuery={setQuery}
         />
         <div>

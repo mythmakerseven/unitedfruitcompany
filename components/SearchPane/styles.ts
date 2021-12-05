@@ -15,9 +15,6 @@ export const Content = styled.div`
   grid-template-rows: 80px 1fr;
 `
 
-export const Form = styled.form`
-`
-
 export const Label = styled.label`
   font-size: 1.15rem;
 `
