@@ -4,17 +4,19 @@ import styled from 'styled-components'
 interface Props {
   src: string
   alt?: string,
+  width?: string,
+  height?: string
 }
 
 const PrettyImage = styled.img<{ opacity: number }>`
   transition: 0.3s;
-  height: 100%;
-  width: 100%;
+  height: {${props => props.height ? props.height : '100%' }};
+  width: {${props => props.width ? props.width : '100%' }};
   object-fit: contain;
   filter: opacity(${props => props.opacity});
 `
 
-const Image: React.FC<Props> = ({ src, alt }) => {
+const Image: React.FC<Props> = ({ src, alt, width, height }) => {
   const [imageLoaded, setImageLoaded] = useState(false)
 
   const imageRef = useRef<HTMLImageElement>(null)
@@ -33,6 +35,8 @@ const Image: React.FC<Props> = ({ src, alt }) => {
     <PrettyImage
       ref={imageRef}
       src={src}
+      height={height}
+      width={width}
       alt={alt ? alt : ''}
       opacity={imageLoaded ? 1 : 0}
       onLoad={() => setImageLoaded(true)}

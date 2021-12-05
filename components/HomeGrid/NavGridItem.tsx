@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from '../Image'
 import TypeWriterScript from '../TypewriterScript'
 import { ItemContainer } from './styles'
 
@@ -15,12 +15,8 @@ const HomeGrid: React.FC<Props> = ({ link, label, imagePath }) => {
       <a>
         <ItemContainer>
           <Image
-            layout='fill'
             alt=''
             src={imagePath}
-            objectFit='cover'
-            objectPosition='center'
-            draggable='false'
           />
           <p>
             <TypeWriterScript

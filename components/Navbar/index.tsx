@@ -5,7 +5,7 @@ import {
   DropdownToggle,
   MobileDropdown
 } from './styles'
-import Image from 'next/image'
+import Image from '../Image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
@@ -45,8 +45,7 @@ const Navbar: React.FC = () => {
           <Link href='/' passHref>
             <a>
               <Image
-                src='https://unitedfruitcompany.files.wordpress.com/2020/02/kurtz-phelan-600.jpg'
-                layout='fixed'
+                src='https://unitedfruitcompany.files.wordpress.com/2020/02/kurtz-phelan-600.jpg?w=200'
                 height='56'
                 width='111'
                 alt='Back to home'

@@ -47,9 +47,14 @@ export const ItemContainer = styled.div`
   }
 
   img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
     border-radius: 5px;
     transition: transform 0.2s;
     overflow: hidden;
+    object-fit: cover;
+    object-position: center;
   }
 
   :hover {

@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from '../Image'
 import { Container, TextSide, PicSide } from './styles'
 
 export enum Side {
@@ -27,9 +27,6 @@ const Hero: React.FC<Props> = ({ header, text, picturePath, pictureAltText, side
       <Image
         src={picturePath}
         alt={pictureAltText}
-        layout='fill'
-        objectFit='cover'
-        objectPosition='center'
       />
     </PicSide>
   )

@@ -39,6 +39,8 @@ export const PicSide = styled.div`
 
   img {
     border-radius: 30px;
+    object-fit: cover;
+    object-position: center;
   }
 
   @media (max-width: 800px) {
