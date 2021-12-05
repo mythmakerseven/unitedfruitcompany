@@ -7,11 +7,15 @@ import {
   Label,
   Form,
   Input,
-  ResetButton
+  ResetButton,  
 } from './styles'
+import {
+  DesktopTags,
+  MobileTags
+} from './TagDisplay.styles'
 import { PaneProps } from './types'
 
-const PaneContent: React.FC<PaneProps> = ({ tags, defaultTagDisplay, setQuery }) => {
+const PaneContent: React.FC<PaneProps> = ({ tags, setQuery }) => {
   // Keep the form value locally, and only dispatch a query to SearchPane on submit.
   const [searchValue, setSearchValue] = useState('')
 
@@ -58,12 +62,22 @@ const PaneContent: React.FC<PaneProps> = ({ tags, defaultTagDisplay, setQuery })
               { handleResetButton() }
             </Label>
           </Form>
-          <TagDisplay
-            tags={tags}
-            defaultTagDisplay={defaultTagDisplay}
-            setQuery={setQuery}
-            setSearchValue={setSearchValue}
-          />
+          <DesktopTags>
+            <TagDisplay
+              tags={tags}
+              defaultTagDisplay={true}
+              setQuery={setQuery}
+              setSearchValue={setSearchValue}
+            />
+          </DesktopTags>
+          <MobileTags>
+            <TagDisplay
+              tags={tags}
+              defaultTagDisplay={false}
+              setQuery={setQuery}
+              setSearchValue={setSearchValue}
+            />
+          </MobileTags>
         </Content>
       </Pane>
     </>

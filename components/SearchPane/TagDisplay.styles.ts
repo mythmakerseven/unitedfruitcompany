@@ -23,6 +23,20 @@ export const DesktopHeaderContainer = styled.div`
   }
 `
 
+export const DesktopTags = styled.div`
+  @media (max-width: 1000px) {
+    display: none;
+  }
+`
+
+export const MobileTags = styled.div`
+  display: none;
+
+  @media (max-width: 1000px) {
+    display: initial;
+  }
+`
+
 export const Header = styled.h3`
   padding: 0;
   margin: 0;
