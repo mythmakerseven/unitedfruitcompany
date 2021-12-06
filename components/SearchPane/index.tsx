@@ -12,10 +12,13 @@ import {
   DesktopTags,
   MobileTags
 } from './TagDisplay.styles'
-import { PaneProps } from './types'
 import { useQueryState } from 'next-usequerystate'
 
-const PaneContent: React.FC<PaneProps> = ({ tags }) => {
+interface Props {
+  tags: string[]
+}
+
+const PaneContent: React.FC<Props> = ({ tags }) => {
   // Keep the form value locally, and only dispatch a query to SearchPane on submit.
   const [searchValue, setSearchValue] = useState('')
   const [query, setQuery] = useQueryState('search')

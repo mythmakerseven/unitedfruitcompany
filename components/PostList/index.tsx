@@ -22,7 +22,7 @@ interface Props {
 const PostList: React.FC<Props> = ({ label, posts, tags }) => {
   const [displayedPosts, setDisplayedPosts] = useState(posts)
   const [loading, setLoading] = useState(false)
-  const [query, setQuery] = useQueryState('search')
+  const [query] = useQueryState('search')
 
   const mountedRef = useRef(true)
 
@@ -39,11 +39,11 @@ const PostList: React.FC<Props> = ({ label, posts, tags }) => {
       setLoading(true)
       const searchResponse = await fetch(`/api/${label}/search/${query}`)
 
+      const matchingPosts = await searchResponse.json()
+
       if (!mountedRef.current) {
         return null
       }
-
-      const matchingPosts = await searchResponse.json()
 
       setDisplayedPosts(matchingPosts)
       setLoading(false)
@@ -83,7 +83,6 @@ const PostList: React.FC<Props> = ({ label, posts, tags }) => {
       <Container>
         <SearchPane
           tags={tags}
-          setQuery={setQuery}
         />
         <div>
           <Header>
