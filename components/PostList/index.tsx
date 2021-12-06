@@ -11,6 +11,7 @@ import {
   LoadingIcon
 } from './styles'
 import { useEffect, useRef, useState } from 'react'
+import { useQueryState } from 'next-usequerystate'
 
 interface Props {
   label: string, // e.g. "Biographies"
@@ -21,7 +22,7 @@ interface Props {
 const PostList: React.FC<Props> = ({ label, posts, tags }) => {
   const [displayedPosts, setDisplayedPosts] = useState(posts)
   const [loading, setLoading] = useState(false)
-  const [query, setQuery] = useState('')
+  const [query, setQuery] = useQueryState('')
 
   const mountedRef = useRef(true)
 
@@ -48,7 +49,7 @@ const PostList: React.FC<Props> = ({ label, posts, tags }) => {
       setLoading(false)
     }
 
-    if (query === '') {
+    if (!query || query === '') {
       setDisplayedPosts(posts)
     } else {
       getPosts()
