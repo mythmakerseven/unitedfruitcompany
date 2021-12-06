@@ -22,7 +22,7 @@ interface Props {
 const PostList: React.FC<Props> = ({ label, posts, tags }) => {
   const [displayedPosts, setDisplayedPosts] = useState(posts)
   const [loading, setLoading] = useState(false)
-  const [query, setQuery] = useQueryState('')
+  const [query, setQuery] = useQueryState('search')
 
   const mountedRef = useRef(true)
 

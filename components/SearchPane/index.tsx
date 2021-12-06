@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useRef, useState } from 'react'
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react'
 import TagDisplay from './TagDisplay'
 import { X } from 'react-bootstrap-icons'
 import {
@@ -13,10 +13,18 @@ import {
   MobileTags
 } from './TagDisplay.styles'
 import { PaneProps } from './types'
+import { useQueryState } from 'next-usequerystate'
 
-const PaneContent: React.FC<PaneProps> = ({ tags, setQuery }) => {
+const PaneContent: React.FC<PaneProps> = ({ tags }) => {
   // Keep the form value locally, and only dispatch a query to SearchPane on submit.
   const [searchValue, setSearchValue] = useState('')
+  const [query, setQuery] = useQueryState('search')
+
+  useEffect(() => {
+    if (query && query !== '') {
+      setSearchValue(query)
+    }
+  }, [query])
 
   const searchInputRef = useRef<HTMLInputElement>(null)
 
