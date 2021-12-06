@@ -2,7 +2,18 @@
 
 import axios from 'axios'
 import { decode } from 'html-entities'
-import { Post } from './types'
+import { ListedPost, Post } from './types'
+
+export const getPage = async (url: string, page: number) => {
+  console.log(`Getting single page ${page} from ${url}`)
+
+  const response = await axios({
+    method: 'GET',
+    url: `${url}&page=${page}`
+  })
+
+  return response.data.posts as Post[]
+}
 
 export const getPaginatedResponse = async (url: string, page = 1): Promise<Post[]> => {
   console.log(`Getting ${`${url}&page=${page}`}`)
@@ -37,4 +48,23 @@ export const formatPosts = (posts: Post[]): Post[] => {
     featured_image: post.featured_image ? post.featured_image : null,
     tags: Object.keys(post.tags)
   }))
+}
+
+export const formatListedPosts = (posts: Post[]): ListedPost[] => {
+  return posts.map((post) => ({
+    ID: post.ID,
+    title: decode(post.title),
+    date: post.date,
+    slug: post.slug,
+    featured_image: post.featured_image ? post.featured_image : null,
+    tags: Object.keys(post.tags)
+  }))
+}
+
+// Get the first URL param.
+// Example:
+// google.com/search/example => search
+export const getUpperPath = (url: string) => {
+  const lastSlash = url.lastIndexOf('/')
+  return url.slice(0, lastSlash)
 }

@@ -11,6 +11,7 @@ import {
   ArrowLeft
 } from 'react-bootstrap-icons'
 import { useRouter } from 'next/router'
+import { getUpperPath } from '../../lib/common'
 
 interface Props {
   header: string,
@@ -20,11 +21,6 @@ interface Props {
 
 const Banner: React.FC<Props> = ({ header, previousSlug, nextSlug }) => {
   const router = useRouter()
-
-  const getUpperPath = (url: string) => {
-    const lastSlash = url.lastIndexOf('/')
-    return url.slice(0, lastSlash)
-  }
 
   return (
     <FullwidthContainer>

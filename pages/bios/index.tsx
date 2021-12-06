@@ -4,6 +4,8 @@ import { getPostsForDisplay, getTags } from '../../lib/posts'
 import { ListedPost } from '../../lib/types'
 import { WideContainer } from '../../components/Container'
 import PostList from '../../components/PostList'
+import usePageQuery from '../../hooks/usePageQuery'
+import { useQueryState } from 'next-usequerystate'
 
 interface Props {
   posts: ListedPost[],
@@ -11,6 +13,9 @@ interface Props {
 }
 
 const Biographies: NextPage<Props> = ({ posts, tags }) => {
+  const [, setPage] = useQueryState<number>('page')
+  const postsToShow = usePageQuery('biographies', posts)
+
   return (
     <WideContainer>
       <Head>
@@ -20,9 +25,11 @@ const Biographies: NextPage<Props> = ({ posts, tags }) => {
       </Head>
       <PostList
         label='Biographies'
-        posts={posts}
+        posts={postsToShow}
         tags={tags}
       />
+      <p onClick={() => setPage(1)}>1</p>
+      <p onClick={() => setPage(2)}>2</p>
     </WideContainer>
   )
 }

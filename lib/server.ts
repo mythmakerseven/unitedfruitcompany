@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 // Direct calls to the Wordpress API.
 // These functions should only be called in the /api/ routes.
 
-import { formatPosts, getPaginatedResponse } from './common'
+import { formatListedPosts, formatPosts, getPage, getPaginatedResponse } from './common'
 
-const postsURL = `${process.env.POSTS_URL}/?number=100`
+const postsURL = `${process.env.POSTS_URL}/?number=20`
 
 // Get all posts from a specific category
 export const getCategory = async (category: string) => {
@@ -14,6 +15,11 @@ export const getCategory = async (category: string) => {
   } catch (e: any) {
     return { error: e.message }
   }
+}
+
+export const getCategoryPage = async (category: string, page: number) => {
+  const posts = await getPage(`${postsURL}&category=${category}`, page)
+  return formatListedPosts(posts)
 }
 
 // Get posts from within a category that match a search query
