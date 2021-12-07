@@ -1,8 +1,7 @@
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { getPageCount, getPostsForDisplay, getTags } from '../../lib/posts'
+import { getPostsForDisplay, getTags } from '../../lib/posts'
 import { ListedPost } from '../../lib/types'
-import { WideContainer } from '../../components/Container'
 import PostTimeline from '../../components/PostTimeline'
 import usePageQuery from '../../hooks/usePageQuery'
 
