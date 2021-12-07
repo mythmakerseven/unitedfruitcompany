@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { useState } from 'react'
 import { Post } from '../../lib/types'
 import CloserLook from './CloserLook'

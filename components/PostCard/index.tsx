@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { ListedPost } from '../../lib/types'
 import Link from 'next/link'
 import {
