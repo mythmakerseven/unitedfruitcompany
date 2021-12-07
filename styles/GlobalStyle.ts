@@ -49,9 +49,11 @@ export const theme = {
   colors: {
     primary: '#f6f6ee',
     secondary: '#e6d300',
-    thirdary: '#ffffe0'
+    thirdary: '#ffffe0',
+    darkBackground: '#3a3a3a'
   },
   navbar: {
     height: '100px'
-  }
+  },
+  shadow: '0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.2)'
 }

@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
 export const Pane = styled.div`
-  background: #3a3a3a;
+  background: ${({ theme }) => theme.colors.darkBackground};
   margin-top: 115px;
   border-radius: 10px;
   font-family: 'Alegreya Sans';
   color: white;
+  box-shadow: ${({ theme }) => theme.shadow};
 `
 
 export const Content = styled.div`

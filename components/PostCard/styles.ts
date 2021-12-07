@@ -15,7 +15,7 @@ export const Card = styled.div`
   height: 280px;
   width: 220px;
   border-radius: 20px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: ${({ theme }) => theme.shadow};
   background: ${({ theme }) => theme.colors.secondary};
   transition: transform 0.3s;
   text-align: center;

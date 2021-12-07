@@ -5,10 +5,12 @@ declare module 'styled-components' {
     colors: {
       primary: string,
       secondary: string,
-      thirdary: string
+      thirdary: string,
+      darkBackground: string
     },
     navbar: {
       height: string
-    }
+    },
+    shadow: string
   }
 }
