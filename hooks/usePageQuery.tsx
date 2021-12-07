@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { ListedPost } from '../lib/types'
 
 const usePageQuery = (category: string, initialPosts: ListedPost[]) => {
-  const [page] = useQueryState<number>('page')
+  const [page] = useQueryState('page')
   const [posts, setPosts] = useState(initialPosts)
 
   const mountedRef = useRef(true)
@@ -15,7 +15,7 @@ const usePageQuery = (category: string, initialPosts: ListedPost[]) => {
   }, [])
 
   useEffect(() => {
-    const getPosts = async (page: number) => {
+    const getPosts = async (page: string) => {
       const response = await fetch(`/api/${category}/${page}`)
       const newPosts = await response.json() as ListedPost[]
 
@@ -25,10 +25,10 @@ const usePageQuery = (category: string, initialPosts: ListedPost[]) => {
     }
 
     if (page) {
-      if (page === 1) {
+      if (page === '1') {
         setPosts(initialPosts)
       } else {
-        getPosts(page)
+        getPosts(page.toString())
       }
     }
   }, [category, initialPosts, page])

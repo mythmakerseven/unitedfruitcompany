@@ -38,14 +38,9 @@ const requestFromServer = async () => {
     fs.mkdirSync(cacheFolder)
   }
 
-  // Sort posts alphabetically
-  const sortedPosts = formattedPosts.sort((a, b) => {
-    return a.title.toLowerCase().localeCompare(b.title.toLowerCase())
-  })
+  fs.writeFileSync(cacheFile, JSON.stringify(formattedPosts))
 
-  fs.writeFileSync(cacheFile, JSON.stringify(sortedPosts))
-
-  return sortedPosts
+  return formattedPosts
 }
 
 const getCachedPosts = () => {

@@ -1,16 +1,23 @@
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { getPostsForDisplay, getTags } from '../../lib/posts'
+import { getPageCount, getPostsForDisplay, getTags } from '../../lib/posts'
 import { ListedPost } from '../../lib/types'
 import { WideContainer } from '../../components/Container'
 import PostList from '../../components/PostList'
+import { useQueryState } from 'next-usequerystate'
+import PagePicker from '../../components/PagePicker'
+import usePageQuery from '../../hooks/usePageQuery'
 
 interface Props {
   posts: ListedPost[],
+  pageCount: number,
   tags: string[]
 }
 
-const Timeline: NextPage<Props> = ({ posts, tags }) => {
+const Timeline: NextPage<Props> = ({ posts, pageCount, tags }) => {
+  const [, setPage] = useQueryState<number>('page')
+  const postsToShow = usePageQuery('biographies', posts)
+
   return (
     <WideContainer>
       <Head>
@@ -20,19 +27,22 @@ const Timeline: NextPage<Props> = ({ posts, tags }) => {
       </Head>
       <PostList
         label='Timeline'
-        posts={posts}
+        posts={postsToShow}
         tags={tags}
       />
+      <PagePicker pageCount={pageCount} setPage={setPage} />
     </WideContainer>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await getPostsForDisplay('Timeline')
+  const pageCount = await getPageCount('Timeline')
   const tags = await getTags('Timeline')
   return {
     props: {
       posts,
+      pageCount,
       tags
     }
   }

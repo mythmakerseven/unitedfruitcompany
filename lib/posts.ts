@@ -29,6 +29,24 @@ export const getCategory = async (category: string) => {
   return posts.filter(post => post.categories.includes(category.toLowerCase()))
 }
 
+export const getCategoryFirstPage = async (category: string) => {
+  const posts = await getPosts()
+
+  const postsInCategory = posts.filter(post => post.categories.includes(category.toLowerCase()))
+
+  return postsInCategory.slice(0, 20)
+}
+
+export const getPageCount = async (category: string) => {
+  const posts = await getPosts()
+
+  const postsInCategory = posts.filter(post => post.categories.includes(category.toLowerCase()))
+
+  // 20 results per page, so we can do this little operation to get the page count
+  const pageCount = (Math.floor(postsInCategory.length / 20)) + 1
+  return pageCount
+}
+
 export const getSlugs = async (category: string) => {
   const posts = await getCategory(category)
 
@@ -66,7 +84,7 @@ export const getTags = async (category: string) => {
 }
 
 export const getPostsForDisplay = async (category: string) => {
-  const posts = await getCategory(category)
+  const posts = await getCategoryFirstPage(category)
 
   return posts.map(post => {
     const trimmedData: ListedPost = {
