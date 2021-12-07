@@ -8,9 +8,8 @@ This frontend is developed by Camden Mecklem using Next.js and the Wordpress API
 
 ## Development notes
 
-* Use Next.js's `Image` component wherever possible to save bandwidth. However, images uploaded to Wordpress, such as the portraits in biography pages, do not consume Vercel bandwidth.
+* Don't use Next.js's `Image` component. Instead, host images on Wordpress. Wordpress does its own optimization if you append a width param to the URL, such as `wordpress.com/example.png?w=600`. This serves the image as webp, and scales it if the width value is smaller than the original width.
 * There's a lot of code duplication between the different resource paths, but I expect them to diverge as each post type will have a different presentation.
-* Investigate using the `thumbnail` field on WP post objects to save users' bandwidth on post listing pages.
 
 ## Commands
 
