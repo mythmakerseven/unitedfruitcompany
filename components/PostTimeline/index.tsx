@@ -1,8 +1,10 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { ListedPost } from '../../lib/types'
 import Banner from './Banner'
-import GridItem from './GridItem'
+import ImageBox from './ImageBox'
+import InfoBox from './InfoBox'
 import {
+  Grid,
   Container
 } from './styles'
 
@@ -11,7 +13,23 @@ interface Props {
 }
 
 const PostTimeline: React.FC<Props> = ({ posts }) => {
+  const [scrollHeight, setScrollHeight] = useState(0)
+  const [currentPost, setCurrentPost] = useState(posts[0])
+
   const gridRef = useRef<HTMLDivElement>(null)
+
+  const handleScroll = () => {
+    console.log('just scrolled!')
+    setScrollHeight(window.scrollY)
+  }
+
+  useEffect(() => {
+    document.addEventListener('scroll', handleScroll)
+
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   // Sort the posts by date (they're all titled e.g. 1880-1900)
   const sortedPosts = posts.sort((a, b) => {
@@ -23,34 +41,29 @@ const PostTimeline: React.FC<Props> = ({ posts }) => {
     return 0
   })
 
-  // Temporary to make the page less ugly until we get images set up for all the posts.
-  const bgs = [
-    'black',
-    '#34568B',
-    'navy',
-    'maroon',
-    '#274e13',
-    '#1C3728',
-    '#741b47'
-  ]
-
   return (
     <Container>
       <Banner scrollToContent={() => gridRef.current?.scrollIntoView( { behavior: 'smooth' })} />
-      <div ref={gridRef}>
-        {sortedPosts.map((post, index) => {
-          return (
-            <GridItem
-              key={post.ID}
-              post={post}
-              backgroundColor={bgs[index]}
-            >
-              <h1>{post.title}</h1>
-              <div dangerouslySetInnerHTML={{__html: post.excerpt}} />
-            </GridItem>
-          )})
-        }
-      </div>
+      <Grid ref={gridRef}>
+        <div>
+          {sortedPosts.map((post, index) => {
+            return (
+              <>
+                <InfoBox
+                  key={post.ID}
+                  scrollHeight={scrollHeight}
+                  post={post}
+                  index={index + 1}
+                >
+                  <h1>{post.title}</h1>
+                  <div dangerouslySetInnerHTML={{__html: post.excerpt}} />
+                </InfoBox>
+              </>
+            )})
+          }
+        </div>
+        <ImageBox currentPost={currentPost} />
+      </Grid>
     </Container>
   )
 }
