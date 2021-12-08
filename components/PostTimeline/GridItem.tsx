@@ -1,27 +1,33 @@
 import React from 'react'
 import TimelineHeader from './TimelineHeader'
+import Link from 'next/link'
 import {
   Item,
   RightSide,
-  LeftSide
+  LeftSide,
+  Content
 } from './GridItem.styles'
+import { ListedPost } from '../../lib/types'
 
 interface Props {
-  backgroundColor: string
+  backgroundColor: string,
+  post: ListedPost
 }
 
-const GridItem: React.FC<Props> = ({ backgroundColor, children }) => {
+const GridItem: React.FC<Props> = ({ backgroundColor, post, children }) => {
   const spans = React.Children.toArray(children)
 
   return (
     <Item>
       <LeftSide>
-        <TimelineHeader>
-          {spans}
-        </TimelineHeader>
+        <Content>
+          <TimelineHeader>
+            {spans}
+          </TimelineHeader>
+        </Content>
       </LeftSide>
       <RightSide backgroundColor={backgroundColor}>
-        <p>work in progress</p>
+        <Link href={`/timeline/${post.slug}`}>See more</Link>
       </RightSide>
     </Item>
   )

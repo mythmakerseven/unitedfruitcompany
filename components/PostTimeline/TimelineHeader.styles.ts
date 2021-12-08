@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 import { animated } from '@react-spring/web'
 
-export const Header = styled(animated.h1)`
+export const Header = styled(animated.span)`
   font-size: 3.5rem;
-  text-align: center;
   padding: 0;
   margin: 0;
 `

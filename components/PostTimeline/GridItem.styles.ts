@@ -25,3 +25,7 @@ export const LeftSide = styled.div`
   justify-content: center;
   align-items: center;
 `
+
+export const Content = styled.div`
+  padding: 10%;
+`

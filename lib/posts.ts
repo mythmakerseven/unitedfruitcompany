@@ -92,6 +92,7 @@ export const getPostsForDisplay = async (category: string) => {
       title: post.title,
       date: post.date,
       slug: post.slug,
+      excerpt: post.excerpt,
       tags: post.tags,
       featured_image: post.featured_image ? post.featured_image : null
     }

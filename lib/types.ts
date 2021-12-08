@@ -14,7 +14,7 @@ export interface Post {
 }
 
 // For list pages, e.g. /bios, where we don't need certain properties.
-export type ListedPost = Omit<Post, 'content' | 'excerpt' | 'categories'>
+export type ListedPost = Omit<Post, 'content' | 'categories'>
 
 export interface DisplayedPost extends Post {
   // The below properties don't come from the API, we add them to
