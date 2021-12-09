@@ -17,9 +17,9 @@ const PostTimeline: React.FC<Props> = ({ posts }) => {
   const [currentPost, setCurrentPost] = useState(posts[0])
 
   const gridRef = useRef<HTMLDivElement>(null)
+  const itemRef = useRef([])
 
   const handleScroll = () => {
-    console.log('just scrolled!')
     setScrollHeight(window.scrollY)
   }
 
@@ -30,6 +30,14 @@ const PostTimeline: React.FC<Props> = ({ posts }) => {
       document.removeEventListener('scroll', handleScroll)
     }
   }, [])
+
+  useEffect(() => {
+    const postHeight = Math.max(window.innerHeight, 800)
+    const currentHeight = window.scrollY - window.innerHeight
+    const currentIndex = Math.round(currentHeight / postHeight)
+    const displayIndex = currentIndex < 0 ? 1 : currentIndex
+    setCurrentPost(posts[displayIndex])
+  }, [posts, scrollHeight])
 
   // Sort the posts by date (they're all titled e.g. 1880-1900)
   const sortedPosts = posts.sort((a, b) => {
@@ -48,9 +56,11 @@ const PostTimeline: React.FC<Props> = ({ posts }) => {
         <div>
           {sortedPosts.map((post, index) => {
             return (
-              <>
+              <div
+                key={post.ID}
+                ref={itemRef.current[index]}
+              >
                 <InfoBox
-                  key={post.ID}
                   scrollHeight={scrollHeight}
                   post={post}
                   index={index + 1}
@@ -58,7 +68,7 @@ const PostTimeline: React.FC<Props> = ({ posts }) => {
                   <h1>{post.title}</h1>
                   <div dangerouslySetInnerHTML={{__html: post.excerpt}} />
                 </InfoBox>
-              </>
+              </div>
             )})
           }
         </div>

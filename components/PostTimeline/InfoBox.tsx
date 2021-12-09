@@ -23,7 +23,6 @@ const InfoBox: React.FC<Props> = ({ post, scrollHeight, index, children }) => {
     if (itemRef.current) {
       const windowHeight = window.innerHeight
       const scrollTop = itemRef.current.clientHeight * index
-      console.log(windowHeight - scrollTop)
       if (Math.abs(windowHeight - scrollTop) < (windowHeight / 2)) {
         setIsActive(true)
       } else {
@@ -33,7 +32,9 @@ const InfoBox: React.FC<Props> = ({ post, scrollHeight, index, children }) => {
   }, [index, scrollHeight])
 
   useEffect(() => {
-    console.log(`Is ${post.title} active? ${isActive}`)
+    if (isActive) {
+      console.log(`${post.title} is now active.`)
+    }
   }, [isActive, post.title])
 
   return (
