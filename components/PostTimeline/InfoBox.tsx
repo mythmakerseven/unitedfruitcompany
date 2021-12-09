@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import TimelineHeader from './TimelineHeader'
 import {
   Item,
@@ -12,30 +12,10 @@ interface Props {
   index: number
 }
 
-const InfoBox: React.FC<Props> = ({ post, scrollHeight, index, children }) => {
-  const [isActive, setIsActive] = useState(false)
-
+const InfoBox: React.FC<Props> = ({ children }) => {
   const content = React.Children.toArray(children)
 
   const itemRef = useRef<HTMLDivElement>(null)
-  
-  useEffect(() => {
-    if (itemRef.current) {
-      const windowHeight = window.innerHeight
-      const scrollTop = itemRef.current.clientHeight * index
-      if (Math.abs(windowHeight - scrollTop) < (windowHeight / 2)) {
-        setIsActive(true)
-      } else {
-        setIsActive(false)
-      }
-    }
-  }, [index, scrollHeight])
-
-  useEffect(() => {
-    if (isActive) {
-      console.log(`${post.title} is now active.`)
-    }
-  }, [isActive, post.title])
 
   return (
     <Item

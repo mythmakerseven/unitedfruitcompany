@@ -32,11 +32,15 @@ const PostTimeline: React.FC<Props> = ({ posts }) => {
   }, [])
 
   useEffect(() => {
-    const postHeight = Math.max(window.innerHeight, 800)
-    const currentHeight = window.scrollY - window.innerHeight
-    const currentIndex = Math.round(currentHeight / postHeight)
-    const displayIndex = currentIndex < 0 ? 1 : currentIndex
-    setCurrentPost(posts[displayIndex])
+    if (!window) {
+      setCurrentPost(posts[0])
+    } else {
+      const postHeight = Math.max(window.innerHeight, 800)
+      const currentHeight = window.scrollY - window.innerHeight
+      const currentIndex = Math.round(currentHeight / postHeight)
+      const displayIndex = currentIndex < 0 ? 0 : currentIndex
+      setCurrentPost(posts[displayIndex])
+    }
   }, [posts, scrollHeight])
 
   // Sort the posts by date (they're all titled e.g. 1880-1900)
