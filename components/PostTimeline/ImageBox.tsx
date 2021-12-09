@@ -27,7 +27,6 @@ const ImageBox: React.FC<Props> = ({ currentPost }) => {
 
     // Clear any existing timeout
     if (timeoutRef.current) {
-      console.log('clearing old timeout')
       window.clearTimeout(timeoutRef.current)
     }
 
