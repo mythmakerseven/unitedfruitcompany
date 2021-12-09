@@ -36,6 +36,7 @@ Reusable React components are stored in the `/components` folder.
 * `Post`: Displays the contents of a text post, with some simple logic for handling featured images.
 * `PostCard`: A card that takes a post object as a prop, and displays the title and featured image. Intended to be used to list text-based posts, e.g. on the `/bios` page.
 * `PostList`: Given an array of posts, `PostList` spits out a header, a bunch of `PostCard`s, and a `SearchPane` with tag suggestions.
+* `PostTimeline`: Displays posts in a full-height, slideshow style, used on the Timeline page of the site.
 * `Resource`: A bibliography display that takes citation information as props and turns it into a simple card. Not currently used, will be either removed or heavily redesigned in the future.
 * `ResourceDisplay`: A gallery-style display for resources (i.e. images and PDFs). Still under development.
 * `SearchPane`: Allows the user to search for posts, providing both a desktop and mobile version. It requires filter logic to reside in its parent component--it just passes up the query.
