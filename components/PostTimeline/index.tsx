@@ -35,10 +35,19 @@ const PostTimeline: React.FC<Props> = ({ posts }) => {
     if (!window) {
       setCurrentPost(posts[0])
     } else {
-      const postHeight = Math.max(window.innerHeight, 800)
       const currentHeight = window.scrollY - window.innerHeight
-      const currentIndex = Math.round(currentHeight / postHeight)
-      const displayIndex = currentIndex < 0 ? 0 : currentIndex
+      const currentIndex = Math.round(currentHeight / window.innerHeight)
+
+      let displayIndex
+      // Handle what to do if the user scrolls below or above the component.
+      if (currentIndex < 0) {
+        displayIndex = 0
+      } else if (currentIndex > posts.length - 1) {
+        displayIndex = posts.length - 1
+      } else {
+        displayIndex = currentIndex
+      }
+
       setCurrentPost(posts[displayIndex])
     }
   }, [posts, scrollHeight])
