@@ -6,15 +6,25 @@ export const Container = styled.div`
   color: white;
 `
 
-export const List = styled.ul`
-  list-style-type: none;
-  color: white;
-  font-size: 2rem;
-  padding: 0;
-  margin: 0;
-`
-
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+`
+
+type ButtonDirection = 'up' | 'down'
+
+export const NavButton = styled.button< { isActive: boolean, direction: ButtonDirection  } >`
+  font-size: 3rem;
+  position: fixed;
+  color: white;
+  background: none;
+  border: none;
+  left: calc(50vw - 30px);
+  ${props => props.direction === 'down' ? 'bottom: 20px;' : 'top: 20px;'}
+  z-index: 1000;
+  display: ${props => props.isActive ? 'initial' : 'none'};
+
+  :hover {
+    cursor: pointer;
+  }
 `

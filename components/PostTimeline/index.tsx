@@ -5,7 +5,8 @@ import ImageBox from './ImageBox'
 import InfoBox from './InfoBox'
 import {
   Grid,
-  Container
+  Container,
+  NavButton
 } from './styles'
 
 interface Props {
@@ -14,10 +15,10 @@ interface Props {
 
 const PostTimeline: React.FC<Props> = ({ posts }) => {
   const [scrollHeight, setScrollHeight] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0)
   const [activePost, setActivePost] = useState(posts[0])
 
   const gridRef = useRef<HTMLDivElement>(null)
-  const itemRef = useRef([])
 
   const handleScroll = () => {
     setScrollHeight(window.scrollY)
@@ -49,6 +50,7 @@ const PostTimeline: React.FC<Props> = ({ posts }) => {
       }
 
       setActivePost(posts[displayIndex])
+      setCurrentIndex(displayIndex)
     }
   }, [posts, scrollHeight])
 
@@ -62,16 +64,34 @@ const PostTimeline: React.FC<Props> = ({ posts }) => {
     return 0
   })
 
+  const scrolltoItem = (index: number) => {
+    const amountToScroll = window.innerHeight + (window.innerHeight * index)
+    window.scroll({ top: amountToScroll, behavior: 'smooth' })
+  }
+
   return (
     <Container>
       <Banner scrollToContent={() => gridRef.current?.scrollIntoView( { behavior: 'smooth' })} />
       <Grid ref={gridRef}>
+        <NavButton
+          isActive={activePost !== posts[0]}
+          direction='up'
+          onClick={() => scrolltoItem(currentIndex - 1)}
+        >
+          &#8593;
+        </NavButton>
+        <NavButton
+          isActive={activePost !== posts[posts.length - 1] && typeof window !== 'undefined' && window.scrollY > window.innerHeight}
+          direction='down'
+          onClick={() => scrolltoItem(currentIndex + 1)}
+        >
+          &#8595;
+        </NavButton>
         <div>
-          {sortedPosts.map((post, index) => {
+          {sortedPosts.map(post => {
             return (
               <div
                 key={post.ID}
-                ref={itemRef.current[index]}
               >
                 <InfoBox
                   post={post}

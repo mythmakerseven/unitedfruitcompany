@@ -26,6 +26,10 @@ export const Box = styled.div<{ backgroundurl: string, opacity: number }>`
     background-color: rgba(0, 0, 0, 0.35);
   }
 
+  a:focus {
+    color: #e6e600;
+  }
+
   @media (max-width: 1000px) {
     a {
       font-size: 1.8rem;
