@@ -49,11 +49,12 @@ const Home: NextPage = () => {
       />
 
       <Hero
-        header='Cabbages and Kings'
-        text={'The company\'s influence spanned across Latin America, ranging from the Caribbean to Central and South America.'}
-        picturePath='https://unitedfruitcompany.files.wordpress.com/2021/11/map.jpg?w=1200'
+        header='Timeline'
+        text={'View our interactive timeline documenting the history of the United Fruit Company from its predecessors to its dissolution.'}
+        picturePath='https://unitedfruitcompany.files.wordpress.com/2021/12/screenshot-2021-12-10-at-16-26-07-timeline-united-fruit-company.png?w=800'
         pictureAltText='Map of the United States, Mexico, and Central America published by the United Fruit Company.'
         side={Side.Right}
+        link='/timeline'
       />
 
       <Hero

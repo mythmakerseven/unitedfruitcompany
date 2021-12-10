@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Image from '../Image'
 import { Container, TextSide, PicSide } from './styles'
 
@@ -11,13 +12,16 @@ interface Props {
   text: string,
   picturePath: string,
   pictureAltText: string,
-  side: Side
+  side: Side,
+  link?: string
 }
 
-const Hero: React.FC<Props> = ({ header, text, picturePath, pictureAltText, side }) => {
+const Hero: React.FC<Props> = ({ header, text, picturePath, pictureAltText, side, link }) => {
   const textSection = (
     <TextSide>
-      <h1>{header}</h1>
+      <h1>
+        {link ? <Link href={link}>{header + ' ➔'}</Link> : header}
+      </h1>
       <p>{text}</p>
     </TextSide>
   )

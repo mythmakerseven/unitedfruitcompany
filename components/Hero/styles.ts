@@ -26,6 +26,10 @@ export const Container = styled.div`
 export const TextSide = styled.div`
   max-width: 40%;
 
+  h1 {
+    margin: 0;
+  }
+
   @media (max-width: 800px) {
     max-width: 90%;
     order: 2;
@@ -35,7 +39,7 @@ export const TextSide = styled.div`
 export const PicSide = styled.div`
   position: relative;
   height: 300px;
-  width: 500px;
+  width: 600px;
 
   img {
     border-radius: 30px;
@@ -45,6 +49,7 @@ export const PicSide = styled.div`
 
   @media (max-width: 800px) {
     max-width: 90%;
+    height: 200px;
     order: 1;
   }
 `
