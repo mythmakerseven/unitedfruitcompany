@@ -74,7 +74,7 @@ const PostTimeline: React.FC<Props> = ({ posts }) => {
       <Banner scrollToContent={() => gridRef.current?.scrollIntoView( { behavior: 'smooth' })} />
       <Grid ref={gridRef}>
         <NavButton
-          isActive={activePost !== posts[0]}
+          isActive={activePost !== posts[0] && typeof window !== 'undefined'}
           direction='up'
           onClick={() => scrolltoItem(currentIndex - 1)}
         >
