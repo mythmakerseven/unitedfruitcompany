@@ -81,7 +81,7 @@ const PostTimeline: React.FC<Props> = ({ posts }) => {
           &#8593;
         </NavButton>
         <NavButton
-          isActive={activePost !== posts[posts.length - 1] && typeof window !== 'undefined' && window.scrollY > window.innerHeight}
+          isActive={activePost !== posts[posts.length - 1] && typeof window !== 'undefined' && window.scrollY >= window.innerHeight}
           direction='down'
           onClick={() => scrolltoItem(currentIndex + 1)}
         >
