@@ -13,7 +13,7 @@ interface Props {
   posts: ListedPost[]
 }
 
-const PostTimeline: React.FC<Props> = ({ posts }) => {
+const Timeline: React.FC<Props> = ({ posts }) => {
   const [scrollHeight, setScrollHeight] = useState(0)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [activePost, setActivePost] = useState(posts[0])
@@ -107,4 +107,4 @@ const PostTimeline: React.FC<Props> = ({ posts }) => {
   )
 }
 
-export default PostTimeline
+export default Timeline

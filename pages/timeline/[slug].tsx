@@ -1,10 +1,10 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import PostContent from '../../components/Post'
 import { getPostData, getSlugs } from '../../lib/posts'
 import { DisplayedPost, PostParams } from '../../lib/types'
 import Container from '../../components/Container'
 import Banner from '../../components/Banner'
+import TimelinePost from '../../components/TimelinePost'
 
 interface Props {
   postData: DisplayedPost
@@ -24,7 +24,7 @@ const TimelineView: NextPage<Props> = ({ postData }) => {
         nextSlug={postData.nextSlug}
       />
       <Container>
-        <PostContent post={postData} />
+        <TimelinePost post={postData} />
       </Container>
     </div>
   )
