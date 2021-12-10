@@ -1,17 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Header
 } from './TimelineHeader.styles'
 import { useTrail, config } from '@react-spring/web'
+import { ListedPost } from '../../lib/types'
 
-const TimelineHeader: React.FC = ({ children }) => {
+interface Props {
+  post: ListedPost,
+  activePost: ListedPost
+}
+
+const TimelineHeader: React.FC<Props> = ({ post, activePost, children }) => {
+  const [isActive, setIsActive] = useState(false)
   const lines = React.Children.toArray(children)
 
   const trail = useTrail(lines.length, {
-    to: { opacity: 1 },
-    from: { opacity: 0 },
+    to: { opacity: isActive ? 1 : 0 },
+    from: { opacity: isActive ? 0 : 1 },
     config: config.molasses
   })
+
+  useEffect(() => {
+    if (post.title === activePost.title) {
+      setIsActive(true)
+    } else {
+      setIsActive(false)
+    }
+  }, [activePost, post.title])
 
   return (
     <>

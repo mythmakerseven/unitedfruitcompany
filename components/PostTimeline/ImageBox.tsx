@@ -6,12 +6,12 @@ import {
 } from './ImageBox.styles'
 
 interface Props {
-  currentPost: ListedPost
+  activePost: ListedPost
 }
 
-const ImageBox: React.FC<Props> = ({ currentPost }) => {
+const ImageBox: React.FC<Props> = ({ activePost }) => {
   const [opacity, setOpacity] = useState(0)
-  const [currentImage, setCurrentImage] = useState(currentPost.featured_image)
+  const [currentImage, setCurrentImage] = useState(activePost.featured_image)
 
   // Keep track of whether we're waiting for a timeout to finish.
   // This prevents flashing images when the user quickly scrolls.
@@ -19,8 +19,8 @@ const ImageBox: React.FC<Props> = ({ currentPost }) => {
 
   useEffect(() => {
     const transition = () => {
-      if (currentPost.featured_image) {
-        setCurrentImage(currentPost.featured_image)
+      if (activePost.featured_image) {
+        setCurrentImage(activePost.featured_image)
         setOpacity(1)
       }
     }
@@ -38,14 +38,14 @@ const ImageBox: React.FC<Props> = ({ currentPost }) => {
         window.clearTimeout(timeoutRef.current)
       }
     }
-  }, [currentPost])
+  }, [activePost])
 
   return (
     <Box
       backgroundurl={`${currentImage}?w=800`}
       opacity={opacity}
     >
-      <Link href={`/timeline/${currentPost.slug}`} passHref>
+      <Link href={`/timeline/${activePost.slug}`} passHref>
         See more &#10132;
       </Link>
     </Box>

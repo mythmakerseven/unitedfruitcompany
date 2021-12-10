@@ -14,7 +14,7 @@ interface Props {
 
 const PostTimeline: React.FC<Props> = ({ posts }) => {
   const [scrollHeight, setScrollHeight] = useState(0)
-  const [currentPost, setCurrentPost] = useState(posts[0])
+  const [activePost, setActivePost] = useState(posts[0])
 
   const gridRef = useRef<HTMLDivElement>(null)
   const itemRef = useRef([])
@@ -33,7 +33,7 @@ const PostTimeline: React.FC<Props> = ({ posts }) => {
 
   useEffect(() => {
     if (!window) {
-      setCurrentPost(posts[0])
+      setActivePost(posts[0])
     } else {
       const currentHeight = window.scrollY - window.innerHeight
       const currentIndex = Math.round(currentHeight / window.innerHeight)
@@ -48,7 +48,7 @@ const PostTimeline: React.FC<Props> = ({ posts }) => {
         displayIndex = currentIndex
       }
 
-      setCurrentPost(posts[displayIndex])
+      setActivePost(posts[displayIndex])
     }
   }, [posts, scrollHeight])
 
@@ -74,18 +74,14 @@ const PostTimeline: React.FC<Props> = ({ posts }) => {
                 ref={itemRef.current[index]}
               >
                 <InfoBox
-                  scrollHeight={scrollHeight}
                   post={post}
-                  index={index + 1}
-                >
-                  <h1>{post.title}</h1>
-                  <div dangerouslySetInnerHTML={{__html: post.excerpt}} />
-                </InfoBox>
+                  activePost={activePost}
+                />
               </div>
             )})
           }
         </div>
-        <ImageBox currentPost={currentPost} />
+        <ImageBox activePost={activePost} />
       </Grid>
     </Container>
   )

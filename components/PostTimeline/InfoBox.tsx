@@ -8,13 +8,10 @@ import { ListedPost } from '../../lib/types'
 
 interface Props {
   post: ListedPost,
-  scrollHeight: number,
-  index: number
+  activePost: ListedPost
 }
 
-const InfoBox: React.FC<Props> = ({ children }) => {
-  const content = React.Children.toArray(children)
-
+const InfoBox: React.FC<Props> = ({ post, activePost }) => {
   const itemRef = useRef<HTMLDivElement>(null)
 
   return (
@@ -22,8 +19,12 @@ const InfoBox: React.FC<Props> = ({ children }) => {
       ref={itemRef}
     >
       <Content>
-        <TimelineHeader>
-          {content}
+        <TimelineHeader
+          post={post}
+          activePost={activePost}
+        >
+          <h1>{post.title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
         </TimelineHeader>
       </Content>
     </Item>
