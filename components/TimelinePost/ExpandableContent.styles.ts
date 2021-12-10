@@ -4,6 +4,7 @@ export const Collapsed = styled.div`
   height: 40vh;
   overflow: hidden;
   mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  pointer-events: none;
 `
 
 export const Expanded = styled.div`

@@ -21,10 +21,10 @@ const TimelinePost: React.FC<Props> = ({ post }) => {
         </ExpandableContent>
       </div>
       <div>
-        <Header textAlign='right'>The People</Header>
+        <Header textAlign='right'>The people</Header>
       </div>
       <div>
-        <Header textAlign='left'>In Their Words</Header>
+        <Header textAlign='left'>In their words</Header>
       </div>
     </Container>
   )
