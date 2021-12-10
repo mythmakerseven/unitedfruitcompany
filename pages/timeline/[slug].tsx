@@ -2,8 +2,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import { getPostData, getSlugs } from '../../lib/posts'
 import { DisplayedPost, PostParams } from '../../lib/types'
-import Container from '../../components/Container'
-import Banner from '../../components/Banner'
+import Container, { FullWidthContainer } from '../../components/Container'
 import TimelinePost from '../../components/TimelinePost'
 
 interface Props {
@@ -18,14 +17,11 @@ const TimelineView: NextPage<Props> = ({ postData }) => {
         <meta name="description" content={postData.excerpt.replace(/(<([^>]+)>)/ig, '')} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Banner
-        header='Timeline'
-        previousSlug={postData.previousSlug}
-        nextSlug={postData.nextSlug}
-      />
-      <Container>
-        <TimelinePost post={postData} />
-      </Container>
+      <FullWidthContainer backgroundColor='black'>
+        <Container>
+          <TimelinePost post={postData} />
+        </Container>
+      </FullWidthContainer>
     </div>
   )
 }

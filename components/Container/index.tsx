@@ -23,4 +23,10 @@ export const WideContainer = styled.div`
   }
 `
 
+export const FullWidthContainer = styled.div< { backgroundColor: string } >`
+  margin: 0;
+  padding: 0 0 40px 0;
+  background: ${props => props.backgroundColor};
+`
+
 export default Container
