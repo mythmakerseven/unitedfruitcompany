@@ -19,14 +19,19 @@ type ButtonDirection = 'up' | 'down'
 
 export const NavButton = styled.button< { isActive: boolean, direction: ButtonDirection  } >`
   font-size: 3rem;
+  width: 66px;
+  height: 66px;
   position: fixed;
   color: white;
-  background: none;
+  background: rgba(243, 230, 187, 0.15);
+  border-radius: 50%;
   border: none;
-  left: calc(50vw - 38px);
+  left: calc(50vw - 33px);
   ${props => props.direction === 'down' ? 'bottom: 20px;' : 'top: 20px;'}
   z-index: 1000;
-  display: ${props => props.isActive ? 'initial' : 'none'};
+  transition: filter 0.75s;
+  filter: opacity(${props => props.isActive ? '1' : '0'});
+  pointer-events: ${props => props.isActive ? 'auto' : 'none'};
 
   :hover {
     cursor: pointer;
