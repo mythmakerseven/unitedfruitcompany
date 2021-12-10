@@ -9,6 +9,10 @@ export const Container = styled.div`
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  @media (max-width: 1000px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 type ButtonDirection = 'up' | 'down'
@@ -19,12 +23,16 @@ export const NavButton = styled.button< { isActive: boolean, direction: ButtonDi
   color: white;
   background: none;
   border: none;
-  left: calc(50vw - 30px);
+  left: calc(50vw - 38px);
   ${props => props.direction === 'down' ? 'bottom: 20px;' : 'top: 20px;'}
   z-index: 1000;
   display: ${props => props.isActive ? 'initial' : 'none'};
 
   :hover {
     cursor: pointer;
+  }
+
+  @media (max-width: 1000px) {
+    display: none;
   }
 `

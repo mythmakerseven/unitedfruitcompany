@@ -13,7 +13,7 @@ export const Box = styled.div<{ backgroundurl: string, opacity: number }>`
   position: sticky;
   top: 0;
   transition: filter 0.5s;
-  filter: opacity(${props => props.opacity});
+  filter: brightness(${props => props.opacity});
 
   a {
     height: 100%;
@@ -31,6 +31,10 @@ export const Box = styled.div<{ backgroundurl: string, opacity: number }>`
   }
 
   @media (max-width: 1000px) {
+    height: 50vh;
+    width: 100%;
+    grid-row: 1;
+
     a {
       font-size: 1.8rem;
     }
