@@ -10,7 +10,7 @@ export interface Post {
   slug: string,
   categories: string[],
   featured_image: string | null,
-  tags: string[]
+  tags: Tags
 }
 
 // For list pages, e.g. /bios, where we don't need certain properties.
@@ -26,4 +26,9 @@ export interface DisplayedPost extends Post {
 // Properly type the props for post pages.
 export interface PostParams extends ParsedUrlQuery {
   slug: string
+}
+
+export interface Tags {
+  labelTags: string[],
+  dateTags: string[]
 }

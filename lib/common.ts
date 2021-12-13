@@ -2,7 +2,7 @@
 
 import axios from 'axios'
 import { decode } from 'html-entities'
-import { ListedPost, Post } from './types'
+import { ListedPost, Post, Tags } from './types'
 
 export const getPage = async (url: string, page: number) => {
   console.log(`Getting single page ${page} from ${url}`)
@@ -34,6 +34,28 @@ export const getPaginatedResponse = async (url: string, page = 1): Promise<Post[
   return posts
 }
 
+// Split tags that represent date ranges into their own array.
+// This is a MacGyver solution for dating posts because we're using
+// Wordpress.com which doesn't allow custom fields.
+export const splitTags = (tags: string[]) => {
+  const pattern = /^\d{4}-\d{4}$/
+
+  const sortedTags: Tags = {
+    dateTags: [],
+    labelTags: []
+  }
+
+  tags.forEach(tag => {
+    if (pattern.test(tag)) {
+      sortedTags.dateTags.push(tag)
+    } else {
+      sortedTags.labelTags.push(tag)
+    }
+  })
+
+  return sortedTags
+}
+
 // Cut down the huge WP objects into smaller ones that contain
 // only the data we need.
 export const formatPosts = (posts: Post[]): Post[] => {
@@ -46,7 +68,7 @@ export const formatPosts = (posts: Post[]): Post[] => {
     slug: post.slug,
     categories: Object.keys(post.categories).map(c => c.toLowerCase()),
     featured_image: post.featured_image ? post.featured_image : null,
-    tags: Object.keys(post.tags)
+    tags: splitTags(Object.keys(post.tags))
   }))
 }
 
@@ -58,7 +80,7 @@ export const formatListedPosts = (posts: Post[]): ListedPost[] => {
     excerpt: post.excerpt,
     slug: post.slug,
     featured_image: post.featured_image ? post.featured_image : null,
-    tags: Object.keys(post.tags)
+    tags: splitTags(Object.keys(post.tags))
   }))
 }
 

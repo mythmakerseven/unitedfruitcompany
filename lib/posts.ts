@@ -65,7 +65,7 @@ export const getTags = async (category: string) => {
   const posts = await getCategory(category)
 
   posts.forEach(post => {
-    post.tags.forEach(tag => {
+    post.tags.labelTags.forEach(tag => {
       tags[tag] = tags[tag] ? tags[tag] + 1 : 1
     })
   })
