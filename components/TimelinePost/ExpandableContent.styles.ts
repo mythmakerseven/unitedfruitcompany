@@ -12,16 +12,20 @@ export const Expanded = styled.div`
   margin: 0;
   height: 100%;
   min-height: 40vh;
+
+  article {
+    margin-top: 40px;
+  }
 `
 
-export const ToggleButton = styled.button<{ toggled: boolean }>`
+export const ToggleButton = styled.button`
   width: 100%;
   text-align: center;
   border: none;
   background: none;
   color: white;
   position: relative;
-  top: ${props => props.toggled ? '' : '-80px' };
+  top: -80px;
   
   :hover {
     cursor: pointer;

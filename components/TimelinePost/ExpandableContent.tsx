@@ -6,7 +6,6 @@ import {
   Flex
 } from './ExpandableContent.styles'
 import {
-  ArrowUp,
   ArrowDown
 } from 'react-bootstrap-icons'
 
@@ -38,9 +37,11 @@ const ExpandableContent: React.FC<Props> = ({ flex, children }) => {
   return (
     <>
       {displayContent()}
-      <ToggleButton toggled={expanded} onClick={() => setExpanded(!expanded)}>
-        { expanded ? <ArrowUp /> : <ArrowDown /> }
-      </ToggleButton>
+      { expanded ? '' : 
+        <ToggleButton onClick={() => setExpanded(true)}>
+          <ArrowDown />
+        </ToggleButton>
+      }
     </>
   )
 }

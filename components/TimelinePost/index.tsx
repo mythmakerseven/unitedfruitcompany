@@ -20,21 +20,25 @@ const TimelinePost: React.FC<Props> = ({ post, bios, docs }) => {
       <div>
         <Header textAlign='left'>The narrative</Header>
         <ExpandableContent flex={false}>
-          <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          <article dangerouslySetInnerHTML={{ __html: post.content }} />
         </ExpandableContent>
       </div>
-      <div>
-        <Header textAlign='right'>The people</Header>
-        <ExpandableContent flex={true}>
-          { bios.map(bio => <PostCard key={bio.ID} post={bio} />) }
-        </ExpandableContent>
-      </div>
-      <div>
-        <Header textAlign='left'>In their words</Header>
-        <ExpandableContent flex={true}>
-          {docs.map(doc => <PostCard key={doc.ID} post={doc} />)}
-        </ExpandableContent>
-      </div>
+      { bios.length > 0 ?
+        <div>
+          <Header textAlign='right'>The people</Header>
+          <ExpandableContent flex={true}>
+            { bios.map(bio => <PostCard key={bio.ID} post={bio} />) }
+          </ExpandableContent>
+        </div>
+      : null }
+      { docs.length > 0 ?
+        <div>
+          <Header textAlign='left'>In their words</Header>
+          <ExpandableContent flex={true}>
+            {docs.map(doc => <PostCard key={doc.ID} post={doc} />)}
+          </ExpandableContent>
+        </div>
+      : '' }
     </Container>
   )
 }
