@@ -3,7 +3,9 @@ import PostCard from '../PostCard'
 import ExpandableContent from './ExpandableContent'
 import {
   Container,
-  BackgroundHeader,
+  BackgroundTitleStart,
+  BackgroundTitleEnd,
+  MobileTitle,
   Header
 } from './styles'
 
@@ -16,7 +18,9 @@ interface Props {
 const TimelinePost: React.FC<Props> = ({ post, bios, docs }) => {
   return (
     <Container>
-      <BackgroundHeader>{post.title}</BackgroundHeader>
+      <BackgroundTitleStart>{post.title.slice(0, 4)}</BackgroundTitleStart>
+      <BackgroundTitleEnd>{post.title.slice(5, 9)}</BackgroundTitleEnd>
+      <MobileTitle>{post.title}</MobileTitle>
       <div>
         <Header textAlign='left'>The narrative</Header>
         <ExpandableContent flex={false}>
