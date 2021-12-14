@@ -34,7 +34,7 @@ Reusable React components are stored in the `/components` folder.
 * `NavOffset`: All it does is use a bit of logic to determine whether to include a `margin-top` property depending on whether we want the navbar to overlap the content or not. Everything is wrapped in this component in `/pages/_app.tsx`.
 * `PagePicker`: Provides a nice menu to navigate between pages in a paginated post list. For props it requires the number of pages and a `setPage` callback.
 * `Post`: Displays the contents of a text post, with some simple logic for handling featured images.
-* `PostCard`: A card that takes a post object as a prop, and displays the title and featured image. Intended to be used to list text-based posts, e.g. on the `/bios` page.
+* `PostCard`: A card that takes a post object as a prop, and displays the title and featured image. Intended to be used to list text-based posts, e.g. on the `/biographies` page.
 * `PostList`: Given an array of posts, `PostList` spits out a header, a bunch of `PostCard`s, and a `SearchPane` with tag suggestions.
 * `PostTimeline`: Displays posts in a full-height, slideshow style, used on the Timeline page of the site.
 * `Resource`: A bibliography display that takes citation information as props and turns it into a simple card. Not currently used, will be either removed or heavily redesigned in the future.

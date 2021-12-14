@@ -13,8 +13,8 @@ export interface Post {
   tags: Tags
 }
 
-// For list pages, e.g. /bios, where we don't need certain properties.
-export type ListedPost = Omit<Post, 'content' | 'categories'>
+// For list pages, e.g. /biographies, where we don't need certain properties.
+export type ListedPost = Omit<Post, 'content'>
 
 export interface DisplayedPost extends Post {
   // The below properties don't come from the API, we add them to

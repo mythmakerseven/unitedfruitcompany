@@ -83,6 +83,27 @@ export const getTags = async (category: string) => {
   return tagArray.slice(0, 20)
 }
 
+export const getTimelineMatches = async (dateRange: string, category: string) => {
+  const posts = await getPosts()
+
+  const found = posts.filter(post => post.tags.dateTags.includes(dateRange) && post.categories.includes(category))
+
+  return found.map(post => {
+    const trimmedData: ListedPost = {
+      ID: post.ID,
+      title: post.title,
+      date: post.date,
+      categories: post.categories,
+      slug: post.slug,
+      excerpt: post.excerpt,
+      tags: post.tags,
+      featured_image: post.featured_image ? post.featured_image : null
+    }
+
+    return trimmedData
+  })
+}
+
 export const getPostsForDisplay = async (category: string) => {
   const posts = await getCategoryFirstPage(category)
 
@@ -91,6 +112,7 @@ export const getPostsForDisplay = async (category: string) => {
       ID: post.ID,
       title: post.title,
       date: post.date,
+      categories: post.categories,
       slug: post.slug,
       excerpt: post.excerpt,
       tags: post.tags,

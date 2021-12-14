@@ -7,15 +7,12 @@ import {
   ImageContainer,
   CardContent
 } from './styles'
-import { useRouter } from 'next/router'
 
 interface Props {
   post: ListedPost
 }
 
 const PostCard: React.FC<Props> = ({ post }) => {
-  const router = useRouter()
-
   const handleImage = () => {
     if (post.featured_image) {
       return (
@@ -36,7 +33,7 @@ const PostCard: React.FC<Props> = ({ post }) => {
 
   return (
     <Container>
-      <Link href={`${router.pathname}/${post.slug}`} passHref>
+      <Link href={`/${post.categories[0]}/${post.slug}`} passHref>
         <a>
           <Card>
             <CardContent>

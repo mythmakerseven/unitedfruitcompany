@@ -2,30 +2,43 @@ import React, { useState } from 'react'
 import {
   Collapsed,
   Expanded,
-  ToggleButton
+  ToggleButton,
+  Flex
 } from './ExpandableContent.styles'
 import {
   ArrowUp,
   ArrowDown
 } from 'react-bootstrap-icons'
 
-const ExpandableContent: React.FC = ({ children }) => {
+interface Props {
+  flex: boolean
+}
+
+const ExpandableContent: React.FC<Props> = ({ flex, children }) => {
   const [expanded, setExpanded] = useState(false)
 
   const content = React.Children.toArray(children)
 
   const displayContent = () => {
     if (expanded) {
-      return <Expanded>{content}</Expanded>
+      return <Expanded>{handleFlex(content)}</Expanded>
     } else {
-      return <Collapsed tabIndex={-1}>{content}</Collapsed>
+      return <Collapsed tabIndex={-1}>{handleFlex(content)}</Collapsed>
+    }
+  }
+
+  const handleFlex = (children: (React.ReactChild | React.ReactFragment | React.ReactPortal)[]) => {
+    if (flex) {
+      return <Flex>{children}</Flex>
+    } else {
+      return children
     }
   }
 
   return (
     <>
       {displayContent()}
-      <ToggleButton onClick={() => setExpanded(!expanded)}>
+      <ToggleButton toggled={expanded} onClick={() => setExpanded(!expanded)}>
         { expanded ? <ArrowUp /> : <ArrowDown /> }
       </ToggleButton>
     </>

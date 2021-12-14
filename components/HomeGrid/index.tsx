@@ -6,7 +6,7 @@ const HomeGrid: React.FC = () => {
     <FlexContainer>
       <FlexContainerContent>
         <HomeGridItem
-          link='/bios'
+          link='/biographies'
           label='Biographies'
           imagePath='https://unitedfruitcompany.files.wordpress.com/2021/11/anne-nygard-h7-v2kkceci-unsplash.jpg?w=480'
         />

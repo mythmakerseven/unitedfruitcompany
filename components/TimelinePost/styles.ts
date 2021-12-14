@@ -22,4 +22,5 @@ export const Header = styled.h1< { textAlign: string } >`
   font-family: Alegreya Sans;
   padding: 0;
   margin: 0;
+  margin-bottom: 20px;
 `

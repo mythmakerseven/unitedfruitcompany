@@ -1,15 +1,17 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { getPostData, getSlugs } from '../../lib/posts'
+import { getPostData, getSlugs, getTimelineMatches } from '../../lib/posts'
 import { DisplayedPost, PostParams } from '../../lib/types'
 import Container, { FullWidthContainer } from '../../components/Container'
 import TimelinePost from '../../components/TimelinePost'
 
 interface Props {
-  postData: DisplayedPost
+  postData: DisplayedPost,
+  bios: DisplayedPost[],
+  docs: DisplayedPost[]
 }
 
-const TimelineView: NextPage<Props> = ({ postData }) => {
+const TimelineView: NextPage<Props> = ({ postData, bios, docs }) => {
   return (
     <div>
       <Head>
@@ -19,7 +21,11 @@ const TimelineView: NextPage<Props> = ({ postData }) => {
       </Head>
       <FullWidthContainer backgroundColor='black'>
         <Container>
-          <TimelinePost post={postData} />
+          <TimelinePost
+            post={postData}
+            bios={bios}
+            docs={docs}
+          />
         </Container>
       </FullWidthContainer>
     </div>
@@ -35,12 +41,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  // The timeline narrative post itself
   const { slug } = context.params as PostParams
+
+  // The other posts connected to this time period
+  const bios = await getTimelineMatches(slug, 'biographies')
+  const docs = await getTimelineMatches(slug, 'documents')
 
   const postData = await getPostData(slug, 'Timeline')
   return {
     props: {
-      postData
+      postData,
+      bios,
+      docs
     }
   }
 }
