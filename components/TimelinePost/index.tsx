@@ -42,7 +42,7 @@ const TimelinePost: React.FC<Props> = ({ post, bios, docs }) => {
             {docs.map(doc => <PostCard key={doc.ID} post={doc} />)}
           </ExpandableContent>
         </div>
-      : '' }
+      : null }
     </Container>
   )
 }
