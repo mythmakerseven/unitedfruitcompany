@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Collapsed = styled.div`
   margin: 0;
+  margin-bottom: 20px;
   max-height: 30vh;
   overflow: hidden;
   mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
@@ -10,6 +11,7 @@ export const Collapsed = styled.div`
 
 export const Expanded = styled.div`
   margin: 0;
+  margin-bottom: 20px;
   height: 100%;
   min-height: 40vh;
 
