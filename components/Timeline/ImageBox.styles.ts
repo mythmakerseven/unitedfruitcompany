@@ -31,7 +31,7 @@ export const Box = styled.div<{ backgroundurl: string, opacity: number }>`
   }
 
   @media (max-width: 1000px) {
-    height: 50vh;
+    height: 35vh;
     width: 100%;
     grid-row: 1;
 

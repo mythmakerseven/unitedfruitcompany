@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { ListedPost } from '../../lib/types'
 import Banner from './Banner'
 import ImageBox from './ImageBox'
@@ -18,6 +18,17 @@ const Timeline: React.FC<Props> = ({ posts }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [activePost, setActivePost] = useState(posts[0])
 
+  // Use screen.height for iOS because of the nonsense with their navbar.
+  const [screenHeight, setScreenHeight] = useState<null | number>(null)
+
+  const getWindowHeight = useCallback(() => {
+    if (screenHeight) {
+      return screenHeight
+    } else {
+      return window.innerHeight
+    }
+  }, [screenHeight])
+
   const gridRef = useRef<HTMLDivElement>(null)
 
   const handleScroll = () => {
@@ -33,11 +44,17 @@ const Timeline: React.FC<Props> = ({ posts }) => {
   }, [])
 
   useEffect(() => {
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+      setScreenHeight(screen.height)
+    }
+  }, [])
+
+  useEffect(() => {
     if (!window) {
       setActivePost(posts[0])
     } else {
-      const currentHeight = window.scrollY - window.innerHeight
-      const currentIndex = Math.round(currentHeight / window.innerHeight)
+      const currentHeight = window.scrollY - getWindowHeight()
+      const currentIndex = Math.round(currentHeight / getWindowHeight())
 
       let displayIndex
       // Handle what to do if the user scrolls below or above the component.
@@ -52,7 +69,7 @@ const Timeline: React.FC<Props> = ({ posts }) => {
       setActivePost(posts[displayIndex])
       setCurrentIndex(displayIndex)
     }
-  }, [posts, scrollHeight])
+  }, [getWindowHeight, posts, scrollHeight])
 
   // Sort the posts by date (they're all titled e.g. 1880-1900)
   const sortedPosts = posts.sort((a, b) => {
@@ -81,7 +98,7 @@ const Timeline: React.FC<Props> = ({ posts }) => {
           &#8593;
         </NavButton>
         <NavButton
-          isActive={activePost !== posts[posts.length - 1] && typeof window !== 'undefined' && window.scrollY >= window.innerHeight}
+          isActive={activePost !== posts[posts.length - 1] && typeof window !== 'undefined' && window.scrollY >= getWindowHeight()}
           direction='down'
           onClick={() => scrolltoItem(currentIndex + 1)}
         >

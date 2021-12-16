@@ -26,7 +26,7 @@ const Resources: NextPage<Props> = ({ posts, pageCount, tags }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PostList
-        label='Resources'
+        label='External Resources'
         posts={postsToShow}
         tags={tags}
       />
