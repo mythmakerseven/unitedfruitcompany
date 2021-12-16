@@ -47,3 +47,4 @@ Reusable React components are stored in the `/components` folder.
 Custom hooks are stored in the `/hooks` folder.
 
 * `usePageQuery`: Given a category and a list of initial/placeholder posts, this hook keeps track of the `page` query parameter in the URL and fetches posts accordingly.
+* `useScreenHeight`: iOS messes up its window.innerHeight calculation when the URL bar is expanded. This hook will check if the user is on iOS and provide the alternative screen.height value instead. It will return window.innerheight for any other device.
