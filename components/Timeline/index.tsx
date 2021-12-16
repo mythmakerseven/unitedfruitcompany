@@ -1,5 +1,6 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { ListedPost } from '../../lib/types'
+import useScreenHeight from '../../hooks/useScreenHeight'
 import Banner from './Banner'
 import ImageBox from './ImageBox'
 import InfoBox from './InfoBox'
@@ -18,16 +19,7 @@ const Timeline: React.FC<Props> = ({ posts }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [activePost, setActivePost] = useState(posts[0])
 
-  // Use screen.height for iOS because of the nonsense with their navbar.
-  const [screenHeight, setScreenHeight] = useState<null | number>(null)
-
-  const getWindowHeight = useCallback(() => {
-    if (screenHeight) {
-      return screenHeight
-    } else {
-      return window.innerHeight
-    }
-  }, [screenHeight])
+  const screenHeight = useScreenHeight()
 
   const gridRef = useRef<HTMLDivElement>(null)
 
@@ -44,17 +36,11 @@ const Timeline: React.FC<Props> = ({ posts }) => {
   }, [])
 
   useEffect(() => {
-    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-      setScreenHeight(screen.height)
-    }
-  }, [])
-
-  useEffect(() => {
     if (!window) {
       setActivePost(posts[0])
     } else {
-      const currentHeight = window.scrollY - getWindowHeight()
-      const currentIndex = Math.round(currentHeight / getWindowHeight())
+      const currentHeight = window.scrollY - screenHeight
+      const currentIndex = Math.round(currentHeight / screenHeight)
 
       let displayIndex
       // Handle what to do if the user scrolls below or above the component.
@@ -69,7 +55,7 @@ const Timeline: React.FC<Props> = ({ posts }) => {
       setActivePost(posts[displayIndex])
       setCurrentIndex(displayIndex)
     }
-  }, [getWindowHeight, posts, scrollHeight])
+  }, [posts, screenHeight, scrollHeight])
 
   // Sort the posts by date (they're all titled e.g. 1880-1900)
   const sortedPosts = posts.sort((a, b) => {
@@ -98,7 +84,7 @@ const Timeline: React.FC<Props> = ({ posts }) => {
           &#8593;
         </NavButton>
         <NavButton
-          isActive={activePost !== posts[posts.length - 1] && typeof window !== 'undefined' && window.scrollY >= getWindowHeight()}
+          isActive={activePost !== posts[posts.length - 1] && typeof window !== 'undefined' && window.scrollY >= screenHeight}
           direction='down'
           onClick={() => scrolltoItem(currentIndex + 1)}
         >
