@@ -10,7 +10,7 @@ interface Props {
   tags: string[]
 }
 
-const Resources: NextPage<Props> = ({ posts, tags }) => {
+const Resources: NextPage<Props> = ({ posts }) => {
   return (
     <WideContainer>
       <Head>

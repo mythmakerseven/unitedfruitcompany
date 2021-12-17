@@ -6,7 +6,7 @@ import {
   Film,
   Book,
   Globe,
-  Image,
+  Image as BSImage, // Fix a linting error where eslint thinks this is an img component
   Bookmark
 } from 'react-bootstrap-icons'
 
@@ -23,7 +23,7 @@ const BibliographyCard: React.FC<Props> = ({ item }) => {
     } else if (tags.includes('video')) {
       return <Film />
     } else if (tags.includes('picture') || tags.includes('photo') || tags.includes('image')) {
-      return <Image />
+      return <BSImage />
     } else if (tags.includes('website')) {
       return <Globe />
     } else {
