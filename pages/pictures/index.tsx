@@ -36,9 +36,9 @@ const Pictures: NextPage<Props> = ({ posts, pageCount, tags }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getPostsForDisplay('Photos')
-  const pageCount = await getPageCount('Photos')
-  const tags = await getTags('Photos')
+  const posts = await getPostsForDisplay('Pictures')
+  const pageCount = await getPageCount('Pictures')
+  const tags = await getTags('Pictures')
   return {
     props: {
       posts,

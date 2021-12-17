@@ -31,7 +31,7 @@ const PictureView: NextPage<Props> = ({ postData }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getSlugs('Photos')
+  const paths = await getSlugs('Pictures')
   return {
     paths,
     fallback: false
@@ -41,7 +41,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as PostParams
 
-  const postData = await getPostData(slug, 'Photos')
+  const postData = await getPostData(slug, 'Pictures')
   return {
     props: {
       postData
