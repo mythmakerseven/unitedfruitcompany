@@ -26,7 +26,7 @@ export const Box = styled.div<{ backgroundurl: string, opacity: number }>`
     background-color: rgba(0, 0, 0, 0.35);
   }
 
-  a:focus {
+  a:focus, a:hover {
     color: #e6e600;
   }
 
