@@ -1,22 +1,42 @@
 import styled from 'styled-components'
-import { BibTypes } from '.'
+import BibTypeIcon from './BibTypeIcon'
 
 interface Props {
-  type: BibTypes,
+  type: string | null,
   filter: string | null,
-  setFilter: (arg: BibTypes) => void
+  setFilter: (arg: string | null) => void
 }
 
 const Button = styled.button<{ selected: boolean }>`
   background: ${({ theme }) => theme.colors.thirdary};
   border: none;
-  height: 40px;
-  width: 40px;
-  ${props => props.selected ? 'filter: brightness(0.5);' : ''}
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.2s;
+  font-size: 1rem;
+  border-radius: 3px;
+  ${props => props.selected ? `background: ${props.theme.colors.darkBackground};` : ''}
+  ${props => props.selected ? 'color: white;' : ''}
+
   :hover {
     cursor: pointer;
   }
+
+  svg {
+    height: 20px;
+    width: 20px;
+  }
 `
+
+const getLabel = (type: string | null) => {
+  if (!type) {
+    return <span>All</span>
+  } else {
+    return <span>{`${type[0].toLocaleUpperCase()}${type?.slice(1)}`}</span>
+  }
+}
 
 const FilterButton: React.FC<Props> = ({ type, filter, setFilter }) => {
   return (
@@ -24,7 +44,8 @@ const FilterButton: React.FC<Props> = ({ type, filter, setFilter }) => {
       onClick={() => setFilter(type)}
       selected={filter === type}
     >
-      {type}
+      <BibTypeIcon type={type} />
+      {getLabel(type)}
     </Button>
   )
 }

@@ -4,11 +4,12 @@ export const Menu = styled.div`
   padding: 10px;
   background: ${({ theme }) => theme.colors.secondary};
   border-radius: 5px;
-  max-width: 400px;
+  max-width: 480px;
   margin: auto auto 40px auto;
   box-shadow: ${({ theme }) => theme.shadow};
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 `

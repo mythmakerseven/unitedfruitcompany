@@ -13,15 +13,19 @@ interface Props {
   items: Post[]
 }
 
-export type BibTypes = null | 'book' | 'picture' | 'website' | 'video' | 'misc'
-
 const Bibliography: React.FC<Props> = ({ items }) => {
   const [itemsToShow, setItemsToShow] = useState(items)
-  const [filter, setFilter] = useState<null | BibTypes>(null)
+  const [filter, setFilter] = useState<null | string>(null)
 
   useEffect(() => {
     if (filter) {
-      setItemsToShow(items.filter(item => item.tags.labelTags.includes(filter)))
+      // Some special handling for the different words people might use for a image. I'm doing this so people don't have
+      // to remember which specific term to use when adding bibliography items.
+      if (filter === 'picture') {
+        setItemsToShow(items.filter(item => item.tags.labelTags.includes('picture' || 'image' || 'photo')))
+      } else {
+        setItemsToShow(items.filter(item => item.tags.labelTags.includes(filter)))
+      }
     } else {
       setItemsToShow(items)
     }
