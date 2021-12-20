@@ -28,6 +28,10 @@ export const Box = styled.div<{ backgroundurl: string, opacity: number }>`
 
   a:focus, a:hover {
     color: #e6e600;
+    // The below line may seem redundant, but it fixes a weird bug on the dev build where
+    // the color property changes the background color too. Re-stating the background
+    // color seems to override that bug and keeps it working correctly.
+    background-color: rgba(0, 0, 0, 0.35);
   }
 
   @media (max-width: 1000px) {

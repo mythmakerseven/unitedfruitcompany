@@ -45,7 +45,7 @@ const ImageBox: React.FC<Props> = ({ activePost }) => {
       backgroundurl={`${currentImage}?w=800`}
       opacity={opacity}
     >
-      <Link href={`/timeline/${activePost.slug}`} passHref>
+      <Link href={`/timeline/${activePost.slug}`}>
         See more &#10132;
       </Link>
     </Box>
