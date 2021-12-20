@@ -12,6 +12,11 @@ export const NavDiv = styled.div`
   box-shadow: 0 1px 2px black;
   font-family: 'Alegreya Sans';
 
+  a:hover {
+    background: none;
+    color: ${({ theme }) => theme.colors.secondary};
+  }
+
   img {
     border-radius: 20px;
   }

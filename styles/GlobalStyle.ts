@@ -32,11 +32,12 @@ export const GlobalStyle = createGlobalStyle`
 
   a {
     color: inherit;
-    transition: color 0.2s;
+    transition: 0.2s;
   }
 
   a:hover {
-    color: #e6e600;
+    background: yellow;
+    color: black;
   }
 
   * {
