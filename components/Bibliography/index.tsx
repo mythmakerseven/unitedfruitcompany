@@ -8,6 +8,7 @@ import {
 } from './styles'
 import { useEffect, useState } from 'react'
 import FilterOptions from './FilterOptions'
+import { a, useTrail } from '@react-spring/web'
 
 interface Props {
   items: Post[]
@@ -31,6 +32,22 @@ const Bibliography: React.FC<Props> = ({ items }) => {
     }
   }, [filter, items])
 
+  const [trail, api] =  useTrail(itemsToShow.length,
+    () => ({
+      config: {
+        mass: 5,
+        tension: 1500,
+        friction: 200
+      },
+      from: { y: -20, opacity: 0 },
+      to: { y: 0, opacity: 1 }
+    })
+  )
+
+  useEffect(() => {
+    api.start({ reset: true })
+  }, [api, itemsToShow])
+
   return (
     <Container>
       <Header>
@@ -45,14 +62,18 @@ const Bibliography: React.FC<Props> = ({ items }) => {
       />
       <p style={{ textAlign: 'center' }}>(These are placeholder citations for development purposes.)</p>
       <PostList>
-        {itemsToShow.map(item =>
-          <BibliographyCard
-            item={item}
-            key={item.ID}
+        {trail.map((style, index) =>
+          <a.div
+            key={itemsToShow[index].ID}
+            style={style}
           >
-            {item.title}
-          </BibliographyCard>
-          )}
+            <BibliographyCard
+              item={itemsToShow[index]}
+            >
+              {itemsToShow[index].title}
+            </BibliographyCard>
+          </a.div>
+        )}
       </PostList>
     </Container>
   )
