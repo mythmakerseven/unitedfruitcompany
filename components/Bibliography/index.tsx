@@ -43,6 +43,7 @@ const Bibliography: React.FC<Props> = ({ items }) => {
         filter={filter}
         setFilter={setFilter}
       />
+      <p style={{ textAlign: 'center' }}>(These are placeholder citations for development purposes.)</p>
       <PostList>
         {itemsToShow.map(item =>
           <BibliographyCard
