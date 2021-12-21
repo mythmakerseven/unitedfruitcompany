@@ -8,10 +8,11 @@ import TimelinePost from '../../components/TimelinePost'
 interface Props {
   postData: DisplayedPost,
   bios: DisplayedPost[],
-  docs: DisplayedPost[]
+  docs: DisplayedPost[],
+  articles: DisplayedPost[]
 }
 
-const TimelineView: NextPage<Props> = ({ postData, bios, docs }) => {
+const TimelineView: NextPage<Props> = ({ postData, bios, docs, articles }) => {
   return (
     <div>
       <Head>
@@ -25,6 +26,7 @@ const TimelineView: NextPage<Props> = ({ postData, bios, docs }) => {
             post={postData}
             bios={bios}
             docs={docs}
+            articles={articles}
           />
         </Container>
       </FullWidthContainer>
@@ -47,13 +49,15 @@ export const getStaticProps: GetStaticProps = async (context) => {
   // The other posts connected to this time period
   const bios = await getTimelineMatches(slug, 'biographies')
   const docs = await getTimelineMatches(slug, 'documents')
+  const articles = await getTimelineMatches(slug, 'articles')
 
   const postData = await getPostData(slug, 'Timeline')
   return {
     props: {
       postData,
       bios,
-      docs
+      docs,
+      articles
     }
   }
 }
