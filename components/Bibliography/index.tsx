@@ -36,9 +36,9 @@ const Bibliography: React.FC<Props> = ({ items }) => {
   const [trail, api] =  useTrail(itemsToShow.length,
     () => ({
       config: {
-        mass: 5,
-        tension: 1500,
-        friction: 200
+        mass: 1,
+        tension: 4000,
+        friction: 250
       },
       from: { y: -20, opacity: 0 },
       to: { y: 0, opacity: 1 }
