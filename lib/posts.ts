@@ -2,6 +2,7 @@ import getPosts from './cache'
 import { ListedPost, Post } from './types'
 
 export const categories = [
+  'articles',
   'biographies',
   'documents',
   'pictures',
