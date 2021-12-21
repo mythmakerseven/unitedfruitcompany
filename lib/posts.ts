@@ -29,6 +29,27 @@ export const getCategory = async (category: string) => {
   return posts.filter(post => post.categories.includes(category.toLowerCase()))
 }
 
+export const getBibliography = async () => {
+  const posts = await getPosts()
+
+  const bibItems = posts.filter(post => post.categories.includes('bibliography'))
+  console.log(bibItems)
+
+  return bibItems.sort((a, b) => {
+    // This stuff needs to be alphabetized in a way that ignores non-letter characters.
+    // So we strip everything other than letters, and then sort based on letters alone.
+    const regex = /[^a-zA-Z ]/g
+    const aContent = a.content.toLocaleLowerCase().replace(regex, '')
+    const bContent = b.content.toLocaleLowerCase().replace(regex, '')
+    
+    if (aContent && bContent) {
+      return aContent.localeCompare(bContent)
+    } else {
+      return 0
+    }
+  })
+}
+
 export const getCategoryFirstPage = async (category: string) => {
   const posts = await getPosts()
 

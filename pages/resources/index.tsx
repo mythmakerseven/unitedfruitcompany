@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { getCategory, getPageCount, getTags } from '../../lib/posts'
+import { getBibliography, getPageCount, getTags } from '../../lib/posts'
 import { Post } from '../../lib/types'
 import { WideContainer } from '../../components/Container'
 import Bibliography from '../../components/Bibliography'
@@ -26,7 +26,7 @@ const Resources: NextPage<Props> = ({ posts }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getCategory('Bibliography')
+  const posts = await getBibliography()
   const pageCount = await getPageCount('Bibliography')
   const tags = await getTags('Bibliography')
   return {
