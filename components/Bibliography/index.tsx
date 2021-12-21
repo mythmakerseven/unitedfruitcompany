@@ -4,6 +4,7 @@ import Container from '../Container'
 import { Post } from '../../lib/types'
 import {
   Header,
+  Description,
   PostList
 } from './styles'
 import { useEffect, useState } from 'react'
@@ -56,11 +57,11 @@ const Bibliography: React.FC<Props> = ({ items }) => {
           averageDuration={1000}
         />
       </Header>
+      <Description>This page lists the sources we used, as well as other resources that we couldn&apos;t secure the rights to reproduce.</Description>
       <FilterOptions
         filter={filter}
         setFilter={setFilter}
       />
-      <p style={{ textAlign: 'center' }}>(These are placeholder citations for development purposes.)</p>
       <PostList>
         {trail.map((style, index) =>
           <a.div

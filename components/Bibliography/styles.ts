@@ -6,6 +6,10 @@ export const Header = styled.h1`
   padding-top: 50px;
 `
 
+export const Description = styled.p`
+  text-align: center;
+`
+
 export const PostList = styled.div`
   display: flex;
   flex-flow: column;
