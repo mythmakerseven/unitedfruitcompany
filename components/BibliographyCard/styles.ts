@@ -10,6 +10,10 @@ export const Box = styled.div`
   grid-template-columns: 1fr 15fr;
   align-items: center;
 
+  div {
+    max-width: 100%;
+  }
+
   svg {
     height: 40px;
     width: 40px;
@@ -29,6 +33,10 @@ export const Box = styled.div`
 
     p {
       font-size: 1rem;
+    }
+
+    a {
+      overflow-wrap: anywhere;
     }
   }
 `
