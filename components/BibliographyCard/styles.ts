@@ -9,7 +9,7 @@ export const Box = styled.div`
   gap: 10px;
   grid-template-columns: 1fr 15fr;
   align-items: center;
-
+  
   svg {
     height: 40px;
     width: 40px;
@@ -28,11 +28,12 @@ export const Box = styled.div`
     }
 
     p {
+      max-width: 70vw;
       font-size: 1rem;
     }
 
     a {
-      overflow-wrap: anywhere;
+      overflow-wrap: break-word;
     }
   }
 `
