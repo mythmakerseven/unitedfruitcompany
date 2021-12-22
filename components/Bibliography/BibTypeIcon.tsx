@@ -16,7 +16,11 @@ const getIcon = (type: string | null) => {
       return (<Book />)
     case 'video':
       return (<Film />)
-    case 'picture' || 'photo' || 'image':
+    case 'picture':
+      return <BSImage />
+    case 'photo':
+      return <BSImage />
+    case 'image':
       return <BSImage />
     case 'website':
       return <Globe />

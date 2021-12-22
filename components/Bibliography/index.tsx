@@ -24,7 +24,11 @@ const Bibliography: React.FC<Props> = ({ items }) => {
       // Some special handling for the different words people might use for a image. I'm doing this so people don't have
       // to remember which specific term to use when adding bibliography items.
       if (filter === 'picture') {
-        setItemsToShow(items.filter(item => item.tags.labelTags.includes('picture' || 'image' || 'photo')))
+        setItemsToShow(items.filter(item => 
+          item.tags.labelTags.includes('picture')
+          || item.tags.labelTags.includes('image')
+          || item.tags.labelTags.includes('photo')
+        ))
       } else {
         setItemsToShow(items.filter(item => item.tags.labelTags.includes(filter)))
       }
