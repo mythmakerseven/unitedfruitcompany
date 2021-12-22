@@ -58,8 +58,8 @@ const Home: NextPage = () => {
       />
 
       <Hero
-        header='Gabriel García Márquez'
-        text='Many authors have mentioned the United Fruit Company in their books. Gabriel García Márquez (pictured), Thomas Pynchon, O. Henry, Pablo Neruda, and many more have been inspired by the history of the company as detailed on this site.'
+        header='In the Arts'
+        text='The United Fruit Company has inspired for numerous writers over the past hundred years. Gabriel García Márquez (pictured), Thomas Pynchon, O. Henry, Pablo Neruda, and many more have included references to the company in their stories.'
         picturePath='https://unitedfruitcompany.files.wordpress.com/2021/11/gabriel-garcia-marquez.jpg?w=600'
         pictureAltText='Portrait of Gabriel García Márquez'
         side={Side.Left}
