@@ -13,7 +13,7 @@ const searchPosts = async (req: NextApiRequest, res: NextApiResponse) => {
   // for text posts, but image materials rely on tags for information.
   // So we check if it's an image post type, and search by tag if it is.
   let posts
-  if (['documents', 'pictures'].includes(category.toString().toLowerCase())) {
+  if (category.toString().toLowerCase() === 'documents') {
     posts = await searchCategoryByTag(category.toString(), query.toString())
   } else {
     posts = await searchCategory(category.toString(), query.toString())

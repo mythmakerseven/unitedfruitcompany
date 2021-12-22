@@ -21,11 +21,6 @@ const HomeGrid: React.FC = () => {
           imagePath='https://unitedfruitcompany.files.wordpress.com/2021/11/sear-greyson-k-zsc7ydj6y-unsplash.jpg?w=480'
         />
         <HomeGridItem
-          link='/pictures'
-          label='Pictures'
-          imagePath='https://unitedfruitcompany.files.wordpress.com/2021/11/roman-kraft-7spg5olfexc-unsplash.jpg?w=480'
-        />
-        <HomeGridItem
           link='/timeline'
           label='Timeline'
           imagePath='https://unitedfruitcompany.files.wordpress.com/2021/11/christina-isabella-pivmfs2l9b8-unsplash.jpg?w=480'

@@ -5,7 +5,6 @@ export const categories = [
   'articles',
   'biographies',
   'documents',
-  'pictures',
   'resources',
   'timeline'
 ]
