@@ -32,7 +32,6 @@ export const getBibliography = async () => {
   const posts = await getPosts()
 
   const bibItems = posts.filter(post => post.categories.includes('bibliography'))
-  console.log(bibItems)
 
   return bibItems.sort((a, b) => {
     // This stuff needs to be alphabetized in a way that ignores non-letter characters.
