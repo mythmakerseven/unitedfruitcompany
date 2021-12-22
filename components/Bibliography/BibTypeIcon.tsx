@@ -3,7 +3,8 @@ import {
   Book,
   Globe,
   Image as BSImage, // Fix a linting error where eslint thinks this is an img component
-  Bookmark
+  Bookmark,
+  Newspaper
 } from 'react-bootstrap-icons'
 
 interface Props {
@@ -24,6 +25,8 @@ const getIcon = (type: string | null) => {
       return <BSImage />
     case 'website':
       return <Globe />
+    case 'periodical':
+      return <Newspaper />
     default:
       return <Bookmark />
   }

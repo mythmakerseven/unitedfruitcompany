@@ -13,6 +13,7 @@ const FilterOptions: React.FC<Props> = ({ filter, setFilter }) => {
     <Menu>
       <FilterButton type={null} filter={filter} setFilter={setFilter} />
       <FilterButton type='book' filter={filter} setFilter={setFilter} />
+      <FilterButton type='periodical' filter={filter} setFilter={setFilter} />
       <FilterButton type='picture' filter={filter} setFilter={setFilter} />
       <FilterButton type='website' filter={filter} setFilter={setFilter} />
       <FilterButton type='video' filter={filter} setFilter={setFilter} />
