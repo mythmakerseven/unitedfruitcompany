@@ -8,6 +8,12 @@ export const Container = styled.div`
   align-items: center;
   flex-flow: column;
   text-align: center;
+
+  @media (max-width: 800px) {
+    h1 {
+      font-size: 2rem;
+    }
+  }
 `
 
 export const SeeMoreButton = styled.button`
