@@ -72,13 +72,13 @@ const Timeline: React.FC<Props> = ({ posts }) => {
       setActivePost(posts[0])
     } else {
       let currentHeight
-      // On mobile devices, the image box is on the top of the screen, with a height of 30vh.
+      // On mobile devices, the image box is on the top of the screen, with a height of 35vh.
       // We need to account for this while calculating which info box is closet.
-      // So this statement adds an offset of 30vh to the scroll height number.
+      // So this statement adds an offset of 35vh to the scroll height number.
       if (window.innerWidth < 1000) {
-        currentHeight = Math.round(window.scrollY - (screenHeight * 0.7))
+        currentHeight = Math.round(scrollHeight - (screenHeight * 0.65))
       } else {
-        currentHeight = window.scrollY - screenHeight
+        currentHeight = scrollHeight - screenHeight
       }
       const currentIndex = Math.round(currentHeight / screenHeight)
 
