@@ -13,9 +13,10 @@ interface Props {
 const Banner: React.FC<Props> = ({ scrollToContent }) => {
   return (
     <Container>
+      <div /> {/* empty div so the below div is centered */}
       <div>
-        <h1>Timeline</h1>
-        <p>The story of the United Fruit Company.</p>
+        <h1>The Story of the United Fruit Company</h1>
+        <p>You can use the arrow keys to scroll.</p>
       </div>
       <SeeMoreButton onClick={() => scrollToContent()}>
         <span>Explore</span>
