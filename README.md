@@ -6,10 +6,15 @@ The content of the site was created by the HIS 394 and HNR 331 combination class
 
 This frontend is developed by Camden Mecklem using Next.js and the Wordpress API.
 
+## Adding stuff
+
+If you want to add a post, follow the guide in [ADDING_POSTS.md](/ADDING_POSTS.md). Also check out the additional information in [CONTRIBUTING_NONCODE.md](/CONTRIBUTING_NONCODE.md).
+
+If you're a developer, [CONTRIBUTING_CODE.md](/CONTRIBUTING_CODE.md) will get you started, along with the documentation below.
+
 ## Development notes
 
 * Don't use Next.js's `Image` component. Instead, host images on Wordpress. Wordpress does its own optimization if you append a width param to the URL, such as `wordpress.com/example.png?w=600`. This serves the image as webp, and scales it if the width value is smaller than the original width.
-* There's a lot of code duplication between the different resource paths, but I expect them to diverge as each post type will have a different presentation.
 
 ## Commands
 

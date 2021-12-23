@@ -15,10 +15,9 @@ In order for the website to display your post, you need to add a category to it.
 Valid categories are:
 
 * Article
+* Bibliography
 * Biographies
 * Documents
-* Photos
-* Resources
 * Timeline
 
 If the post isn't categorized with something from that list, it won't show up on the site.
@@ -53,16 +52,7 @@ Andrew Preston was a major figure in the company for many years, so he is in fou
 
 ## Featured images
 
-The site makes heavy used of Wordpress's "Featured Image" system.
-
-### Categories that require a featured image
-
-* Timeline posts **must** have a featured image, which shows up on the website's timeline page.
-* Anything that's posted in the form of an image, like a photo or a document, should have the image set to featured image. Look at some document posts to see how they're set up.
-
-### Categories that don't require a featured image
-
-The biographical portraits in the bio pages are actually featured images. This is how featured images are handled for any type of text-based post. They're optional, but the posts look nicer with one.
+The site makes heavy used of Wordpress's "Featured Image" system. This is different from an image included in the post. It's under the Post header in the post setting menu, but by the time you're reading this Wordpress has probably redesigned their menu a dozen times. If you Google "wordpress featured image" you'll find up-to-date instructions on where the option is.
 
 ## Conclusion
 
