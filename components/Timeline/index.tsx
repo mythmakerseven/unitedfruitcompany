@@ -67,10 +67,17 @@ const Timeline: React.FC<Props> = ({ posts }) => {
     }
   }, [currentIndex, screenHeight, scrollHeight])
 
+  // On desktop, snap the info text to the middle when the user scrolls to another item.
   useEffect(() => {
     if (window.innerWidth > 1000 && !/iPad|iPhone|iPod|iOS|Android/.test(navigator.userAgent)) {
-      scrolltoItem(currentIndex)
+      // Without this check, the timeline jumps to the first item on first render.
+      // This check means the snap behavior only takes effect after the user has
+      // scrolled down past the header.
+      if (scrollHeight > screenHeight) {
+        scrolltoItem(currentIndex)
+      }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex])
 
   useEffect(() => {
