@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
   Collapsed,
   Expanded,
@@ -18,11 +18,17 @@ const ExpandableContent: React.FC<Props> = ({ flex, children }) => {
 
   const content = React.Children.toArray(children)
 
+  const collapsedRef = useRef<HTMLDivElement>(null)
+
+  const disableFocus = (element: HTMLElement) => {
+    element.querySelectorAll('a').forEach(e => e.tabIndex = -1)
+  }
+
   const displayContent = () => {
     if (expanded) {
       return <Expanded>{handleFlex(content)}</Expanded>
     } else {
-      return <Collapsed tabIndex={-1}>{handleFlex(content)}</Collapsed>
+      return <Collapsed ref={collapsedRef}>{handleFlex(content)}</Collapsed>
     }
   }
 
@@ -33,6 +39,13 @@ const ExpandableContent: React.FC<Props> = ({ flex, children }) => {
       return children
     }
   }
+
+  // Disable tab focus on stuff that's inside a Collapsed div.
+  useEffect(() => {
+    if (!expanded && collapsedRef.current) {
+      disableFocus(collapsedRef.current)
+    }
+  }, [expanded])
 
   return (
     <>
