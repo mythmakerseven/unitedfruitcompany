@@ -27,13 +27,35 @@ const Timeline: React.FC<Props> = ({ posts }) => {
     setScrollHeight(window.scrollY)
   }
 
+  const scrolltoItem = (index: number) => {
+    const amountToScroll = window.innerHeight + (window.innerHeight * index)
+    window.scroll({ top: amountToScroll, behavior: 'smooth' })
+  }
+
   useEffect(() => {
+    const handleKeyboardNav = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowUp') {
+        event.preventDefault()
+        scrolltoItem(currentIndex - 1)
+      } else if (event.key === 'ArrowDown') {
+        event.preventDefault()
+        // Avoid skipping the first item if the user isn't there yet.
+        if (scrollHeight < window.innerHeight) {
+          scrolltoItem(0)
+        } else {
+          scrolltoItem(currentIndex + 1)
+        }
+      }
+    }
+
     document.addEventListener('scroll', handleScroll)
+    document.addEventListener('keydown', handleKeyboardNav)
 
     return () => {
       document.removeEventListener('scroll', handleScroll)
+      document.removeEventListener('keydown', handleKeyboardNav)
     }
-  }, [])
+  }, [currentIndex, scrollHeight])
 
   useEffect(() => {
     if (!window) {
@@ -66,11 +88,6 @@ const Timeline: React.FC<Props> = ({ posts }) => {
     }
     return 0
   })
-
-  const scrolltoItem = (index: number) => {
-    const amountToScroll = window.innerHeight + (window.innerHeight * index)
-    window.scroll({ top: amountToScroll, behavior: 'smooth' })
-  }
 
   return (
     <Container>
