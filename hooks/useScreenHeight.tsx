@@ -5,8 +5,12 @@ const useScreenHeight = () => {
   const [screenHeight, setScreenHeight] = useState<null | number>(null)
 
   useEffect(() => {
-    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-      setScreenHeight(screen.height)
+    // Test for Apple devices
+    if (
+      /iPad|iPhone|iPod|iOS|Android/.test(navigator.userAgent)
+      || /Macintosh/i.test(navigator.userAgent) && navigator.maxTouchPoints && navigator.maxTouchPoints > 1
+    ) {
+      setScreenHeight(window.screen.height)
     }
   }, [])
 

@@ -20,4 +20,10 @@ export const Content = styled.div`
   padding: 10%;
   display: flex;
   flex-flow: column;
+
+  @media (max-width: 1000px) {
+    p {
+      font-size: 1rem;
+    }
+  }
 `

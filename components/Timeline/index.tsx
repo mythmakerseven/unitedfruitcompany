@@ -14,6 +14,21 @@ interface Props {
   posts: ListedPost[]
 }
 
+const getNearestIndex = (current: number, posts: ListedPost[]) => {
+  if (current < 0) {
+    return 0
+  } else if (current > posts.length - 1) {
+    return posts.length - 1
+  } else {
+    return current
+  }
+}
+
+const scrolltoItem = (index: number) => {
+  const amountToScroll = window.innerHeight + (window.innerHeight * index)
+  window.scroll({ top: amountToScroll, behavior: 'smooth' })
+}
+
 const Timeline: React.FC<Props> = ({ posts }) => {
   const [scrollHeight, setScrollHeight] = useState(0)
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -27,11 +42,6 @@ const Timeline: React.FC<Props> = ({ posts }) => {
     setScrollHeight(window.scrollY)
   }
 
-  const scrolltoItem = (index: number) => {
-    const amountToScroll = window.innerHeight + (window.innerHeight * index)
-    window.scroll({ top: amountToScroll, behavior: 'smooth' })
-  }
-
   useEffect(() => {
     const handleKeyboardNav = (event: KeyboardEvent) => {
       if (event.key === 'ArrowUp') {
@@ -40,7 +50,7 @@ const Timeline: React.FC<Props> = ({ posts }) => {
       } else if (event.key === 'ArrowDown') {
         event.preventDefault()
         // Avoid skipping the first item if the user isn't there yet.
-        if (scrollHeight < window.innerHeight) {
+        if (scrollHeight < screenHeight) {
           scrolltoItem(0)
         } else {
           scrolltoItem(currentIndex + 1)
@@ -55,24 +65,31 @@ const Timeline: React.FC<Props> = ({ posts }) => {
       document.removeEventListener('scroll', handleScroll)
       document.removeEventListener('keydown', handleKeyboardNav)
     }
-  }, [currentIndex, scrollHeight])
+  }, [currentIndex, screenHeight, scrollHeight])
+
+  useEffect(() => {
+    if (window.innerWidth > 1000 && !/iPad|iPhone|iPod|iOS|Android/.test(navigator.userAgent)) {
+      scrolltoItem(currentIndex)
+    }
+  }, [currentIndex])
 
   useEffect(() => {
     if (!window) {
       setActivePost(posts[0])
     } else {
-      const currentHeight = window.scrollY - screenHeight
+      let currentHeight
+      // On mobile devices, the image box is on the top of the screen, with a height of 30vh.
+      // We need to account for this while calculating which info box is closet.
+      // So this statement adds an offset of 30vh to the scroll height number.
+      if (window.innerWidth < 1000) {
+        currentHeight = Math.round(window.scrollY - (screenHeight * 0.7))
+      } else {
+        currentHeight = window.scrollY - screenHeight
+      }
       const currentIndex = Math.round(currentHeight / screenHeight)
 
-      let displayIndex
       // Handle what to do if the user scrolls below or above the component.
-      if (currentIndex < 0) {
-        displayIndex = 0
-      } else if (currentIndex > posts.length - 1) {
-        displayIndex = posts.length - 1
-      } else {
-        displayIndex = currentIndex
-      }
+      const displayIndex = getNearestIndex(currentIndex, posts)
 
       setActivePost(posts[displayIndex])
       setCurrentIndex(displayIndex)
