@@ -11,9 +11,8 @@ export const Collapsed = styled.div`
 
 export const Expanded = styled.div`
   margin: 0;
-  margin-bottom: 20px;
+  padding-bottom: 80px;
   height: 100%;
-  min-height: 40vh;
 
   article {
     margin-top: 40px;

@@ -38,6 +38,7 @@ export const CardContent = styled.div`
 
   @media (max-width: 600px) {
     flex-flow: row;
+    overflow: hidden;
   }
 `
 
