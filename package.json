@@ -9,7 +9,7 @@
     "clearcache": "rm -R ./.cache"
   },
   "dependencies": {
-    "@react-spring/web": "^9.3.1",
+    "@react-spring/web": "^9.3.2",
     "axios": "^0.24.0",
     "html-entities": "^2.3.2",
     "next": "^12.0.7",
