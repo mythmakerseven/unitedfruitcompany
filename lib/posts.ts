@@ -162,3 +162,10 @@ export const getPostData = async (slug: string, category: string) => {
     nextSlug
   }
 }
+
+// For fetching the single "About" post that will appear on /pages/about
+export const getAboutPost = async () => {
+  const posts = await getPosts()
+
+  return posts.find(post => post.title === 'About the United Fruit Company Digital Archive')
+}

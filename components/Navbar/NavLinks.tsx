@@ -8,6 +8,7 @@ const NavLinks: React.FC = () => {
       <Link href='/documents'>Documents</Link>
       <Link href='/timeline'>Timeline</Link>
       <Link href='/resources'>Resources</Link>
+      <Link href='/about'>About</Link>
     </>
   )
 }

@@ -30,6 +30,11 @@ const HomeGrid: React.FC = () => {
           label='Resources'
           imagePath='https://unitedfruitcompany.files.wordpress.com/2021/11/jace-afsoon-5xmfg-eghpw-unsplash.jpg?w=480'
         />
+        <HomeGridItem
+          link='/about'
+          label='About'
+          imagePath='https://unitedfruitcompany.files.wordpress.com/2021/11/roman-kraft-7spg5olfexc-unsplash.jpg?w=480'
+        />
       </FlexContainerContent>
     </FlexContainer>
   )
