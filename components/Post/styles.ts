@@ -36,6 +36,13 @@ export const Content = styled.div`
     overflow-wrap: break-word;
   }
 
+  // This is Wordpress's class for right-aligned text.
+  // For some reason it doesn't automatically format it
+  // like it does for everything else.
+  .has-text-align-right {
+    text-align: right;
+  }
+
   @media (max-width: 600px) {
     hyphens: auto;
 
