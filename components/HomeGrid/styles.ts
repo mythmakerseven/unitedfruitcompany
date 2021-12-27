@@ -67,14 +67,8 @@ export const ItemContainer = styled.div`
   }
 
   @media (max-width: 1000px) {
-    height: 120px;
-    width: 240px;
-  }
-
-  @media (max-width: 1000px) {
     height: 80px;
-    width: 240px;
-    filter: none;
+    width: 90vw;
 
     p {
       font-size: 1.4rem;
