@@ -14,7 +14,6 @@ const Container = styled.div`
 export const WideContainer = styled.div`
   width: 1400px;
   margin: auto;
-  padding: 0;
   padding: 0 0 40px 0;
 
   @media (max-width: 1420px) {
