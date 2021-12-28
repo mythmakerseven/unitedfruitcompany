@@ -8,9 +8,7 @@ jobs:
   curl:
     runs-on: ubuntu-latest
     steps:
-    - name: curl
+    - name: wget
       env:
         HOOK: ${{ secrets.DEPLOY_HOOK }}
-      uses: wei/curl@1
-      with:
-        args: -X GET env.HOOK
+      run: wget env.HOOK
