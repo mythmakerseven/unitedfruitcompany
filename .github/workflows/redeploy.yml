@@ -5,7 +5,7 @@ on:
     - cron: '1/5 * * * *'
 
 jobs:
-  curl:
+  wget:
     runs-on: ubuntu-latest
     steps:
     - name: wget
