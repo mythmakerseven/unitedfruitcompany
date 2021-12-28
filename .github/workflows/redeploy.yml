@@ -9,6 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: wget
-      env:
-        HOOK: ${{ secrets.DEPLOY_HOOK }}
-      run: wget env.HOOK
+      run: wget ${{ secrets.DEPLOY_HOOK }}
