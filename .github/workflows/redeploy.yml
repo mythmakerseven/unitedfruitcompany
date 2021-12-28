@@ -2,10 +2,10 @@ name: Automatic 24-Hour Redeployment
 
 on:
   schedule:
-    - cron: '1/5 * * * *'
+    - cron: '0 0 * * *'
 
 jobs:
   wget:
     runs-on: ubuntu-latest
     steps:
-      - run: wget ${{ secrets.DEPLOY_HOOK }}
+      - run: wget ${{ secrets.DEPLOY_HOOK }} -q
