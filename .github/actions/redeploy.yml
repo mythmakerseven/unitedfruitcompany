@@ -1,0 +1,14 @@
+name: Automatic 24-Hour Redeployment
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  curl:
+    runs-on: ubuntu-latest
+    steps:
+    - name: curl
+      uses: wei/curl@1
+      with:
+        args: -X GET ${{ secrets.DEPLOY_HOOK }}
