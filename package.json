@@ -9,7 +9,7 @@
     "clearcache": "rm -R ./.cache"
   },
   "dependencies": {
-    "@react-spring/web": "^9.3.2",
+    "@react-spring/web": "^9.4.2",
     "axios": "^0.25.0",
     "html-entities": "^2.3.2",
     "next": "^12.0.10",
@@ -27,6 +27,6 @@
     "@typescript-eslint/parser": "^5.8.1",
     "eslint": "8.8.0",
     "eslint-config-next": "12.0.10",
-    "typescript": "4.5.4"
+    "typescript": "4.5.5"
   }
 }
