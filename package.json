@@ -3,7 +3,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build-only": "next build",
+    "make-sitemap": "next-sitemap",
+    "build": "next build && npm run make-sitemap",
     "start": "next start",
     "lint": "next lint",
     "clearcache": "rm -R ./.cache"
@@ -27,6 +29,7 @@
     "@typescript-eslint/parser": "^5.10.2",
     "eslint": "8.8.0",
     "eslint-config-next": "12.0.10",
+    "next-sitemap": "^2.4.2",
     "typescript": "4.5.5"
   }
 }
