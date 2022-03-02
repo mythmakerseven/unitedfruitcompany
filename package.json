@@ -15,7 +15,7 @@
     "axios": "^0.26.0",
     "html-entities": "^2.3.2",
     "next": "^12.1.0",
-    "next-usequerystate": "^1.5.0",
+    "next-usequerystate": "^1.7.0",
     "react": "17.0.2",
     "react-bootstrap-icons": "^1.7.2",
     "react-dom": "17.0.2",
