@@ -33,6 +33,7 @@ class MyDocument extends Document {
       <Html lang='en-US'>
         <Head>
           <meta property="og:image" content="/opengraph.jpg" />
+          <meta name="google-site-verification" content="8tSV9w6RXemjzTTzDYPpTO17MBILISwyw3209Qec08M" />
           <meta name="msvalidate.01" content="05C20B864F39C5927EDE879C9B069800" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='Anonymous' />
