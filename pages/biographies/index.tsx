@@ -5,7 +5,7 @@ import { ListedPost } from '../../lib/types'
 import { WideContainer } from '../../components/Container'
 import PostList from '../../components/PostList'
 import usePageQuery from '../../hooks/usePageQuery'
-import { useQueryState } from 'next-usequerystate'
+import { queryTypes, useQueryState } from 'next-usequerystate'
 import PagePicker from '../../components/PagePicker'
 
 interface Props {
@@ -15,7 +15,7 @@ interface Props {
 }
 
 const Biographies: NextPage<Props> = ({ posts, pageCount, tags }) => {
-  const [, setPage] = useQueryState<number>('page')
+  const [, setPage] = useQueryState<number>('page', queryTypes.integer)
   const postsToShow = usePageQuery('biographies', posts)
 
   return (
