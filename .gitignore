@@ -41,3 +41,7 @@ yarn-error.log*
 
 # Cached post content
 /.cache
+
+# Generated sitemaps
+sitemap.xml
+sitemap-0.xml
