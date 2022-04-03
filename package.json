@@ -13,23 +13,23 @@
   "dependencies": {
     "@react-spring/web": "^9.4.4",
     "axios": "^0.26.0",
-    "html-entities": "^2.3.2",
+    "html-entities": "^2.3.3",
     "next": "^12.1.0",
     "next-usequerystate": "^1.7.2",
     "react": "17.0.2",
     "react-bootstrap-icons": "^1.7.2",
     "react-dom": "17.0.2",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@types/node": "17.0.23",
     "@types/react": "17.0.39",
     "@types/styled-components": "^5.1.24",
-    "@typescript-eslint/eslint-plugin": "^5.13.0",
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
     "@typescript-eslint/parser": "^5.13.0",
     "eslint": "8.12.0",
     "eslint-config-next": "12.1.4",
-    "next-sitemap": "^2.5.2",
-    "typescript": "4.6.2"
+    "next-sitemap": "^2.5.17",
+    "typescript": "4.6.3"
   }
 }
