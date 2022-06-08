@@ -7,7 +7,8 @@ import { ListedPost } from '../../lib/types'
 
 interface Props {
   post: ListedPost,
-  activePost: ListedPost
+  activePost: ListedPost,
+  children: React.ReactElement[]
 }
 
 const TimelineHeader: React.FC<Props> = ({ post, activePost, children }) => {

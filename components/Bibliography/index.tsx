@@ -74,9 +74,7 @@ const Bibliography: React.FC<Props> = ({ items }) => {
           >
             <BibliographyCard
               item={itemsToShow[index]}
-            >
-              {itemsToShow[index].title}
-            </BibliographyCard>
+            />
           </a.div>
         )}
       </PostList>

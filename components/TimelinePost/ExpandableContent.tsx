@@ -10,7 +10,8 @@ import {
 } from 'react-bootstrap-icons'
 
 interface Props {
-  flex: boolean
+  flex: boolean,
+  children: React.ReactElement | React.ReactElement[]
 }
 
 const ExpandableContent: React.FC<Props> = ({ flex, children }) => {
