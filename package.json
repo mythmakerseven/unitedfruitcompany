@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "next dev",
     "build-only": "next build",
-    "make-sitemap": "next-sitemap",
+    "make-sitemap": "next-sitemap --config ./next-sitemap.js",
     "build": "next build && npm run make-sitemap",
     "start": "next start",
     "lint": "next lint",
