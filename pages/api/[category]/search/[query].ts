@@ -4,6 +4,10 @@ import { searchCategory, searchCategoryByTag } from '../../../../lib/server'
 
 const searchPosts = async (req: NextApiRequest, res: NextApiResponse) => {
   const { category, query } = req.query
+
+  if (!category || !query) {
+    return res.status(400).json({ error: 'Category and query are required attributes.' })
+  }
   
   if (!categories.includes(category.toString().toLowerCase())) {
     return res.status(404).send(`${category} is not a valid post category.`)

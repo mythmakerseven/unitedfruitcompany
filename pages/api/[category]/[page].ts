@@ -7,6 +7,10 @@ import { formatListedPosts } from '../../../lib/common'
 const getPosts = async (req: NextApiRequest, res: NextApiResponse) => {
   const { category, page } = req.query
 
+  if (!category || !page) {
+    return res.status(400).json({ error: 'Category and page are required attributes.' })
+  }
+
   if (!categories.includes(category.toString().toLowerCase())) {
     return res.status(404).send(`${category} is not a valid post category.`)
   }
