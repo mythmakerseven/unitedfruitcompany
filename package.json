@@ -11,15 +11,15 @@
     "clearcache": "rm -R ./.cache"
   },
   "dependencies": {
-    "@react-spring/web": "^9.5.2",
+    "@react-spring/web": "^9.5.5",
     "axios": "^0.27.2",
     "html-entities": "^2.3.3",
-    "next": "^12.2.5",
+    "next": "^12.3.1",
     "next-usequerystate": "^1.7.2",
     "react": "18.2.0",
-    "react-bootstrap-icons": "^1.8.4",
+    "react-bootstrap-icons": "^1.9.1",
     "react-dom": "18.2.0",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@types/node": "18.7.15",
@@ -27,9 +27,9 @@
     "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
-    "eslint": "8.23.0",
+    "eslint": "8.24.0",
     "eslint-config-next": "12.2.5",
-    "next-sitemap": "^3.1.21",
+    "next-sitemap": "^3.1.23",
     "typescript": "4.8.2"
   }
 }
