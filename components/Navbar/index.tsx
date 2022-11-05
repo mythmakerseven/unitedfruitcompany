@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
         {displayDropdown ? <MobileDropdown color={router.pathname === '/' ? 'rgba(0, 0, 0, 0.6)' : '#3a3a3a'} ><NavLinks /></MobileDropdown> : null }
       </NavContainer>
     </NavDiv>
-  );
+  )
 }
 
 export default Navbar

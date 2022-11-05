@@ -27,7 +27,7 @@ const DocumentView: NextPage<Props> = ({ postData }) => {
         <ResourceDisplay post={postData} />
       </Container>
     </div>
-  );
+  )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {

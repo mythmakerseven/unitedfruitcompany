@@ -31,7 +31,7 @@ const TimelineView: NextPage<Props> = ({ postData, bios, docs, articles }) => {
         </Container>
       </FullWidthContainer>
     </div>
-  );
+  )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
