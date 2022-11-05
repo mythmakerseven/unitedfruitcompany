@@ -5,17 +5,26 @@ interface Props {
   averageDuration?: number
 }
 
-const getOpacity = (itemIndex: number, currentIndex: number) => {
+const getVisibility = (itemIndex: number, currentIndex: number) => {
   if (itemIndex < currentIndex) {
-    return '1'
+    return 'visible'
   } else {
-    return '0'
+    return 'hidden'
   }
 }
 
-const createSpans = (text: string, currentIndex: number) => {
-  return text.split('').map((char, index) => <span key={index} style={{ filter: `opacity(${getOpacity(index, currentIndex)})` }}>{char}</span>)
-}
+const createSpans = (text: string, currentIndex: number) => (
+  text
+    .split('')
+    .map((char, index) => (
+      <span
+        key={index}
+        style={{ visibility: getVisibility(index, currentIndex) }}
+      >
+        {char}
+      </span>
+    ))
+)
 
 const TypeWriterScript: React.FC<Props> = ({ text, averageDuration }) => {
   const [currentIndex, setCurrentIndex] = useState(0)

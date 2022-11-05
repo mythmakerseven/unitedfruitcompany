@@ -29,6 +29,7 @@ export const MainContent = styled.div`
     background: url("https://unitedfruitcompany.files.wordpress.com/2021/11/map.jpg?w=1200") center no-repeat;
     background-size: cover;
     filter: brightness(0.3);
+    z-index: -1;
   }
 `
 
