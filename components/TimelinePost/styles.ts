@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { alegreyaSans } from '../../styles/fonts'
 
 export const Container = styled.div`
   color: white;
@@ -47,7 +48,7 @@ export const MobileTitle = styled.h1`
 
 export const Header = styled.h1< { textAlign: string } >`
   text-align: ${props => props.textAlign};
-  font-family: Alegreya Sans;
+  font-family: ${alegreyaSans.style.fontFamily};
   padding: 0;
   margin: 0;
   margin-bottom: 20px;

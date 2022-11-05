@@ -1,10 +1,11 @@
 import styled from 'styled-components'
+import { alegreyaSans } from '../../styles/fonts'
 
 export const FullwidthContainer = styled.div`
   width: 100%;
   height: 100px;
   background: ${({ theme }) => theme.colors.secondary};
-  font-family: 'Alegreya Sans';
+  font-family: ${alegreyaSans.style.fontFamily};
 `
   
 export const ContainerContent = styled.div`

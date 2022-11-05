@@ -35,9 +35,6 @@ class MyDocument extends Document {
           <meta property="og:image" content="/opengraph.jpg" />
           <meta name="google-site-verification" content="8tSV9w6RXemjzTTzDYPpTO17MBILISwyw3209Qec08M" />
           <meta name="msvalidate.01" content="05C20B864F39C5927EDE879C9B069800" />
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='Anonymous' />
-          <link href="https://fonts.googleapis.com/css2?family=Alegreya&family=Alegreya+Sans:wght@500&family=Special+Elite&display=swap" rel="stylesheet" />
         </Head>
         <body>
           <Main />

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { alegreyaSans } from '../../styles/fonts'
 
 export const NavDiv = styled.div`
   position: absolute;
@@ -10,7 +11,7 @@ export const NavDiv = styled.div`
   background: ${props => props.color};
   color: ${({ theme }) => theme.colors.primary};
   box-shadow: 0 1px 2px black;
-  font-family: 'Alegreya Sans';
+  font-family: ${alegreyaSans.style.fontFamily};
 
   a:hover {
     background: none;

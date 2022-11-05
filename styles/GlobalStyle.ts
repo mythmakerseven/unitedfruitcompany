@@ -1,11 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
+import { alegreya } from './fonts'
 
 export const GlobalStyle = createGlobalStyle`
   html,
   body {
     padding: 0;
     margin: 0;
-    font-family: 'Alegreya', serif;
+    font-family: ${alegreya.style.fontFamily};
     background-color: ${({ theme }) => theme.colors.primary};
   }
 

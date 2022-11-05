@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { specialElite } from './fonts'
 
 export const Main = styled.main`
   color: ${({ theme }) => theme.colors.primary};
@@ -13,7 +14,7 @@ export const MainContent = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding: 4rem 0;
-  font-family: 'Special Elite';
+  font-family: ${specialElite.style.fontFamily};
   z-index: 1;
   margin: auto;
   color: ${({ theme }) => theme.colors.primary};

@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { specialElite } from '../../styles/fonts'
 
 export const Header = styled.h1`
-  font-family: "Special Elite";
+  font-family: ${specialElite.style.fontFamily};
   text-align: center;
   padding-top: 50px;
 `
