@@ -20,7 +20,7 @@ const Hero: React.FC<Props> = ({ header, text, picturePath, pictureAltText, side
   const textSection = (
     <TextSide>
       <h1>
-        {link ? <Link href={link}>{header + ' ➔'}</Link> : header}
+        {link ? <Link href={link} legacyBehavior>{header + ' ➔'}</Link> : header}
       </h1>
       <p>{text}</p>
     </TextSide>

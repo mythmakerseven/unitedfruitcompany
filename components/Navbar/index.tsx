@@ -43,14 +43,14 @@ const Navbar: React.FC = () => {
       <NavContainer>
         <div>
           <Link href='/' passHref>
-            <a>
-              <Image
-                src='https://unitedfruitcompany.files.wordpress.com/2020/02/kurtz-phelan-600.jpg?w=200'
-                height='56'
-                width='111'
-                alt='Back to home'
-              />
-            </a>
+
+            <Image
+              src='https://unitedfruitcompany.files.wordpress.com/2020/02/kurtz-phelan-600.jpg?w=200'
+              height='56'
+              width='111'
+              alt='Back to home'
+            />
+
           </Link>
         </div>
         <NavRight>
@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
         {displayDropdown ? <MobileDropdown color={router.pathname === '/' ? 'rgba(0, 0, 0, 0.6)' : '#3a3a3a'} ><NavLinks /></MobileDropdown> : null }
       </NavContainer>
     </NavDiv>
-  )
+  );
 }
 
 export default Navbar

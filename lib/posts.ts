@@ -45,7 +45,7 @@ export const getBibliography = async () => {
     } else {
       return 0
     }
-  })
+  });
 }
 
 export const getCategoryFirstPage = async (category: string) => {

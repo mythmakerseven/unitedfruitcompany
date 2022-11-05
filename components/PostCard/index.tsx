@@ -34,16 +34,14 @@ const PostCard: React.FC<Props> = ({ post }) => {
   return (
     <Container>
       <Link href={`/${post.categories[0]}/${post.slug}`} passHref>
-        <a>
-          <Card>
-            <CardContent>
-              <ImageContainer>
-                {handleImage()}
-              </ImageContainer>
-              <Title>{post.title}</Title>
-            </CardContent>
-          </Card>
-        </a>
+        <Card>
+          <CardContent>
+            <ImageContainer>
+              {handleImage()}
+            </ImageContainer>
+            <Title>{post.title}</Title>
+          </CardContent>
+        </Card>
       </Link>
     </Container>
   )

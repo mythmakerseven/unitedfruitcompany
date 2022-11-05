@@ -32,13 +32,11 @@ const Banner: React.FC<Props> = ({ header, previousSlug, nextSlug }) => {
         </DesktopNavLink>
         <MobileNavLink>
           <Link href={`${getUpperPath(router.pathname)}/${previousSlug}`} passHref>
-            <a>
-              <ArrowLeft />
-            </a>
+            <ArrowLeft />
           </Link>
         </MobileNavLink>
         <Header>
-          <Link href={getUpperPath(router.pathname)}>
+          <Link href={getUpperPath(router.pathname)} legacyBehavior>
             {header}
           </Link>
         </Header>
@@ -49,9 +47,7 @@ const Banner: React.FC<Props> = ({ header, previousSlug, nextSlug }) => {
         </DesktopNavLink>
         <MobileNavLink>
           <Link href={`${getUpperPath(router.pathname)}/${nextSlug}`} passHref>
-            <a>
-              <ArrowRight />
-            </a>
+            <ArrowRight />
           </Link>
         </MobileNavLink>
       </ContainerContent>

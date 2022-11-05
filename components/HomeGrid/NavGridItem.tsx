@@ -11,22 +11,20 @@ interface Props {
 
 const HomeGrid: React.FC<Props> = ({ link, label, imagePath }) => {
   return (
-    <Link href={link} passHref>
-      <a>
-        <ItemContainer>
-          <Image
-            alt=''
-            src={imagePath}
+    (<Link href={link} passHref>
+      <ItemContainer>
+        <Image
+          alt=''
+          src={imagePath}
+        />
+        <p>
+          <TypeWriterScript
+            text={ label }
+            averageDuration={1500}
           />
-          <p>
-            <TypeWriterScript
-              text={ label }
-              averageDuration={1500}
-            />
-          </p>
-        </ItemContainer>
-      </a>
-    </Link>
+        </p>
+      </ItemContainer>
+    </Link>)
   )
 }
 
