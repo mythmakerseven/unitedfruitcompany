@@ -19,9 +19,9 @@ interface Props {
 const Hero: React.FC<Props> = ({ header, text, picturePath, pictureAltText, side, link }) => {
   const textSection = (
     <TextSide>
-      <h1>
-        {link ? <Link href={link} legacyBehavior>{header + ' ➔'}</Link> : header}
-      </h1>
+      <h2>
+        {link ? <Link href={link}>{header + ' ➔'}</Link> : header}
+      </h2>
       <p>{text}</p>
     </TextSide>
   )

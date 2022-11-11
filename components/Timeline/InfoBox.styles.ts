@@ -27,3 +27,7 @@ export const Content = styled.div`
     }
   }
 `
+
+export const InfoHeader = styled.h2`
+  font-size: 3rem;
+`

@@ -26,8 +26,9 @@ export const Container = styled.div`
 export const TextSide = styled.div`
   max-width: 40%;
 
-  h1 {
+  h2 {
     margin: 0;
+    font-size: 3rem;
   }
 
   @media (max-width: 800px) {
