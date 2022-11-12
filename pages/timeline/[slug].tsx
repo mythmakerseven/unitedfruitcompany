@@ -17,7 +17,7 @@ const TimelineView: NextPage<Props> = ({ postData, bios, docs, articles }) => {
     <div>
       <Head>
         <title>{`${postData.title} - United Fruit Company`}</title>
-        <meta name="description" content={postData.excerpt.replace(/(<([^>]+)>)/ig, '')} />
+        <meta name="description" content={postData.excerpt} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <FullWidthContainer backgroundColor='black'>

@@ -56,6 +56,16 @@ export const splitTags = (tags: string[]) => {
   return sortedTags
 }
 
+const truncateExcerpt = (excerpt: string): string => {
+  const plainText = excerpt.replace(/(<([^>]+)>)/ig, '')
+
+  if (plainText.length < 157) {
+    return plainText
+  } else {
+    return `${plainText.slice(0, 157)}...`
+  }
+}
+
 // Cut down the huge WP objects into smaller ones that contain
 // only the data we need.
 export const formatPosts = (posts: Post[]): Post[] => {
@@ -64,7 +74,7 @@ export const formatPosts = (posts: Post[]): Post[] => {
     title: decode(post.title),
     content: post.content,
     date: post.date,
-    excerpt: post.excerpt,
+    excerpt: truncateExcerpt(post.excerpt),
     slug: post.slug,
     categories: Object.keys(post.categories).map(c => c.toLowerCase()),
     featured_image: post.featured_image ? post.featured_image : null,
