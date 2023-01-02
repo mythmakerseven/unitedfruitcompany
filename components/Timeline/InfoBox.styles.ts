@@ -31,3 +31,7 @@ export const Content = styled.div`
 export const InfoHeader = styled.h2`
   font-size: 3rem;
 `
+
+export const InfoDescription = styled.p`
+  font-size: 1.5rem;
+`

@@ -3,7 +3,8 @@ import TimelineHeader from './TimelineHeader'
 import {
   Item,
   Content,
-  InfoHeader
+  InfoHeader,
+  InfoDescription
 } from './InfoBox.styles'
 import { ListedPost } from '../../lib/types'
 
@@ -25,7 +26,7 @@ const InfoBox: React.FC<Props> = ({ post, activePost }) => {
           activePost={activePost}
         >
           <InfoHeader>{post.title}</InfoHeader>
-          <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+          <InfoDescription dangerouslySetInnerHTML={{ __html: post.excerpt }} />
         </TimelineHeader>
       </Content>
     </Item>
