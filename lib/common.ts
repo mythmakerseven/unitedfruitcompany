@@ -69,12 +69,16 @@ const truncateExcerpt = (excerpt: string): string => {
 // Cut down the huge WP objects into smaller ones that contain
 // only the data we need.
 export const formatPosts = (posts: Post[]): Post[] => {
+  const isTimelinePost = (post: Post) => (
+    Object.keys(post.categories).includes('Timeline')
+  )
+
   return posts.map((post) => ({
     ID: post.ID,
     title: decode(post.title),
     content: post.content,
     date: post.date,
-    excerpt: truncateExcerpt(post.excerpt),
+    excerpt: isTimelinePost(post) ? post.excerpt : truncateExcerpt(post.excerpt),
     slug: post.slug,
     categories: Object.keys(post.categories).map(c => c.toLowerCase()),
     featured_image: post.featured_image ? post.featured_image : null,
