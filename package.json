@@ -13,7 +13,7 @@
   "dependencies": {
     "@next/font": "^13.2.4",
     "@react-spring/web": "^9.7.2",
-    "axios": "^1.2.2",
+    "axios": "^1.4.0",
     "html-entities": "^2.3.3",
     "next": "^13.2.3",
     "next-usequerystate": "^1.7.2",
