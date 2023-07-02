@@ -67,7 +67,7 @@ const PaneContent: React.FC<Props> = ({ tags }) => {
                 value={searchValue}
                 name='query'
                 ref={searchInputRef}
-                onChange={(event) => handleQueryChange(event)}
+                onChange={(event: ChangeEvent<HTMLInputElement>) => handleQueryChange(event)}
               />
               {handleResetButton()}
             </Label>

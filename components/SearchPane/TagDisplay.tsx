@@ -40,7 +40,7 @@ const TagDisplay: React.FC<Props> = ({ tags, defaultTagDisplay, setQuery, setSea
               tabIndex={0}
               key={index}
               onClick={() => setTag(tag)}
-              onKeyDown={(event) => handleKeyDown(event)}
+              onKeyDown={(event: React.KeyboardEvent<HTMLLIElement>) => handleKeyDown(event)}
             >
               {tag}
             </TagItem>
