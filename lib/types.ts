@@ -32,3 +32,7 @@ export interface Tags {
   labelTags: string[],
   dateTags: string[]
 }
+
+// The annoyingly long type that's created when you call React.Children.toArray
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type ChildrenArray = (string | number | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode)[]
