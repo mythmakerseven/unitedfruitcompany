@@ -33,7 +33,7 @@ const ExpandableContent: React.FC<Props> = ({ flex, children }) => {
     }
   }
 
-  const handleFlex = (children: (React.ReactChild | React.ReactFragment | React.ReactPortal)[]) => {
+  const handleFlex = (children: any) => {
     if (flex) {
       return <Flex>{children}</Flex>
     } else {
