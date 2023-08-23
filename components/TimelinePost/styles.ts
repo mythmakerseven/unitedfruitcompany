@@ -46,10 +46,11 @@ export const MobileTitle = styled.h1`
   }
 `
 
-export const Header = styled.h1< { textAlign: string } >`
+export const Header = styled.h2< { textAlign: string } >`
   text-align: ${props => props.textAlign};
   font-family: ${alegreyaSans.style.fontFamily};
   padding: 0;
   margin: 0;
   margin-bottom: 20px;
+  font-size: 3rem;
 `
