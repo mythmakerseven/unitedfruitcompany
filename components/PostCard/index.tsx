@@ -18,14 +18,14 @@ const PostCard: React.FC<Props> = ({ post }) => {
       return (
         <img
           src={`${post.featured_image}?w=200`}
-          alt=''
+          alt={post.title}
         />
       )
     } else {
       return (
         <img
           src='https://unitedfruitcompany.files.wordpress.com/2020/02/kurtz-phelan-600.jpg?w=300'
-          alt=''
+          alt={post.title}
         />
       )
     }
