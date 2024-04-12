@@ -8,7 +8,6 @@ import {
 import {
   ArrowDown
 } from 'react-bootstrap-icons'
-import { ChildrenArray } from '../../lib/types'
 
 interface Props {
   flex: boolean,
@@ -34,7 +33,7 @@ const ExpandableContent: React.FC<Props> = ({ flex, children }) => {
     }
   }
 
-  const handleFlex = (children: ChildrenArray) => {
+  const handleFlex = (children: ReturnType<typeof React.Children.toArray>) => {
     if (flex) {
       return <Flex>{children}</Flex>
     } else {
