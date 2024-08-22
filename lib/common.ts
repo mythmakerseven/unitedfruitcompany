@@ -1,32 +1,27 @@
 // Helper functions used in multiple places.
 
-import axios from 'axios'
 import { decode } from 'html-entities'
 import { ListedPost, Post, Tags } from './types'
 
 export const getPage = async (url: string, page: number) => {
   console.log(`Getting single page ${page} from ${url}`)
 
-  const response = await axios({
-    method: 'GET',
-    url: `${url}&page=${page}`
-  })
+  const response = await fetch(`${url}&page=${page}`)
+  const json = await response.json()
 
-  return response.data.posts as Post[]
+  return json.posts as Post[]
 }
 
 export const getPaginatedResponse = async (url: string, page = 1): Promise<Post[]> => {
   console.log(`Getting ${`${url}&page=${page}`}`)
 
-  const response = await axios({
-    method: 'GET',
-    url: `${url}&page=${page}`
-  })
+  const response = await fetch(`${url}&page=${page}`)
+  const json = await response.json()
 
-  let posts = response.data.posts as Post[]
+  let posts = json.posts as Post[]
 
   // Check if WP says there's another page
-  if (response.data.meta.next_page) {
+  if (json.meta.next_page) {
     const nextPage = await getPaginatedResponse(url, page + 1)
     posts = posts.concat(nextPage)
   }
