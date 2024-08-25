@@ -1,16 +1,16 @@
-import { GetStaticProps, NextPage } from 'next'
-import Head from 'next/head'
-import { getPostsForDisplay, getTags } from '../../lib/posts'
-import { ListedPost } from '../../lib/types'
-import TimelineDisplay from '../../components/Timeline'
-import usePageQuery from '../../hooks/usePageQuery'
+import { GetStaticProps, NextPage } from "next";
+import Head from "next/head";
+import { getPostsForDisplay, getTags } from "../../lib/posts";
+import { ListedPost } from "../../lib/types";
+import TimelineDisplay from "../../components/Timeline";
+import usePageQuery from "../../hooks/usePageQuery";
 
 interface Props {
-  posts: ListedPost[],
+  posts: ListedPost[];
 }
 
 const Timeline: NextPage<Props> = ({ posts }) => {
-  const postsToShow = usePageQuery('biographies', posts)
+  const postsToShow = usePageQuery("biographies", posts);
 
   return (
     <>
@@ -19,22 +19,20 @@ const Timeline: NextPage<Props> = ({ posts }) => {
         <meta name="description" content="The United Fruit Company Timeline." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <TimelineDisplay
-        posts={postsToShow}
-      />
+      <TimelineDisplay posts={postsToShow} />
     </>
-  )
-}
+  );
+};
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getPostsForDisplay('Timeline')
-  const tags = await getTags('Timeline')
+  const posts = await getPostsForDisplay("Timeline");
+  const tags = await getTags("Timeline");
   return {
     props: {
       posts,
-      tags
-    }
-  }
-}
+      tags,
+    },
+  };
+};
 
-export default Timeline
+export default Timeline;

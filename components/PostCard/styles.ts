@@ -26,7 +26,7 @@ export const Card = styled.div`
     width: calc(100vw - 40px);
   }
 `
-  
+
 export const CardContent = styled.div`
   padding: 10px;
   display: flex;

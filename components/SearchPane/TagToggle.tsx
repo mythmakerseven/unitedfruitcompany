@@ -1,27 +1,20 @@
-import {
-  CaretDownFill,
-  CaretUpFill
-} from 'react-bootstrap-icons'
-import { ToggleButton } from './TagDisplay.styles'
+import { CaretDownFill, CaretUpFill } from "react-bootstrap-icons";
+import { ToggleButton } from "./TagDisplay.styles";
 
 interface Props {
-  display: boolean
+  display: boolean;
 }
 
 const TagToggle: React.FC<Props> = ({ display }) => {
   const getIcon = () => {
     if (display) {
-      return <CaretUpFill />
+      return <CaretUpFill />;
     } else {
-      return <CaretDownFill />
+      return <CaretDownFill />;
     }
-  }
+  };
 
-  return (
-    <ToggleButton>
-      {getIcon()}
-    </ToggleButton>
-  )
-}
+  return <ToggleButton>{getIcon()}</ToggleButton>;
+};
 
-export default TagToggle
+export default TagToggle;

@@ -1,11 +1,11 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const FullPageContainer = styled.div`
   height: calc(100vh - ${({ theme }) => theme.navbar.height});
   width: 100%;
   margin-top: ${({ theme }) => theme.navbar.height};
-`
-  
+`;
+
 export const FullPageContainerContent = styled.div`
   padding: 10px;
   width: 100%;
@@ -15,7 +15,7 @@ export const FullPageContainerContent = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-`
+`;
 
 export const BigHeader = styled.h1`
   font-size: 4rem;
@@ -25,7 +25,7 @@ export const BigHeader = styled.h1`
   @media (max-width: 800px) {
     font-size: 2.5rem;
   }
-`
+`;
 
 export const SmallHeader = styled.h2`
   font-size: 2rem;
@@ -35,7 +35,7 @@ export const SmallHeader = styled.h2`
   @media (max-width: 800px) {
     font-size: 1rem;
   }
-`
+`;
 
 export const HomeLink = styled.p`
   font-size: 1rem;
@@ -43,4 +43,4 @@ export const HomeLink = styled.p`
   @media (max-width: 800px) {
     font-size: 0.9rem;
   }
-`
+`;

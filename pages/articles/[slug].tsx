@@ -1,13 +1,13 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import Head from 'next/head'
-import PostContent from '../../components/Post'
-import { getPostData, getSlugs } from '../../lib/posts'
-import { DisplayedPost, PostParams } from '../../lib/types'
-import Container from '../../components/Container'
-import Banner from '../../components/Banner'
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import Head from "next/head";
+import PostContent from "../../components/Post";
+import { getPostData, getSlugs } from "../../lib/posts";
+import { DisplayedPost, PostParams } from "../../lib/types";
+import Container from "../../components/Container";
+import Banner from "../../components/Banner";
 
 interface Props {
-  postData: DisplayedPost
+  postData: DisplayedPost;
 }
 
 const DocumentView: NextPage<Props> = ({ postData }) => {
@@ -19,7 +19,7 @@ const DocumentView: NextPage<Props> = ({ postData }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Banner
-        header='Articles'
+        header="Articles"
         previousSlug={postData.previousSlug}
         nextSlug={postData.nextSlug}
       />
@@ -27,26 +27,26 @@ const DocumentView: NextPage<Props> = ({ postData }) => {
         <PostContent post={postData} />
       </Container>
     </div>
-  )
-}
+  );
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getSlugs('Articles')
+  const paths = await getSlugs("Articles");
   return {
     paths,
-    fallback: false
-  }
-}
+    fallback: false,
+  };
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { slug } = context.params as PostParams
+  const { slug } = context.params as PostParams;
 
-  const postData = await getPostData(slug, 'Articles')
+  const postData = await getPostData(slug, "Articles");
   return {
     props: {
-      postData
-    }
-  }
-}
+      postData,
+    },
+  };
+};
 
-export default DocumentView
+export default DocumentView;

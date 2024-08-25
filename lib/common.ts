@@ -1,85 +1,89 @@
 // Helper functions used in multiple places.
 
-import { decode } from 'html-entities'
-import { ListedPost, Post, Tags } from './types'
+import { decode } from "html-entities";
+import { ListedPost, Post, Tags } from "./types";
 
 export const getPage = async (url: string, page: number) => {
-  console.log(`Getting single page ${page} from ${url}`)
+  console.log(`Getting single page ${page} from ${url}`);
 
-  const response = await fetch(`${url}&page=${page}`)
-  const json = await response.json()
+  const response = await fetch(`${url}&page=${page}`);
+  const json = await response.json();
 
-  return json.posts as Post[]
-}
+  return json.posts as Post[];
+};
 
-export const getPaginatedResponse = async (url: string, page = 1): Promise<Post[]> => {
-  console.log(`Getting ${`${url}&page=${page}`}`)
+export const getPaginatedResponse = async (
+  url: string,
+  page = 1
+): Promise<Post[]> => {
+  console.log(`Getting ${`${url}&page=${page}`}`);
 
-  const response = await fetch(`${url}&page=${page}`)
-  const json = await response.json()
+  const response = await fetch(`${url}&page=${page}`);
+  const json = await response.json();
 
-  let posts = json.posts as Post[]
+  let posts = json.posts as Post[];
 
   // Check if WP says there's another page
   if (json.meta.next_page) {
-    const nextPage = await getPaginatedResponse(url, page + 1)
-    posts = posts.concat(nextPage)
+    const nextPage = await getPaginatedResponse(url, page + 1);
+    posts = posts.concat(nextPage);
   }
 
-  return posts
-}
+  return posts;
+};
 
 // Split tags that represent date ranges into their own array.
 // This is a MacGyver solution for dating posts because we're using
 // Wordpress.com which doesn't allow custom fields.
 export const splitTags = (tags: string[]) => {
-  const pattern = /^\d{4}-\d{4}$/
+  const pattern = /^\d{4}-\d{4}$/;
 
   const sortedTags: Tags = {
     dateTags: [],
-    labelTags: []
-  }
+    labelTags: [],
+  };
 
-  tags.forEach(tag => {
+  tags.forEach((tag) => {
     if (pattern.test(tag)) {
-      sortedTags.dateTags.push(tag)
+      sortedTags.dateTags.push(tag);
     } else {
-      sortedTags.labelTags.push(tag)
+      sortedTags.labelTags.push(tag);
     }
-  })
+  });
 
-  return sortedTags
-}
+  return sortedTags;
+};
 
 const truncateExcerpt = (excerpt: string): string => {
-  const plainText = excerpt.replace(/(<([^>]+)>)/ig, '')
+  const plainText = excerpt.replace(/(<([^>]+)>)/gi, "");
 
   if (plainText.length < 157) {
-    return plainText
+    return plainText;
   } else {
-    return `${plainText.slice(0, 157)}...`
+    return `${plainText.slice(0, 157)}...`;
   }
-}
+};
 
 // Cut down the huge WP objects into smaller ones that contain
 // only the data we need.
 export const formatPosts = (posts: Post[]): Post[] => {
-  const isTimelinePost = (post: Post) => (
-    Object.keys(post.categories).includes('Timeline')
-  )
+  const isTimelinePost = (post: Post) =>
+    Object.keys(post.categories).includes("Timeline");
 
   return posts.map((post) => ({
     ID: post.ID,
     title: decode(post.title),
     content: post.content,
     date: post.date,
-    excerpt: isTimelinePost(post) ? post.excerpt : truncateExcerpt(post.excerpt),
+    excerpt: isTimelinePost(post)
+      ? post.excerpt
+      : truncateExcerpt(post.excerpt),
     slug: post.slug,
-    categories: Object.keys(post.categories).map(c => c.toLowerCase()),
+    categories: Object.keys(post.categories).map((c) => c.toLowerCase()),
     featured_image: post.featured_image ? post.featured_image : null,
-    tags: splitTags(Object.keys(post.tags))
-  }))
-}
+    tags: splitTags(Object.keys(post.tags)),
+  }));
+};
 
 export const formatListedPosts = (posts: Post[]): ListedPost[] => {
   return posts.map((post) => ({
@@ -90,14 +94,14 @@ export const formatListedPosts = (posts: Post[]): ListedPost[] => {
     excerpt: post.excerpt,
     slug: post.slug,
     featured_image: post.featured_image ? post.featured_image : null,
-    tags: splitTags(Object.keys(post.tags))
-  }))
-}
+    tags: splitTags(Object.keys(post.tags)),
+  }));
+};
 
 // Get the first URL param.
 // Example:
 // google.com/search/example => search
 export const getUpperPath = (url: string) => {
-  const lastSlash = url.lastIndexOf('/')
-  return url.slice(0, lastSlash)
-}
+  const lastSlash = url.lastIndexOf("/");
+  return url.slice(0, lastSlash);
+};

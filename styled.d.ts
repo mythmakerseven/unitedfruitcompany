@@ -1,16 +1,16 @@
-import 'styled-components'
+import "styled-components";
 
-declare module 'styled-components' {
+declare module "styled-components" {
   export interface DefaultTheme {
     colors: {
-      primary: string,
-      secondary: string,
-      thirdary: string,
-      darkBackground: string
-    },
+      primary: string;
+      secondary: string;
+      thirdary: string;
+      darkBackground: string;
+    };
     navbar: {
-      height: string
-    },
-    shadow: string
+      height: string;
+    };
+    shadow: string;
   }
 }

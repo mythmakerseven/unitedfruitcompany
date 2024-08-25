@@ -1,33 +1,32 @@
-import { useRef } from 'react'
-import {
-  FullScreenContainer,
-  FullScreenContent,
-  CloseButton
-} from './styles'
-import Image from '../Image'
-import { XLg } from 'react-bootstrap-icons'
-import { useEffect } from 'react'
+import { useRef } from "react";
+import { FullScreenContainer, FullScreenContent, CloseButton } from "./styles";
+import Image from "../Image";
+import { XLg } from "react-bootstrap-icons";
+import { useEffect } from "react";
 
 interface Props {
-  image: string,
-  alt: string,
-  showCloserLook: boolean,
-  setCloserLook: (arg: boolean) => void
+  image: string;
+  alt: string;
+  showCloserLook: boolean;
+  setCloserLook: (arg: boolean) => void;
 }
 
-const CloserLook: React.FC<Props> = ({ image, alt, showCloserLook, setCloserLook }) => {
-  const closeButtonRef = useRef<HTMLButtonElement>(null)
+const CloserLook: React.FC<Props> = ({
+  image,
+  alt,
+  showCloserLook,
+  setCloserLook,
+}) => {
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (showCloserLook) {
-      closeButtonRef.current?.focus()
+      closeButtonRef.current?.focus();
     }
-  }, [showCloserLook])
+  }, [showCloserLook]);
 
   return (
-    <FullScreenContainer
-      onClick={() => setCloserLook(false)}
-    >
+    <FullScreenContainer onClick={() => setCloserLook(false)}>
       <FullScreenContent>
         {/* Button included for a11y reasons */}
         <CloseButton
@@ -37,13 +36,10 @@ const CloserLook: React.FC<Props> = ({ image, alt, showCloserLook, setCloserLook
         >
           <XLg />
         </CloseButton>
-        <Image
-          src={image}
-          alt={alt}
-        />
+        <Image src={image} alt={alt} />
       </FullScreenContent>
     </FullScreenContainer>
-  )
-}
+  );
+};
 
-export default CloserLook
+export default CloserLook;

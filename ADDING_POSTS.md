@@ -92,11 +92,11 @@ You should include a Chicago-style citation of the source. Don't worry about ind
 
 Finally, go to the tags list and add one tag to specify what type of source it is. The valid options are:
 
-* book
-* periodical
-* picture
-* website
-* video
+- book
+- periodical
+- picture
+- website
+- video
 
 This tag tells the website which icon to use on https://unitedfruitcompany.com/resources and helps users sort through the different types of materials.
 

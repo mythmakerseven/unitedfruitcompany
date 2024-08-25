@@ -3,24 +3,21 @@ import {
   ContainerContent,
   Header,
   DesktopNavLink,
-  MobileNavLink
-} from './styles'
-import Link from 'next/link'
-import {
-  ArrowRight,
-  ArrowLeft
-} from 'react-bootstrap-icons'
-import { useRouter } from 'next/router'
-import { getUpperPath } from '../../lib/common'
+  MobileNavLink,
+} from "./styles";
+import Link from "next/link";
+import { ArrowRight, ArrowLeft } from "react-bootstrap-icons";
+import { useRouter } from "next/router";
+import { getUpperPath } from "../../lib/common";
 
 interface Props {
-  header: string,
-  previousSlug: string,
-  nextSlug: string
+  header: string;
+  previousSlug: string;
+  nextSlug: string;
 }
 
 const Banner: React.FC<Props> = ({ header, previousSlug, nextSlug }) => {
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <FullwidthContainer>
@@ -31,7 +28,10 @@ const Banner: React.FC<Props> = ({ header, previousSlug, nextSlug }) => {
           </Link>
         </DesktopNavLink>
         <MobileNavLink>
-          <Link href={`${getUpperPath(router.pathname)}/${previousSlug}`} passHref>
+          <Link
+            href={`${getUpperPath(router.pathname)}/${previousSlug}`}
+            passHref
+          >
             <ArrowLeft />
           </Link>
         </MobileNavLink>
@@ -52,7 +52,7 @@ const Banner: React.FC<Props> = ({ header, previousSlug, nextSlug }) => {
         </MobileNavLink>
       </ContainerContent>
     </FullwidthContainer>
-  )
-}
+  );
+};
 
-export default Banner
+export default Banner;

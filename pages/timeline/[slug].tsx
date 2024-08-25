@@ -1,15 +1,15 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import Head from 'next/head'
-import { getPostData, getSlugs, getTimelineMatches } from '../../lib/posts'
-import { DisplayedPost, PostParams } from '../../lib/types'
-import Container, { FullWidthContainer } from '../../components/Container'
-import TimelinePost from '../../components/TimelinePost'
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import Head from "next/head";
+import { getPostData, getSlugs, getTimelineMatches } from "../../lib/posts";
+import { DisplayedPost, PostParams } from "../../lib/types";
+import Container, { FullWidthContainer } from "../../components/Container";
+import TimelinePost from "../../components/TimelinePost";
 
 interface Props {
-  postData: DisplayedPost,
-  bios: DisplayedPost[],
-  docs: DisplayedPost[],
-  articles: DisplayedPost[]
+  postData: DisplayedPost;
+  bios: DisplayedPost[];
+  docs: DisplayedPost[];
+  articles: DisplayedPost[];
 }
 
 const TimelineView: NextPage<Props> = ({ postData, bios, docs, articles }) => {
@@ -20,7 +20,7 @@ const TimelineView: NextPage<Props> = ({ postData, bios, docs, articles }) => {
         <meta name="description" content={postData.excerpt} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <FullWidthContainer backgroundColor='black'>
+      <FullWidthContainer backgroundColor="black">
         <Container>
           <TimelinePost
             post={postData}
@@ -31,35 +31,35 @@ const TimelineView: NextPage<Props> = ({ postData, bios, docs, articles }) => {
         </Container>
       </FullWidthContainer>
     </div>
-  )
-}
+  );
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getSlugs('Timeline')
+  const paths = await getSlugs("Timeline");
   return {
     paths,
-    fallback: false
-  }
-}
+    fallback: false,
+  };
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
   // The timeline narrative post itself
-  const { slug } = context.params as PostParams
+  const { slug } = context.params as PostParams;
 
   // The other posts connected to this time period
-  const bios = await getTimelineMatches(slug, 'biographies')
-  const docs = await getTimelineMatches(slug, 'documents')
-  const articles = await getTimelineMatches(slug, 'articles')
+  const bios = await getTimelineMatches(slug, "biographies");
+  const docs = await getTimelineMatches(slug, "documents");
+  const articles = await getTimelineMatches(slug, "articles");
 
-  const postData = await getPostData(slug, 'Timeline')
+  const postData = await getPostData(slug, "Timeline");
   return {
     props: {
       postData,
       bios,
       docs,
-      articles
-    }
-  }
-}
+      articles,
+    },
+  };
+};
 
-export default TimelineView
+export default TimelineView;

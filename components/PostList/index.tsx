@@ -1,60 +1,54 @@
-import { ListedPost } from '../../lib/types'
-import TypewriterScript from '../TypewriterScript'
-import PostCard from '../PostCard'
-import SearchPane from '../SearchPane'
-import { ThreeDots } from 'react-bootstrap-icons'
-import {
-  Header,
-  CardFlex,
-  Container,
-  Error,
-  LoadingIcon
-} from './styles'
-import { useEffect, useRef, useState } from 'react'
-import { useQueryState } from 'next-usequerystate'
+import { ListedPost } from "../../lib/types";
+import TypewriterScript from "../TypewriterScript";
+import PostCard from "../PostCard";
+import SearchPane from "../SearchPane";
+import { ThreeDots } from "react-bootstrap-icons";
+import { Header, CardFlex, Container, Error, LoadingIcon } from "./styles";
+import { useEffect, useRef, useState } from "react";
+import { useQueryState } from "next-usequerystate";
 
 interface Props {
-  label: string, // e.g. "Biographies"
-  posts: ListedPost[],
-  tags: string[]
+  label: string; // e.g. "Biographies"
+  posts: ListedPost[];
+  tags: string[];
 }
 
 const PostList: React.FC<Props> = ({ label, posts, tags }) => {
-  const [displayedPosts, setDisplayedPosts] = useState(posts)
-  const [loading, setLoading] = useState(false)
-  const [query] = useQueryState('search')
+  const [displayedPosts, setDisplayedPosts] = useState(posts);
+  const [loading, setLoading] = useState(false);
+  const [query] = useQueryState("search");
 
-  const mountedRef = useRef(true)
+  const mountedRef = useRef(true);
 
   // Remember when it's unmounted so we can avoid trying to update
   // state in the async call below.
   useEffect(() => {
     return () => {
-      mountedRef.current = false
-    }
-  }, [])
+      mountedRef.current = false;
+    };
+  }, []);
 
   useEffect(() => {
     const getPosts = async () => {
-      setLoading(true)
-      const searchResponse = await fetch(`/api/${label}/search/${query}`)
+      setLoading(true);
+      const searchResponse = await fetch(`/api/${label}/search/${query}`);
 
-      const matchingPosts = await searchResponse.json()
+      const matchingPosts = await searchResponse.json();
 
       if (!mountedRef.current) {
-        return null
+        return null;
       }
 
-      setDisplayedPosts(matchingPosts)
-      setLoading(false)
-    }
+      setDisplayedPosts(matchingPosts);
+      setLoading(false);
+    };
 
-    if (!query || query === '') {
-      setDisplayedPosts(posts)
+    if (!query || query === "") {
+      setDisplayedPosts(posts);
     } else {
-      getPosts()
+      getPosts();
     }
-  }, [query, posts, label])
+  }, [query, posts, label]);
 
   const displayPosts = () => {
     if (loading) {
@@ -62,40 +56,37 @@ const PostList: React.FC<Props> = ({ label, posts, tags }) => {
         <LoadingIcon>
           <ThreeDots />
         </LoadingIcon>
-      )
+      );
     }
 
     if (displayedPosts.length > 0) {
       return (
         <CardFlex>
-          {displayedPosts.map(post => <li key={post.ID}><PostCard post={post} /></li>)}
+          {displayedPosts.map((post) => (
+            <li key={post.ID}>
+              <PostCard post={post} />
+            </li>
+          ))}
         </CardFlex>
-      )
+      );
     } else {
-      return (
-        <Error>Nothing found :(</Error>
-      )
+      return <Error>Nothing found :(</Error>;
     }
-  }
+  };
 
   return (
     <>
       <Container>
-        <SearchPane
-          tags={tags}
-        />
+        <SearchPane tags={tags} />
         <div>
           <Header>
-            <TypewriterScript
-              text={label}
-              averageDuration={1000}
-            />
+            <TypewriterScript text={label} averageDuration={1000} />
           </Header>
-          { displayPosts() }
+          {displayPosts()}
         </div>
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default PostList
+export default PostList;

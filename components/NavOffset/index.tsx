@@ -3,30 +3,22 @@
 // to fall under the navbar for a cool transparency effect, so we don't render
 // this component on the homepage.
 
-import { useRouter } from 'next/router'
-import { ReactNode } from 'react'
-import styled from 'styled-components'
+import { useRouter } from "next/router";
+import { ReactNode } from "react";
+import styled from "styled-components";
 
 const Offset = styled.div`
   margin-top: ${({ theme }) => theme.navbar.height};
-`
+`;
 
 const NavOffset: React.FC<{ child: ReactNode }> = ({ child }) => {
-  const router = useRouter()
+  const router = useRouter();
 
-  if (router.pathname !== '/') {
-    return (
-      <Offset>
-        { child }
-      </Offset>
-    )
+  if (router.pathname !== "/") {
+    return <Offset>{child}</Offset>;
   } else {
-    return (
-      <>
-        {child}
-      </>
-    )
+    return <>{child}</>;
   }
-}
+};
 
-export default NavOffset
+export default NavOffset;

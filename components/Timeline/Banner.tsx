@@ -1,13 +1,8 @@
-import {
-  Container,
-  SeeMoreButton
-} from './Banner.styles'
-import {
-  ChevronDown
-} from 'react-bootstrap-icons'
+import { Container, SeeMoreButton } from "./Banner.styles";
+import { ChevronDown } from "react-bootstrap-icons";
 
 interface Props {
-  scrollToContent: () => void
+  scrollToContent: () => void;
 }
 
 const Banner: React.FC<Props> = ({ scrollToContent }) => {
@@ -23,7 +18,7 @@ const Banner: React.FC<Props> = ({ scrollToContent }) => {
         <ChevronDown />
       </SeeMoreButton>
     </Container>
-  )
-}
+  );
+};
 
-export default Banner
+export default Banner;

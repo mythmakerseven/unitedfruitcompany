@@ -34,7 +34,7 @@ export const FullScreenContainer = styled.div`
   justify-content: center;
   align-items: center;
 `
-  
+
 export const FullScreenContent = styled.div`
   height: 90vh;
   width: 90vw;
@@ -46,7 +46,7 @@ export const FullScreenContent = styled.div`
   padding: 10px;
   box-shadow: ${({ theme }) => theme.shadow};
 `
-  
+
 export const CloseButton = styled.button`
   position: absolute;
   top: 7vh;

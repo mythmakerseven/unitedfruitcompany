@@ -14,11 +14,11 @@ In order for the website to display your post, you need to add a category to it.
 
 Valid categories are:
 
-* Article
-* Bibliography
-* Biographies
-* Documents
-* Timeline
+- Article
+- Bibliography
+- Biographies
+- Documents
+- Timeline
 
 If the post isn't categorized with something from that list, it won't show up on the site.
 
@@ -34,15 +34,15 @@ The date range must be in exactly the XXXX-XXXX format to be detected as a date.
 
 Valid date ranges are:
 
-* 1855-1880
-* 1880-1890
-* 1890-1900
-* 1900-1910
-* 1910-1920
-* 1920-1930
-* 1930-1935
-* 1935-1940
-* 1940-1945
+- 1855-1880
+- 1880-1890
+- 1890-1900
+- 1900-1910
+- 1910-1920
+- 1920-1930
+- 1930-1935
+- 1935-1940
+- 1940-1945
 
 For documents, enter the date range that the document is from. For example, a newspaper article from 1936 would be tagged "1935-1940".
 

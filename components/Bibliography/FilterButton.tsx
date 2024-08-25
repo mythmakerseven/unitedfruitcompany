@@ -1,10 +1,10 @@
-import styled from 'styled-components'
-import BibTypeIcon from './BibTypeIcon'
+import styled from "styled-components";
+import BibTypeIcon from "./BibTypeIcon";
 
 interface Props {
-  type: string | null,
-  filter: string | null,
-  setFilter: (arg: string | null) => void
+  type: string | null;
+  filter: string | null;
+  setFilter: (arg: string | null) => void;
 }
 
 const Button = styled.button<{ selected: boolean }>`
@@ -17,8 +17,9 @@ const Button = styled.button<{ selected: boolean }>`
   transition: 0.2s;
   font-size: 1rem;
   border-radius: 3px;
-  ${props => props.selected ? `background: ${props.theme.colors.darkBackground};` : ''}
-  ${props => props.selected ? 'color: white;' : ''}
+  ${(props) =>
+    props.selected ? `background: ${props.theme.colors.darkBackground};` : ""}
+  ${(props) => (props.selected ? "color: white;" : "")}
 
   :hover {
     cursor: pointer;
@@ -28,26 +29,23 @@ const Button = styled.button<{ selected: boolean }>`
     height: 20px;
     width: 20px;
   }
-`
+`;
 
 const getLabel = (type: string | null) => {
   if (!type) {
-    return <span>All</span>
+    return <span>All</span>;
   } else {
-    return <span>{`${type[0].toLocaleUpperCase()}${type?.slice(1)}`}</span>
+    return <span>{`${type[0].toLocaleUpperCase()}${type?.slice(1)}`}</span>;
   }
-}
+};
 
 const FilterButton: React.FC<Props> = ({ type, filter, setFilter }) => {
   return (
-    <Button
-      onClick={() => setFilter(type)}
-      selected={filter === type}
-    >
+    <Button onClick={() => setFilter(type)} selected={filter === type}>
       <BibTypeIcon type={type} />
       {getLabel(type)}
     </Button>
-  )
-}
+  );
+};
 
-export default FilterButton
+export default FilterButton;

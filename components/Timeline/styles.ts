@@ -17,7 +17,7 @@ export const Grid = styled.div`
 
 type ButtonDirection = 'up' | 'down'
 
-export const NavButton = styled.button< { isActive: boolean, direction: ButtonDirection  } >`
+export const NavButton = styled.button< { isActive: boolean, direction: ButtonDirection } >`
   font-size: 3rem;
   width: 66px;
   height: 66px;

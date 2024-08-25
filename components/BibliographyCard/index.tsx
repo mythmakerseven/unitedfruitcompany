@@ -1,11 +1,9 @@
-import { Post } from '../../lib/types'
-import BibTypeIcon from '../Bibliography/BibTypeIcon'
-import {
-  Box
-} from './styles'
+import { Post } from "../../lib/types";
+import BibTypeIcon from "../Bibliography/BibTypeIcon";
+import { Box } from "./styles";
 
 interface Props {
-  item: Post
+  item: Post;
 }
 
 const BibliographyCard: React.FC<Props> = ({ item }) => {
@@ -16,7 +14,7 @@ const BibliographyCard: React.FC<Props> = ({ item }) => {
       />
       <div dangerouslySetInnerHTML={{ __html: item.content }} />
     </Box>
-  )
-}
+  );
+};
 
-export default BibliographyCard
+export default BibliographyCard;

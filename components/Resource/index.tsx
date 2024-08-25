@@ -5,15 +5,15 @@ import {
   BoxContent,
   Link,
   Citation,
-  IconContainer
-} from './styles'
-import { ArrowUpRight } from 'react-bootstrap-icons'
+  IconContainer,
+} from "./styles";
+import { ArrowUpRight } from "react-bootstrap-icons";
 
 interface Props {
-  title: string,
-  author: string,
-  url?: string,
-  citation: string
+  title: string;
+  author: string;
+  url?: string;
+  citation: string;
 }
 
 const Resource: React.FC<Props> = ({ title, author, url, citation }) => {
@@ -21,16 +21,16 @@ const Resource: React.FC<Props> = ({ title, author, url, citation }) => {
     if (url) {
       return (
         <Link>
-          <a href={url} target='_blank' rel='noopener noreferrer'>
+          <a href={url} target="_blank" rel="noopener noreferrer">
             {url}
             <IconContainer>
               <ArrowUpRight />
             </IconContainer>
           </a>
         </Link>
-      )
+      );
     }
-  }
+  };
 
   return (
     <Box>
@@ -40,11 +40,11 @@ const Resource: React.FC<Props> = ({ title, author, url, citation }) => {
           &nbsp;
           <Author>{author}</Author>
         </h1>
-        { showUrl() }
+        {showUrl()}
         <Citation>{citation}</Citation>
       </BoxContent>
     </Box>
-  )
-}
+  );
+};
 
-export default Resource
+export default Resource;

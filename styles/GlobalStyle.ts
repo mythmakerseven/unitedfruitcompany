@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
-import { alegreya } from './fonts'
+import { createGlobalStyle } from "styled-components";
+import { alegreya } from "./fonts";
 
 export const GlobalStyle = createGlobalStyle`
   html,
@@ -44,18 +44,18 @@ export const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
-`
+`;
 
 // Remember to update the type in ../styled.d.ts when adding/removing theme fields
 export const theme = {
   colors: {
-    primary: '#f6f6ee',
-    secondary: '#e6d300',
-    thirdary: '#ffffe0',
-    darkBackground: '#3a3a3a'
+    primary: "#f6f6ee",
+    secondary: "#e6d300",
+    thirdary: "#ffffe0",
+    darkBackground: "#3a3a3a",
   },
   navbar: {
-    height: '100px'
+    height: "100px",
   },
-  shadow: '0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.2)'
-}
+  shadow: "0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.2)",
+};

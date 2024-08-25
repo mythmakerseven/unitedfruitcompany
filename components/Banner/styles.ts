@@ -7,7 +7,7 @@ export const FullwidthContainer = styled.div`
   background: ${({ theme }) => theme.colors.secondary};
   font-family: ${alegreyaSans.style.fontFamily};
 `
-  
+
 export const ContainerContent = styled.div`
   display: flex;
   align-items: center;

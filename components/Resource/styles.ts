@@ -13,7 +13,7 @@ export const Box = styled.div`
     margin: 0;
   }
 `
-  
+
 export const BoxContent = styled.div`
   padding: 10px 20px;
 `
