@@ -1,12 +1,11 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-export const TagContainer = styled.div`
-`
+export const TagContainer = styled.div``;
 
 export const MobileHeaderContainer = styled.div`
   display: none;
 
-  :hover {
+  &:hover {
     cursor: pointer;
   }
 
@@ -15,19 +14,19 @@ export const MobileHeaderContainer = styled.div`
     justify-contents: center;
     align-items: center;
   }
-`
+`;
 
 export const DesktopHeaderContainer = styled.div`
   @media (max-width: 1000px) {
     display: none;
   }
-`
+`;
 
 export const DesktopTags = styled.div`
   @media (max-width: 1000px) {
     display: none;
   }
-`
+`;
 
 export const MobileTags = styled.div`
   display: none;
@@ -35,7 +34,7 @@ export const MobileTags = styled.div`
   @media (max-width: 1000px) {
     display: initial;
   }
-`
+`;
 
 export const Header = styled.h3`
   padding: 0;
@@ -45,7 +44,7 @@ export const Header = styled.h3`
   @media (max-width: 1000px) {
     font-size: 1.2rem;
   }
-`
+`;
 
 export const TagList = styled.ul`
   list-style: none;
@@ -54,7 +53,7 @@ export const TagList = styled.ul`
   flex-wrap: wrap;
   gap: 20px;
   font-size: 1.2rem;
-`
+`;
 
 export const TagItem = styled.li`
   background: ${({ theme }) => theme.colors.secondary};
@@ -63,11 +62,12 @@ export const TagItem = styled.li`
   border-radius: 5px;
   user-select: none;
 
-  :hover, :focus {
+  &:hover,
+  &:focus {
     cursor: pointer;
     filter: brightness(0.7);
   }
-`
+`;
 
 export const ToggleButton = styled.button`
   display: none;
@@ -80,7 +80,7 @@ export const ToggleButton = styled.button`
     width: 20px;
   }
 
-  :hover {
+  &:hover {
     cursor: pointer;
   }
 
@@ -89,4 +89,4 @@ export const ToggleButton = styled.button`
     justify-contents: center;
     align-items: center;
   }
-`
+`;

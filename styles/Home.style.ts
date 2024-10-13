@@ -19,7 +19,7 @@ export const MainContent = styled.div`
   margin: auto;
   color: ${({ theme }) => theme.colors.primary};
 
-  ::before {
+  &::before {
     position: absolute;
     content: "";
     top: 0;

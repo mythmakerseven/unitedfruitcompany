@@ -1,10 +1,10 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const FlexContainer = styled.div`
   a {
     text-decoration: none;
   }
-`
+`;
 
 export const FlexContainerContent = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ export const FlexContainerContent = styled.div`
   align-items: center;
   gap: 20px;
   padding: 10px;
-`
+`;
 
 export const ItemContainer = styled.div`
   padding: 2rem;
@@ -57,7 +57,7 @@ export const ItemContainer = styled.div`
     object-position: center;
   }
 
-  :hover {
+  &:hover {
     cursor: pointer;
     filter: grayscale(0);
 
@@ -74,4 +74,4 @@ export const ItemContainer = styled.div`
       font-size: 1.4rem;
     }
   }
-`
+`;

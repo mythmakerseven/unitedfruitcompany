@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
@@ -7,7 +7,7 @@ export const Container = styled.div`
   align-items: center;
   margin-top: 20px;
   gap: 10px;
-`
+`;
 
 export const Button = styled.button`
   height: 40px;
@@ -18,8 +18,9 @@ export const Button = styled.button`
   transition: filter 0.2s;
   box-shadow: ${({ theme }) => theme.shadow};
 
-  :hover, :focus {
+  &:hover,
+  &:focus {
     cursor: pointer;
     filter: brightness(0.8);
   }
-`
+`;

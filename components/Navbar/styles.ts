@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { alegreyaSans } from '../../styles/fonts'
+import styled from "styled-components";
+import { alegreyaSans } from "../../styles/fonts";
 
 export const NavDiv = styled.div`
   position: absolute;
@@ -8,7 +8,7 @@ export const NavDiv = styled.div`
   width: 100%;
   height: ${({ theme }) => theme.navbar.height};
   z-index: 10000;
-  background: ${props => props.color};
+  background: ${(props) => props.color};
   color: ${({ theme }) => theme.colors.primary};
   box-shadow: 0 1px 2px black;
   font-family: ${alegreyaSans.style.fontFamily};
@@ -21,7 +21,7 @@ export const NavDiv = styled.div`
   img {
     border-radius: 20px;
   }
-`
+`;
 
 export const NavContainer = styled.div`
   max-width: 1200px;
@@ -32,7 +32,7 @@ export const NavContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-`
+`;
 
 export const NavRight = styled.div`
   display: flex;
@@ -42,25 +42,26 @@ export const NavRight = styled.div`
   @media (max-width: 780px) {
     display: none;
   }
-`
+`;
 
 export const DropdownToggle = styled.div`
   display: none;
-  
+
   svg {
     height: 40px;
     width: 40px;
   }
-  
+
   @media (max-width: 780px) {
     display: flex;
     justify-content: center;
     align-items: center;
-    :hover {
+
+    &:hover {
       cursor: pointer;
     }
   }
-`
+`;
 
 export const MobileDropdown = styled.div`
   display: none;
@@ -69,15 +70,15 @@ export const MobileDropdown = styled.div`
   left: 0;
   margin: auto;
   width: 100%;
-  background: ${props => props.color};
+  background: ${(props) => props.color};
   font-size: 2rem;
   padding: 20px 0;
   box-shadow: 0 1px 2px black;
-  
+
   @media (max-width: 780px) {
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
   }
-`
+`;

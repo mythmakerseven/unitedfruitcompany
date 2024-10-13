@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { alegreyaSans } from '../../styles/fonts'
+import styled from "styled-components";
+import { alegreyaSans } from "../../styles/fonts";
 
 export const Pane = styled.div`
   background: ${({ theme }) => theme.colors.darkBackground};
@@ -8,24 +8,24 @@ export const Pane = styled.div`
   font-family: ${alegreyaSans.style.fontFamily};
   color: white;
   box-shadow: ${({ theme }) => theme.shadow};
-`
+`;
 
 export const Content = styled.div`
   padding: 20px;
   width: 100%;
   display: grid;
   grid-template-rows: 80px 1fr;
-`
+`;
 
 export const Label = styled.label`
   font-size: 1.15rem;
-`
+`;
 
 export const Input = styled.input`
   width: 100%;
   height: 40px;
   font-size: 1.1rem;
-`
+`;
 
 export const ResetButton = styled.button`
   display: inline-flex;
@@ -41,7 +41,7 @@ export const ResetButton = styled.button`
   transition: 0.2s;
   color: black;
 
-  :hover {
+  &:hover {
     cursor: pointer;
     background: rgba(1, 1, 1, 0.2);
   }
@@ -50,4 +50,4 @@ export const ResetButton = styled.button`
     height: 38px;
     width: 38px;
   }
-`
+`;

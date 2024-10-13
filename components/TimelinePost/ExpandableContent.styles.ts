@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Collapsed = styled.div`
   margin: 0;
@@ -11,7 +11,7 @@ export const Collapsed = styled.div`
   a {
     pointer-events: none;
   }
-`
+`;
 
 export const Expanded = styled.div`
   margin: 0;
@@ -21,7 +21,7 @@ export const Expanded = styled.div`
   article {
     margin-top: 40px;
   }
-`
+`;
 
 export const ToggleButton = styled.button`
   width: 100%;
@@ -31,11 +31,11 @@ export const ToggleButton = styled.button`
   color: white;
   position: relative;
   top: -80px;
-  
-  :hover {
+
+  &:hover {
     cursor: pointer;
   }
-  
+
   svg {
     background: rgba(255, 255, 255, 0.4);
     padding: 10px;
@@ -43,11 +43,11 @@ export const ToggleButton = styled.button`
     width: 50px;
     border-radius: 50%;
   }
-`
+`;
 
 export const Flex = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
-`
+`;

@@ -21,7 +21,7 @@ const Button = styled.button<{ selected: boolean }>`
     props.selected ? `background: ${props.theme.colors.darkBackground};` : ""}
   ${(props) => (props.selected ? "color: white;" : "")}
 
-  :hover {
+  &:hover {
     cursor: pointer;
   }
 

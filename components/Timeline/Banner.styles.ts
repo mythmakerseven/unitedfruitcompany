@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { alegreyaSans } from '../../styles/fonts'
+import styled from "styled-components";
+import { alegreyaSans } from "../../styles/fonts";
 
 export const Container = styled.div`
   height: calc(100vh - ${({ theme }) => theme.navbar.height});
@@ -15,7 +15,7 @@ export const Container = styled.div`
       font-size: 2rem;
     }
   }
-`
+`;
 
 export const SeeMoreButton = styled.button`
   font-size: 2rem;
@@ -30,7 +30,8 @@ export const SeeMoreButton = styled.button`
   color: white;
   font-family: ${alegreyaSans.style.fontFamily};
 
-  :hover, :focus {
+  &:hover,
+  &:focus {
     cursor: pointer;
     background: rgba(0, 0, 0, 0.4);
   }
@@ -39,4 +40,4 @@ export const SeeMoreButton = styled.button`
     height: 40px;
     width: 40px;
   }
-`
+`;
