@@ -16,7 +16,7 @@ This site uses Wordpress as a [headless CMS](https://en.wikipedia.org/wiki/Headl
 
 ## About Next.js
 
-Next.js is built on top of React, a framework for single-page web applications, but it also generates static HTML pages to help our site in the search rankings. If you've used React before, you're already 90% of the way to understanding Next.js. If not, it's useful to get a [basic understanding of what a component is](https://reactjs.org/docs/components-and-props.html).
+Next.js is built on top of React, a framework for single-page web applications, but it also generates static HTML pages to help our site in the search rankings. If you've used React before, you're already 90% of the way to understanding Next.js. If not, it's useful to get a [basic understanding of what a component is](https://react.dev/reference/react/Component).
 
 When you run `npm run build`, Next.js will grab all the posts from Wordpress and generate each individual page. One big benefit of Next.js is that navigating between posts in your browser is even faster than a traditional HTML site, because Next.js uses background prefetching and JSON requests to load stuff before the user clicks on it.
 
@@ -58,7 +58,7 @@ With that in mind, try to avoid hotlinking an image without `w=x` at the end, wh
 
 The README file contains basic documentation on all the components, hooks, and npm commands.
 
-I also recommend reading about [React hooks](https://reactjs.org/docs/hooks-intro.html) and [JSON REST APIs](https://restfulapi.net/introduction-to-json/) if you're not familiar with them. It will also be useful to read `CONTRIBUTING_NONCODE.md` to get an idea of how your classmates will be using Wordpress for managing posts.
+I also recommend reading about [React hooks](https://react.dev/reference/react/hooks) and [JSON REST APIs](https://restfulapi.net/introduction-to-json/) if you're not familiar with them. It will also be useful to read `CONTRIBUTING_NONCODE.md` to get an idea of how your classmates will be using Wordpress for managing posts.
 
 With the codebase in your hands, you can make whatever changes you want. Add new categories, new tag functionality, an interactive 3D globe, or anything else. Maybe you disagree with some of my design choices--you can change everything to your specification. This is the fun part of being a developer. The possibilities are limitless.
 
