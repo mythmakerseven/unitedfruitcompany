@@ -1,6 +1,9 @@
 {
   "name": "unitedfruitcompany",
   "private": true,
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build-only": "next build",
