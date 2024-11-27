@@ -4,6 +4,7 @@ import { GlobalStyle, theme } from "../styles/GlobalStyle";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import NavOffset from "../components/NavOffset";
+import { NuqsAdapter } from "nuqs/adapters/next/pages";
 
 function MyApp({ Component, pageProps }: AppProps) {
   if (process.env.NODE_ENV === "production") {
@@ -30,10 +31,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Navbar />
-        <NavOffset child={<Component {...pageProps} />} />
-        <Footer />
+        <NuqsAdapter>
+          <GlobalStyle />
+          <Navbar />
+          <NavOffset child={<Component {...pageProps} />} />
+          <Footer />
+        </NuqsAdapter>
       </ThemeProvider>
     </>
   );

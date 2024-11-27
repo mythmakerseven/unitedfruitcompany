@@ -5,7 +5,7 @@ import SearchPane from "../SearchPane";
 import { ThreeDots } from "react-bootstrap-icons";
 import { Header, CardFlex, Container, Error, LoadingIcon } from "./styles";
 import { useEffect, useRef, useState } from "react";
-import { useQueryState } from "next-usequerystate";
+import { useQueryState } from "nuqs";
 
 interface Props {
   label: string; // e.g. "Biographies"

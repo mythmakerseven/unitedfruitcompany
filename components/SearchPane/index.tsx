@@ -3,7 +3,7 @@ import TagDisplay from "./TagDisplay";
 import { X } from "react-bootstrap-icons";
 import { Pane, Content, Label, Input, ResetButton } from "./styles";
 import { DesktopTags, MobileTags } from "./TagDisplay.styles";
-import { useQueryState } from "next-usequerystate";
+import { useQueryState } from "nuqs";
 
 interface Props {
   tags: string[];

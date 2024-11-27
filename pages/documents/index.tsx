@@ -4,7 +4,7 @@ import { getPageCount, getPostsForDisplay, getTags } from "../../lib/posts";
 import { ListedPost } from "../../lib/types";
 import { WideContainer } from "../../components/Container";
 import PostList from "../../components/PostList";
-import { queryTypes, useQueryState } from "next-usequerystate";
+import { parseAsInteger, useQueryState } from "nuqs";
 import PagePicker from "../../components/PagePicker";
 import usePageQuery from "../../hooks/usePageQuery";
 
@@ -15,7 +15,7 @@ interface Props {
 }
 
 const Documents: NextPage<Props> = ({ posts, pageCount, tags }) => {
-  const [, setPage] = useQueryState<number>("page", queryTypes.integer);
+  const [, setPage] = useQueryState<number>("page", parseAsInteger);
   const postsToShow = usePageQuery("biographies", posts);
 
   return (

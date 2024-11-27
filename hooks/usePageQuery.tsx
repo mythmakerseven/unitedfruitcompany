@@ -1,4 +1,4 @@
-import { useQueryState } from "next-usequerystate";
+import { useQueryState } from "nuqs";
 import { useEffect, useRef, useState } from "react";
 import { ListedPost } from "../lib/types";
 
